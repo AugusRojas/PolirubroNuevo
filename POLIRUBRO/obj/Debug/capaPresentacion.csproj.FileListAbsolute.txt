@@ -1,0 +1,10 @@
+C:\Users\augus\source\repos\Drugstore\bin\Debug\Drugstore.exe.config
+C:\Users\augus\source\repos\Drugstore\bin\Debug\Drugstore.exe
+C:\Users\augus\source\repos\Drugstore\bin\Debug\Drugstore.pdb
+C:\Users\augus\source\repos\Drugstore\obj\Debug\capaPresentacion.csproj.AssemblyReference.cache
+C:\Users\augus\source\repos\Drugstore\obj\Debug\Drugstore.Properties.Resources.resources
+C:\Users\augus\source\repos\Drugstore\obj\Debug\capaPresentacion.csproj.GenerateResource.cache
+C:\Users\augus\source\repos\Drugstore\obj\Debug\capaPresentacion.csproj.CoreCompileInputs.cache
+C:\Users\augus\source\repos\Drugstore\obj\Debug\Drugstore.exe
+C:\Users\augus\source\repos\Drugstore\obj\Debug\Drugstore.pdb
+C:\Users\augus\source\repos\Drugstore\obj\Debug\Drugstore.Form1.resources
