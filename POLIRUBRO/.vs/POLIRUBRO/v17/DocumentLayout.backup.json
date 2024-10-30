@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|c:\\users\\augus\\source\\repos\\polirubro\\polirubro\\capadatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capadatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|c:\\users\\augus\\source\\repos\\polirubro\\polirubro\\capapresentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capapresentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|c:\\users\\augus\\source\\repos\\polirubro\\polirubro\\capapresentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capapresentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|c:\\users\\augus\\source\\repos\\polirubro\\polirubro\\capadatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capadatos\\conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|c:\\users\\augus\\source\\repos\\polirubro\\polirubro\\capanegocio\\verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -119,38 +119,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Form1.cs",
               "RelativeDocumentMoniker": "capaPresentacion\\Form1.cs",
-              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "capaPresentacion\\Form1.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Form1.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "capaPresentacion\\Form1.cs [Dise\u00F1o]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T15:35:26.109Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Form1.cs",
               "RelativeDocumentMoniker": "capaPresentacion\\Form1.cs",
-              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Form1.cs",
-              "RelativeToolTip": "capaPresentacion\\Form1.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAApwBUAAAA7AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Form1.cs*",
+              "RelativeToolTip": "capaPresentacion\\Form1.cs*",
+              "ViewState": "AgIAAAwAAAAAAAAAAAApwBgAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T15:59:54.43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaDatos\\Conexion.cs",
               "RelativeDocumentMoniker": "capaDatos\\Conexion.cs",
-              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaDatos\\Conexion.cs",
-              "RelativeToolTip": "capaDatos\\Conexion.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaDatos\\Conexion.cs*",
+              "RelativeToolTip": "capaDatos\\Conexion.cs*",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T15:39:17.382Z",
               "EditorCaption": ""

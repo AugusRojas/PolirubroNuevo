@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Drugstore.Properties
+namespace POLIRUBRO.Properties
 {
 
 
