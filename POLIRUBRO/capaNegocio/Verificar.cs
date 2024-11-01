@@ -8,5 +8,18 @@ namespace POLIRUBRO
 {
     internal class Verificar
     {
+        public bool campo_vacios(string variable)
+        {
+            if (variable != "")
+            {
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
+
+        }
     }
 }
