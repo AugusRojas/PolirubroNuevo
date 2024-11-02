@@ -9,14 +9,17 @@ namespace POLIRUBRO
 {
     public class Verificar
     {
-        public bool CampoVacios(string variable)
+        public bool Campo_vacios(string variable)
         {            
-            if (string.IsNullOrEmpty(variable))
+            if (variable != "")
             {
                 return true;
             }
-
-            return false;
+            else
+            {
+                return false;
+            }
+            
         }
 
 
@@ -49,4 +52,4 @@ namespace POLIRUBRO
     }
 
 }
->>>>>>> Solucion
+//>>>>>>> Solucion
