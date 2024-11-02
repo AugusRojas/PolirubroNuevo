@@ -9,20 +9,22 @@ namespace POLIRUBRO
 {
     public class Verificar
     {
-        public bool campo_vacios(string variable)
-        {
+        public bool Campo_vacios(string variable)
+        {            
             if (variable != "")
-            {
-                return false;
-            }
-
-            else
             {
                 return true;
             }
-
+            else
+            {
+                return false;
+            }
+            
         }
-     public void Verificar_proveedor(KeyPressEventArgs e)
+
+
+
+        public void Verificar_proveedor(KeyPressEventArgs e)
         {
             try
             {
@@ -50,4 +52,4 @@ namespace POLIRUBRO
     }
 
 }
->>>>>>> Solucion
+//>>>>>>> Solucion
