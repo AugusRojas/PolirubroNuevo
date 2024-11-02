@@ -9,6 +9,19 @@ namespace POLIRUBRO
 {
     public class Verificar
     {
+        public bool campo_vacios(string variable)
+        {
+            if (variable != "")
+            {
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
+
+        }
      public void Verificar_proveedor(KeyPressEventArgs e)
         {
             try
@@ -37,3 +50,4 @@ namespace POLIRUBRO
     }
 
 }
+>>>>>>> Solucion
