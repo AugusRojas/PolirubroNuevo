@@ -9,3 +9,16 @@ C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.Form1.resour
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.exe
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.pdb
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.Productos.resources
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.csproj.AssemblyReference.cache
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.Facturacion.resources
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.Form1.resources
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.Productos.resources
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.Properties.Resources.resources
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.csproj.GenerateResource.cache
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.csproj.CoreCompileInputs.cache
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.exe
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.pdb
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\bin\Debug\POLIRUBRO.exe.config
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\bin\Debug\POLIRUBRO.exe
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\bin\Debug\POLIRUBRO.pdb
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.Ventana_emergente_buscar__producto.resources

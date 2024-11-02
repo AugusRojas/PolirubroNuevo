@@ -54,6 +54,12 @@
     <Compile Include="capaNegocio\GenerarReporte.cs" />
     <Compile Include="capaNegocio\Producto.cs" />
     <Compile Include="capaNegocio\Verificar.cs" />
+    <Compile Include="capaPresentacion\Facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capaPresentacion\Facturacion.Designer.cs">
+      <DependentUpon>Facturacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="capaPresentacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,13 +72,25 @@
     <Compile Include="capaPresentacion\Productos.Designer.cs">
       <DependentUpon>Productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="capaPresentacion\Ventana_emergente_buscar_ producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capaPresentacion\Ventana_emergente_buscar_ producto.Designer.cs">
+      <DependentUpon>Ventana_emergente_buscar_ producto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="capaPresentacion\Facturacion.resx">
+      <DependentUpon>Facturacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="capaPresentacion\Ventana_emergente_buscar_ producto.resx">
+      <DependentUpon>Ventana_emergente_buscar_ producto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
