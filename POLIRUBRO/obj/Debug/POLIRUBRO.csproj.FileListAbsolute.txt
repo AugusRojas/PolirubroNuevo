@@ -8,3 +8,4 @@ C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.pdb
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.Form1.resources
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.exe
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.pdb
+C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.Productos.resources
