@@ -9,20 +9,19 @@ namespace POLIRUBRO
 {
     public class Verificar
     {
-        public bool campo_vacios(string variable)
-        {
-            if (variable != "")
-            {
-                return false;
-            }
-
-            else
+        public bool CampoVacios(string variable)
+        {            
+            if (string.IsNullOrEmpty(variable))
             {
                 return true;
             }
 
+            return false;
         }
-     public void Verificar_proveedor(KeyPressEventArgs e)
+
+
+
+        public void Verificar_proveedor(KeyPressEventArgs e)
         {
             try
             {
