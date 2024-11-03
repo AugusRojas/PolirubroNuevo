@@ -31,11 +31,10 @@ namespace POLIRUBRO.capaPresentacion
         {
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dvg_filtrado = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.textBox_buscar_filtro = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dvg_filtrado)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,30 +62,22 @@ namespace POLIRUBRO.capaPresentacion
             this.comboBox1.Size = new System.Drawing.Size(136, 23);
             this.comboBox1.TabIndex = 1;
             // 
-            // button1
+            // dvg_filtrado
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(397, 41);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 25);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 138);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(586, 212);
-            this.dataGridView1.TabIndex = 3;
+            this.dvg_filtrado.AllowUserToDeleteRows = false;
+            this.dvg_filtrado.AllowUserToOrderColumns = true;
+            this.dvg_filtrado.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dvg_filtrado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvg_filtrado.Location = new System.Drawing.Point(13, 130);
+            this.dvg_filtrado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dvg_filtrado.Name = "dvg_filtrado";
+            this.dvg_filtrado.ReadOnly = true;
+            this.dvg_filtrado.Size = new System.Drawing.Size(927, 243);
+            this.dvg_filtrado.TabIndex = 3;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.textBox_buscar_filtro);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,33 +85,33 @@ namespace POLIRUBRO.capaPresentacion
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(481, 96);
+            this.groupBox1.Size = new System.Drawing.Size(397, 96);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda de Producto";
             // 
-            // textBox1
+            // textBox_buscar_filtro
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(238, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 22);
-            this.textBox1.TabIndex = 3;
+            this.textBox_buscar_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_buscar_filtro.Location = new System.Drawing.Point(238, 42);
+            this.textBox_buscar_filtro.Name = "textBox_buscar_filtro";
+            this.textBox_buscar_filtro.Size = new System.Drawing.Size(136, 22);
+            this.textBox_buscar_filtro.TabIndex = 3;
+            this.textBox_buscar_filtro.TextChanged += new System.EventHandler(this.textBox_buscar_filtro_TextChanged);
             // 
             // Ventana_emergente_buscar__producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 369);
+            this.ClientSize = new System.Drawing.Size(953, 387);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dvg_filtrado);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Ventana_emergente_buscar__producto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana_emergente_buscar__producto";
-            this.Load += new System.EventHandler(this.Ventana_emergente_buscar__producto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvg_filtrado)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -130,9 +121,8 @@ namespace POLIRUBRO.capaPresentacion
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dvg_filtrado;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_buscar_filtro;
     }
 }

@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="capaDatos\Clase_cdatos_facturacion.cs" />
     <Compile Include="capaDatos\Conexion.cs" />
     <Compile Include="capaNegocio\Buscar.cs" />
     <Compile Include="capaNegocio\CargarProducto.cs" />
     <Compile Include="capaNegocio\CargarProveedor.cs" />
-    <Compile Include="capaNegocio\Facturacion.cs" />
+    <Compile Include="capaNegocio\Facturacion_logica.cs" />
     <Compile Include="capaNegocio\GenerarReporte.cs" />
     <Compile Include="capaNegocio\Producto.cs" />
     <Compile Include="capaNegocio\Verificar.cs" />
