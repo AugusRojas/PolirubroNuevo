@@ -23,7 +23,6 @@ namespace POLIRUBRO
         }
 
 
-
         public void Verificar_proveedor(KeyPressEventArgs e)
         {
             try
