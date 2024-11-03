@@ -10,7 +10,7 @@ namespace POLIRUBRO
 {
     public static class Conexion
     {
-        static string conexion = "Server=DESKTOP-4TIIP6L\\SQLEXPRESS; Database=sistema_de_ventas; integrated security=True";
+        static string conexion = "Server=AUGUSTO\\SQLEXPRESS; Database=sistema_de_ventas; integrated security=True";
 
 
         public static SqlConnection obtenerConexion()
@@ -19,7 +19,6 @@ namespace POLIRUBRO
             try
             {
                 conector.Open();
-                MessageBox.Show("Conexion Exitosa");
                 return conector;
             }
             catch (Exception ex)

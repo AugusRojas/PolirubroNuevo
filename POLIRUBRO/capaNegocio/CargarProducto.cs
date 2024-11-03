@@ -67,6 +67,7 @@ namespace POLIRUBRO
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@nombre", valor);
                 int resultado_id = (int?)comando.ExecuteScalar() ?? -1; // Manejar el caso de null,solo devuelvve un valor
+                conexion.Close();
                 return resultado_id;
 
             }

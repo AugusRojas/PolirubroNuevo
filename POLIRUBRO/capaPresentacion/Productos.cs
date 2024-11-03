@@ -46,26 +46,44 @@ namespace POLIRUBRO.capaPresentacion
                 return; // Finaliza el proceso si hay campos vacíos
             }
             // Asignación de valores si todos los campos están 
-            p.codigoBarra = Convert.ToInt32(txtCodigoBarra.Text);
-            p.nombre = txtProducto.Text;
-            p.stock = Convert.ToInt32(txtStock.Text);
-            p.precio = Convert.ToDouble(txtPrecio.Text);
-            p.proveedor = cargarProducto.buscar_id("Nombre","Id_Proveedor","Proveedor", boxProveedor.SelectedItem.ToString());
-            p.categoria = cargarProducto.buscar_id("Nombre_Categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString());
-            p.unidad = cargarProducto.buscar_id("Nombre_Unidad","Id_Unidad","Unidad",boxUnidad.SelectedItem.ToString());
 
-            //Llamo a la funcion cargarProducto y le paso el producto(p)
-            cargarProducto.cargarProducto(p);
+            if (    !verificar.verificar_codigoBarra(txtCodigoBarra.Text) ||
+                    !verificar.verificar_stock(Convert.ToInt32(txtStock.Text)) ||
+                    !verificar.verificar_precio(Convert.ToInt32(txtPrecio.Text)))
+            {
+                return;
+            }
+            else
+            {
+                p.nombre = txtProducto.Text;
+                p.precio= Convert.ToDouble(txtPrecio.Text);
+                p.codigoBarra = txtCodigoBarra.Text;
+                p.stock = Convert.ToInt32(txtStock.Text);
+                p.proveedor = cargarProducto.buscar_id("Nombre", "Id_Proveedor", "Proveedor", boxProveedor.SelectedItem.ToString());
+                p.categoria = cargarProducto.buscar_id("Nombre_Categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString());
+                p.unidad = cargarProducto.buscar_id("Nombre_Unidad", "Id_Unidad", "Unidad", boxUnidad.SelectedItem.ToString());
+                //Llamo a la funcion cargarProducto y le paso el producto(p)
+                cargarProducto.cargarProducto(p);
+            }
         }
-
         private void txtProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            verificar.Verificar_proveedor(e);//Verificaciones sobre el campo Proovedor
+            verificar.verificar_letras_evento(e);
         }
-                                                                      
-        private void txtProducto_TextChanged(object sender, EventArgs e)
-        {
 
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            verificar.verificar_numeros_evento(e);
+        }
+
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            verificar.verificar_numeros_evento(e);
+        }
+
+        private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            verificar.verificar_numeros_evento(e);
         }
     }
 }

@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|c:\\users\\augus\\source\\repos\\polirubro\\polirubro\\capanegocio\\cargarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capanegocio\\cargarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Buscar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capaNegocio\\Buscar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capanegocio\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capanegocio\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|c:\\users\\augus\\source\\repos\\polirubro\\polirubro\\capanegocio\\verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capanegocio\\verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaDatos\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capaDatos\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capaNegocio\\Verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capanegocio\\cargarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capanegocio\\cargarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaDatos\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capaDatos\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,19 +30,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Producto.cs",
-              "RelativeDocumentMoniker": "capaNegocio\\Producto.cs",
-              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Producto.cs",
-              "RelativeToolTip": "capaNegocio\\Producto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Productos.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs",
+              "RelativeDocumentMoniker": "capaPresentacion\\Productos.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "capaPresentacion\\Productos.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T00:00:50.801Z"
+              "WhenOpened": "2024-10-30T17:17:54.26Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CargarProducto.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\CargarProducto.cs",
+              "RelativeDocumentMoniker": "capaNegocio\\CargarProducto.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\CargarProducto.cs",
+              "RelativeToolTip": "capaNegocio\\CargarProducto.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAAEUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T15:29:49.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Productos.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs",
+              "RelativeDocumentMoniker": "capaPresentacion\\Productos.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs",
+              "RelativeToolTip": "capaPresentacion\\Productos.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAADkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T14:59:00.363Z"
             },
             {
               "$type": "Document",
@@ -60,69 +76,22 @@
               "RelativeDocumentMoniker": "capaDatos\\Conexion.cs",
               "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaDatos\\Conexion.cs",
               "RelativeToolTip": "capaDatos\\Conexion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-31T23:28:01.634Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Buscar.cs",
-              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Buscar.cs",
-              "RelativeDocumentMoniker": "capaNegocio\\Buscar.cs",
-              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Buscar.cs",
-              "RelativeToolTip": "capaNegocio\\Buscar.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T23:27:06.143Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CargarProducto.cs",
-              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\CargarProducto.cs",
-              "RelativeDocumentMoniker": "capaNegocio\\CargarProducto.cs",
-              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\CargarProducto.cs",
-              "RelativeToolTip": "capaNegocio\\CargarProducto.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABUAAAB+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T21:38:05.418Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Verificar.cs",
               "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Verificar.cs",
               "RelativeDocumentMoniker": "capaNegocio\\Verificar.cs",
               "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Verificar.cs",
               "RelativeToolTip": "capaNegocio\\Verificar.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAIAwwCEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T15:38:07.743Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Productos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs",
-              "RelativeDocumentMoniker": "capaPresentacion\\Productos.cs",
-              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "capaPresentacion\\Productos.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T17:17:54.26Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Productos.cs",
-              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs",
-              "RelativeDocumentMoniker": "capaPresentacion\\Productos.cs",
-              "ToolTip": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs",
-              "RelativeToolTip": "capaPresentacion\\Productos.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAADYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T17:20:13.83Z"
+              "WhenOpened": "2024-10-30T15:38:07.743Z",
+              "EditorCaption": ""
             }
           ]
         }
