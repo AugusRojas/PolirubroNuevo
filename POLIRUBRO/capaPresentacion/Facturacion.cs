@@ -12,7 +12,7 @@ namespace POLIRUBRO.capaPresentacion
 {
     public partial class Facturacion : Form
     {
-        public Facturacion()
+        public Facturacion(DataTable datos)
         {
             InitializeComponent();
         }

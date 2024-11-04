@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\POLIRUBRO\\capaNegocio"
+    "\\POLIRUBRO",
+    "\\POLIRUBRO\\capaNegocio",
+    "\\POLIRUBRO\\capaPresentacion",
+    "\\POLIRUBRO\\Properties"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\POLIRUBRO\\capaNegocio\\Verificar.cs",
   "PreviewInSolutionExplorer": false
 }

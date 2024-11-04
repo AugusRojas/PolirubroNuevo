@@ -24,8 +24,12 @@ namespace POLIRUBRO
         }
 
 
+<<<<<<< HEAD
 
         public void verificar_letras_evento(KeyPressEventArgs e)
+=======
+        public void Verificar_proveedor(KeyPressEventArgs e)
+>>>>>>> 78feb2bd9ec28cfdab600499dd669b1c9f8d4f51
         {
             try
             {

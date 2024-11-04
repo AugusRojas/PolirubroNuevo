@@ -47,7 +47,7 @@ namespace POLIRUBRO.capaPresentacion
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button_buscar_producto = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_codigo_ean = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
@@ -111,7 +111,7 @@ namespace POLIRUBRO.capaPresentacion
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.button_buscar_producto);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox_codigo_ean);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(195, 38);
@@ -141,10 +141,10 @@ namespace POLIRUBRO.capaPresentacion
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(17, 128);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(17, 135);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 15);
+            this.label9.Size = new System.Drawing.Size(112, 16);
             this.label9.TabIndex = 12;
             this.label9.Text = "Es Fraccionable: ";
             // 
@@ -240,12 +240,12 @@ namespace POLIRUBRO.capaPresentacion
             this.button_buscar_producto.UseVisualStyleBackColor = true;
             this.button_buscar_producto.Click += new System.EventHandler(this.button_buscar_producto_Click);
             // 
-            // textBox2
+            // textBox_codigo_ean
             // 
-            this.textBox2.Location = new System.Drawing.Point(20, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(133, 24);
-            this.textBox2.TabIndex = 1;
+            this.textBox_codigo_ean.Location = new System.Drawing.Point(20, 59);
+            this.textBox_codigo_ean.Name = "textBox_codigo_ean";
+            this.textBox_codigo_ean.Size = new System.Drawing.Size(133, 24);
+            this.textBox_codigo_ean.TabIndex = 1;
             // 
             // label3
             // 
@@ -297,7 +297,7 @@ namespace POLIRUBRO.capaPresentacion
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_buscar_producto;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_codigo_ean;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
