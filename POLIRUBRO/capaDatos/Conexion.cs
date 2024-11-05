@@ -12,13 +12,16 @@ namespace POLIRUBRO
     {
         static string conexion = "Server=AUGUSTO\\SQLEXPRESS; Database=sistema_de_ventas; integrated security=True";
 
-
         public static SqlConnection obtenerConexion()
         {
             SqlConnection conector = new SqlConnection(conexion);
             try
             {
                 conector.Open();
+<<<<<<< HEAD
+=======
+                //MessageBox.Show("Conexion Exitosa");
+>>>>>>> 78feb2bd9ec28cfdab600499dd669b1c9f8d4f51
                 return conector;
             }
             catch (Exception ex)
@@ -35,5 +38,7 @@ namespace POLIRUBRO
             conexion.Close();
             return conexion;
         }
+
+
     }
 }

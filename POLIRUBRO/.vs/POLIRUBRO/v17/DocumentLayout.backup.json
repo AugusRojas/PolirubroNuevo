@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|c:\\users\\augus\\source\\repos\\polirubro\\polirubro\\capanegocio\\verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capanegocio\\verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\Verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:capaNegocio\\Verificar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capanegocio\\cargarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capanegocio\\cargarproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaNegocio\\CargarProducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:capaNegocio\\CargarProducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capapresentacion\\productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:capaPresentacion\\Productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaDatos\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F996C6BD-E97E-4987-93BE-A47100295A17}|POLIRUBRO.csproj|solutionrelative:capaDatos\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaDatos\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:capaDatos\\Conexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Productos.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs",
               "RelativeDocumentMoniker": "capaPresentacion\\Productos.cs",
@@ -58,7 +58,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Productos.cs",
               "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\POLIRUBRO\\POLIRUBRO\\capaPresentacion\\Productos.cs",
               "RelativeDocumentMoniker": "capaPresentacion\\Productos.cs",

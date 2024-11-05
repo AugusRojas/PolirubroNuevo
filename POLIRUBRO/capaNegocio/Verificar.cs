@@ -23,8 +23,6 @@ namespace POLIRUBRO
             
         }
 
-
-
         public void verificar_letras_evento(KeyPressEventArgs e)
         {
             try
