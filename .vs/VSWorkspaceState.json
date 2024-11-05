@@ -1,11 +1,5 @@
 {
-  "ExpandedNodes": [
-    "",
-    "\\POLIRUBRO",
-    "\\POLIRUBRO\\capaDatos",
-    "\\POLIRUBRO\\capaNegocio",
-    "\\POLIRUBRO\\capaPresentacion"
-  ],
-  "SelectedNode": "\\POLIRUBRO\\capaPresentacion\\Ventana_emergente_buscar_ producto.cs",
+  "ExpandedNodes": [],
+  "SelectedNode": "\\POLIRUBRO.sln",
   "PreviewInSolutionExplorer": false
 }
