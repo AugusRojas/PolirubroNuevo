@@ -44,6 +44,8 @@
             this.boxProveedor = new System.Windows.Forms.ComboBox();
             this.boxUnidad = new System.Windows.Forms.ComboBox();
             this.boxCategoria = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.boxFraccionable = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnModificar
@@ -187,11 +189,33 @@
             this.boxCategoria.Size = new System.Drawing.Size(121, 24);
             this.boxCategoria.TabIndex = 17;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(126, 391);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 16);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Fraccionable";
+            // 
+            // boxFraccionable
+            // 
+            this.boxFraccionable.FormattingEnabled = true;
+            this.boxFraccionable.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.boxFraccionable.Location = new System.Drawing.Point(319, 383);
+            this.boxFraccionable.Name = "boxFraccionable";
+            this.boxFraccionable.Size = new System.Drawing.Size(121, 24);
+            this.boxFraccionable.TabIndex = 19;
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.boxFraccionable);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.boxCategoria);
             this.Controls.Add(this.boxUnidad);
             this.Controls.Add(this.boxProveedor);
@@ -234,5 +258,7 @@
         private System.Windows.Forms.ComboBox boxProveedor;
         private System.Windows.Forms.ComboBox boxUnidad;
         private System.Windows.Forms.ComboBox boxCategoria;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox boxFraccionable;
     }
 }

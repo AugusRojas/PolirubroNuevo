@@ -19,8 +19,8 @@ namespace POLIRUBRO
             try
             {
                 SqlConnection conexion = Conexion.obtenerConexion();//creamos la conexion
-                string consulta = "INSERT INTO Producto (Id_Proveedor, Id_Categoria, Codigo_barra, Nombre, Stock, Precio, Id_Unidad) " +
-                                                 "VALUES (@Id_Proveedor, @Id_Categoria, @Codigo_barra, @Nombre, @Stock, @Precio, @Id_Unidad)";
+                string consulta = "INSERT INTO Producto (Id_Proveedor, Id_Categoria, Codigo_barra, Nombre, Stock, Precio, Id_Unidad,Fraccionable) " +
+                                                 "VALUES (@Id_Proveedor, @Id_Categoria, @Codigo_barra, @Nombre, @Stock, @Precio, @Id_Unidad,@Fraccionable)";
 
                 SqlCommand comando = new SqlCommand(consulta, conexion);//creamos el comando
                 // Agregar parámetros de forma segura
@@ -31,6 +31,7 @@ namespace POLIRUBRO
                 comando.Parameters.AddWithValue("@Stock", p.stock);
                 comando.Parameters.AddWithValue("@Precio", p.precio);
                 comando.Parameters.AddWithValue("@Id_Unidad", p.unidad);
+                comando.Parameters.AddWithValue("@Fraccionable",p.fraccionable);
                 comando.ExecuteNonQuery();//ejecutamos la consulta
                 conexion.Close();//cerramos conexion
                 MessageBox.Show("Carga exitosa");//mandamos la retroalimentacion

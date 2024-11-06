@@ -26,7 +26,7 @@ namespace POLIRUBRO.capaPresentacion
         {
             //Cargo inicialmente los valores a los Combo box desde la base de datos
             boxCategoria = cargarProducto.cargar_comboBox(boxCategoria,"Nombre_categoria","Categoria");
-            boxProveedor = cargarProducto.cargar_comboBox(boxProveedor, "Nombre", "Proveedor");
+            boxProveedor = cargarProducto.cargar_comboBox(boxProveedor, "Nombre_proveedor", "Proveedor");
             boxUnidad = cargarProducto.cargar_comboBox(boxUnidad, "Nombre_Unidad", "Unidad");
         }
 
@@ -40,7 +40,8 @@ namespace POLIRUBRO.capaPresentacion
                     !verificar.Verificar_vacio_txt(txtProducto) ||
                     !verificar.Verificar_vacio_txt(txtStock) ||
                     !verificar.Verificar_vacio_txt(txtPrecio) ||
-                    !verificar.Verificar_vacio_comboBox(boxUnidad))
+                    !verificar.Verificar_vacio_comboBox(boxUnidad) ||
+                    !verificar.Verificar_vacio_comboBox(boxFraccionable))
             {
                 MessageBox.Show("Todos los campos son obligatorios. Por favor, complete todos los campos.", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Finaliza el proceso si hay campos vacíos
@@ -59,9 +60,11 @@ namespace POLIRUBRO.capaPresentacion
                 p.precio= Convert.ToDouble(txtPrecio.Text);
                 p.codigoBarra = txtCodigoBarra.Text;
                 p.stock = Convert.ToInt32(txtStock.Text);
-                p.proveedor = cargarProducto.buscar_id("Nombre", "Id_Proveedor", "Proveedor", boxProveedor.SelectedItem.ToString());
+                p.proveedor = cargarProducto.buscar_id("Nombre_proveedor", "Id_Proveedor", "Proveedor", boxProveedor.SelectedItem.ToString());
                 p.categoria = cargarProducto.buscar_id("Nombre_Categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString());
                 p.unidad = cargarProducto.buscar_id("Nombre_Unidad", "Id_Unidad", "Unidad", boxUnidad.SelectedItem.ToString());
+                if (boxFraccionable.SelectedIndex==0) { p.fraccionable = 1; }
+                else { p.fraccionable = 0; }
                 //Llamo a la funcion cargarProducto y le paso el producto(p)
                 cargarProducto.cargarProducto(p);
             }

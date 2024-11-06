@@ -34,3 +34,6 @@ C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.cs
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.csproj.CoreCompileInputs.cache
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.exe
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.pdb
+C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.exe.config
+C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.exe
+C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.pdb

@@ -38,13 +38,11 @@ namespace POLIRUBRO.capaPresentacion
                 case "Categoria":
                     filtro = "Nombre_categoria";
                     respuesta = llevar.mostrar_productos_filtro(filtro, palabra_escrita);
-                    Facturacion f = new Facturacion(respuesta);
                     break;
 
                 case "Nombre":
                     filtro = "Nombre";
                     respuesta = llevar.mostrar_productos_filtro(filtro, palabra_escrita);
-                    Facturacion f2 = new Facturacion(respuesta);
                     break;
 
                 default:
