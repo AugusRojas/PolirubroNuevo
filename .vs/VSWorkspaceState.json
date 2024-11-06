@@ -1,5 +1,6 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "",
     "\\POLIRUBRO",
     "\\POLIRUBRO\\capaNegocio",
@@ -7,5 +8,9 @@
     "\\POLIRUBRO\\Properties"
   ],
   "SelectedNode": "\\POLIRUBRO\\capaNegocio\\Verificar.cs",
+=======
+    ""
+  ],
+>>>>>>> eea3cdec6833a38a245175506a398ced9d924e36
   "PreviewInSolutionExplorer": false
 }

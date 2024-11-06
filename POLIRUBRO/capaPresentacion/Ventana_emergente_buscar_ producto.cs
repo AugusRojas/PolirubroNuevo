@@ -13,9 +13,11 @@ namespace POLIRUBRO.capaPresentacion
 {
     public partial class Ventana_emergente_buscar__producto : Form
     {
-        public Ventana_emergente_buscar__producto()
+        Facturacion f = new Facturacion();
+        public Ventana_emergente_buscar__producto(Facturacion f)
         {
             InitializeComponent();
+            this.f = f;
         }
 
         private void textBox_buscar_filtro_TextChanged(object sender, EventArgs e)
@@ -38,13 +40,13 @@ namespace POLIRUBRO.capaPresentacion
                 case "Categoria":
                     filtro = "Nombre_categoria";
                     respuesta = llevar.mostrar_productos_filtro(filtro, palabra_escrita);
-                    Facturacion f = new Facturacion(respuesta);
+                 
                     break;
 
                 case "Nombre":
                     filtro = "Nombre";
                     respuesta = llevar.mostrar_productos_filtro(filtro, palabra_escrita);
-                    Facturacion f2 = new Facturacion(respuesta);
+                    
                     break;
 
                 default:
@@ -56,6 +58,26 @@ namespace POLIRUBRO.capaPresentacion
             dvg_filtrado.Columns["Fraccionable"].Width = 110;
         }
 
+      
 
+        private void dvg_filtrado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >=0)
+            {
+                string codigo_barra = dvg_filtrado.Rows[e.RowIndex].Cells["Codigo_barra"].Value.ToString();
+                string nombre = dvg_filtrado.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                string stock = dvg_filtrado.Rows[e.RowIndex].Cells["Stock"].Value.ToString();
+                string precio = dvg_filtrado.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
+                string unidad = dvg_filtrado.Rows[e.RowIndex].Cells["Unidad"].Value.ToString();
+                string fraccionable = dvg_filtrado.Rows[e.RowIndex].Cells["Fraccionable"].Value.ToString();
+
+                f.Mostrar_datos(codigo_barra, nombre, stock, precio, unidad, fraccionable);
+
+                this.Close();
+
+            }
+        }
+
+       
     }
 }
