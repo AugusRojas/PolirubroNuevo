@@ -44,6 +44,8 @@
             this.boxProveedor = new System.Windows.Forms.ComboBox();
             this.boxUnidad = new System.Windows.Forms.ComboBox();
             this.boxCategoria = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.boxFraccionable = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnModificar
@@ -71,7 +73,6 @@
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(121, 22);
             this.txtProducto.TabIndex = 2;
-            this.txtProducto.TextChanged += new System.EventHandler(this.txtProducto_TextChanged);
             this.txtProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProducto_KeyPress);
             // 
             // txtCodigoBarra
@@ -80,6 +81,7 @@
             this.txtCodigoBarra.Name = "txtCodigoBarra";
             this.txtCodigoBarra.Size = new System.Drawing.Size(121, 22);
             this.txtCodigoBarra.TabIndex = 5;
+            this.txtCodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarra_KeyPress);
             // 
             // txtStock
             // 
@@ -87,6 +89,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(121, 22);
             this.txtStock.TabIndex = 6;
+            this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // label1
             // 
@@ -157,6 +160,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(121, 22);
             this.txtPrecio.TabIndex = 14;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // boxProveedor
             // 
@@ -169,6 +173,7 @@
             // 
             // boxUnidad
             // 
+            this.boxUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxUnidad.FormattingEnabled = true;
             this.boxUnidad.Location = new System.Drawing.Point(319, 332);
             this.boxUnidad.Name = "boxUnidad";
@@ -177,17 +182,40 @@
             // 
             // boxCategoria
             // 
+            this.boxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxCategoria.FormattingEnabled = true;
             this.boxCategoria.Location = new System.Drawing.Point(319, 133);
             this.boxCategoria.Name = "boxCategoria";
             this.boxCategoria.Size = new System.Drawing.Size(121, 24);
             this.boxCategoria.TabIndex = 17;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(126, 391);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 16);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Fraccionable";
+            // 
+            // boxFraccionable
+            // 
+            this.boxFraccionable.FormattingEnabled = true;
+            this.boxFraccionable.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.boxFraccionable.Location = new System.Drawing.Point(319, 383);
+            this.boxFraccionable.Name = "boxFraccionable";
+            this.boxFraccionable.Size = new System.Drawing.Size(121, 24);
+            this.boxFraccionable.TabIndex = 19;
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.boxFraccionable);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.boxCategoria);
             this.Controls.Add(this.boxUnidad);
             this.Controls.Add(this.boxProveedor);
@@ -230,5 +258,7 @@
         private System.Windows.Forms.ComboBox boxProveedor;
         private System.Windows.Forms.ComboBox boxUnidad;
         private System.Windows.Forms.ComboBox boxCategoria;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox boxFraccionable;
     }
 }
