@@ -41,5 +41,10 @@ namespace POLIRUBRO.capaPresentacion
             textBox_unidad.Text = unidad;
             label_fraccionable.Text = fraccionable;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
