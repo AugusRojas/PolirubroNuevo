@@ -50,11 +50,17 @@ namespace POLIRUBRO.capaPresentacion
             this.button_buscar_producto = new System.Windows.Forms.Button();
             this.textBox_codigo_ean = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_ventas = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.Codigo_barra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad_a_vender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ventas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -270,13 +276,21 @@ namespace POLIRUBRO.capaPresentacion
             this.label3.TabIndex = 0;
             this.label3.Text = "Codigo del Producto:";
             // 
-            // dataGridView1
+            // dgv_ventas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(195, 249);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(762, 279);
-            this.dataGridView1.TabIndex = 3;
+            this.dgv_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ventas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo_barra,
+            this.Producto,
+            this.Precio,
+            this.Cantidad_a_vender,
+            this.Unidad,
+            this.SubTotal});
+            this.dgv_ventas.Location = new System.Drawing.Point(195, 249);
+            this.dgv_ventas.Name = "dgv_ventas";
+            this.dgv_ventas.ReadOnly = true;
+            this.dgv_ventas.Size = new System.Drawing.Size(762, 279);
+            this.dgv_ventas.TabIndex = 3;
             // 
             // button1
             // 
@@ -288,13 +302,50 @@ namespace POLIRUBRO.capaPresentacion
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Codigo_barra
+            // 
+            this.Codigo_barra.HeaderText = "Codigo_barra";
+            this.Codigo_barra.Name = "Codigo_barra";
+            this.Codigo_barra.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Cantidad_a_vender
+            // 
+            this.Cantidad_a_vender.HeaderText = "Cantidad_a_vender";
+            this.Cantidad_a_vender.Name = "Cantidad_a_vender";
+            this.Cantidad_a_vender.ReadOnly = true;
+            this.Cantidad_a_vender.Width = 120;
+            // 
+            // Unidad
+            // 
+            this.Unidad.HeaderText = "Unidad";
+            this.Unidad.Name = "Unidad";
+            this.Unidad.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 586);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_ventas);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -305,7 +356,7 @@ namespace POLIRUBRO.capaPresentacion
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ventas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,8 +384,14 @@ namespace POLIRUBRO.capaPresentacion
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox_precio;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_ventas;
         private System.Windows.Forms.Label label_fraccionable;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_barra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad_a_vender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
     }
 }

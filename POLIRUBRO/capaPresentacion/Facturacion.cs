@@ -44,6 +44,44 @@ namespace POLIRUBRO.capaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Verificar v = new Verificar();
+
+            if(v.Verificar_vacio_txt(textBox_codigo_ean) && v.Verificar_vacio_txt(textBox_Nombre) &&
+               v.Verificar_vacio_txt(textBox_precio)&&v.Verificar_vacio_txt(textBox_stock) 
+               && v.Verificar_vacio_txt(textBox_unidad))
+            {
+                if (v.Verificar_vacio_txt(textBox_cantidad_vender))
+                {
+                    double cantidad_vender;
+                    double precio;
+
+                    if(double.TryParse(textBox_cantidad_vender.Text, out cantidad_vender))
+                    {
+                        cantidad_vender = double.Parse(textBox_cantidad_vender.Text);
+                        precio = double.Parse(textBox_precio.Text);
+
+                        double subtotal = cantidad_vender * precio;
+
+                        dgv_ventas.Rows.Add(textBox_codigo_ean.Text, textBox_Nombre.Text, textBox_precio.Text, textBox_cantidad_vender.Text, textBox_unidad.Text, subtotal);
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Ingrese numeros para la cantidad");
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Ingrese un cantidad para ser vendida");
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Complete todos los capos para poder realizar la registracion de los productos");
+            }
 
         }
     }

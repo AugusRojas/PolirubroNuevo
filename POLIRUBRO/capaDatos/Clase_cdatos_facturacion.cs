@@ -11,7 +11,7 @@ namespace POLIRUBRO.capaDatos
 {
     public class Clase_cdatos_facturacion
     {
-        public DataTable Buscar_Productos_Nombre_Categoria(string filtro ,string palabra_escrita)
+        public DataTable Buscar_Productos_Nombre_Categoria(string filtro, string palabra_escrita)
         {
             DataTable datos = new DataTable();
             datos.Columns.Add("Id_Producto", typeof(int));
@@ -39,7 +39,7 @@ namespace POLIRUBRO.capaDatos
                                     FROM Producto
                                     LEFT JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria
                                     LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad
-                                    WHERE {filtro} LIKE '%" +palabra_escrita+"%'";
+                                    WHERE {filtro} LIKE '%" + palabra_escrita + "%'";
 
                 SqlCommand comando = new SqlCommand(consulta, conexion);
 
@@ -65,11 +65,27 @@ namespace POLIRUBRO.capaDatos
             {
                 MessageBox.Show($"Error al buscar productos: {ex.Message}");
             }
-          
+
 
             return datos;
         }
 
-    }
+
+       // public void Descontar_stock_datos(string codigo_barra, double descuento)
+        //{
+          //  try
+            //{
+              //  SqlConnection conexion = Conexion.obtenerConexion();
+
+                //string consulta = $"update Producto set Stock = {descuento} where Codigo_barra = {codigo_barra}";
+
+//            }
+             
+  //          catch
+    //        {
+
+      //      }
+    
+    }    //}
 
 }

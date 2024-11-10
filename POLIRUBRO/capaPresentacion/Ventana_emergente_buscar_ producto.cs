@@ -14,6 +14,7 @@ namespace POLIRUBRO.capaPresentacion
     public partial class Ventana_emergente_buscar__producto : Form
     {
         Facturacion f = new Facturacion();
+        Verificar v = new Verificar();
         public Ventana_emergente_buscar__producto(Facturacion f)
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace POLIRUBRO.capaPresentacion
         private void textBox_buscar_filtro_TextChanged(object sender, EventArgs e)
         {
 
-            if (comboBox1.SelectedItem == null)
+            if (v.Combobox_opcion(comboBox1))
             {
                 MessageBox.Show("Por favor, elige una opcion para buscar");
             }
