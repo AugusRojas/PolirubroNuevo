@@ -51,13 +51,15 @@ namespace POLIRUBRO.capaPresentacion
             this.textBox_codigo_ean = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgv_ventas = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.Codigo_barra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad_a_vender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox_total = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ventas)).BeginInit();
@@ -292,16 +294,6 @@ namespace POLIRUBRO.capaPresentacion
             this.dgv_ventas.Size = new System.Drawing.Size(762, 279);
             this.dgv_ventas.TabIndex = 3;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1018, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 74);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Codigo_barra
             // 
             this.Codigo_barra.HeaderText = "Codigo_barra";
@@ -339,11 +331,41 @@ namespace POLIRUBRO.capaPresentacion
             this.SubTotal.Name = "SubTotal";
             this.SubTotal.ReadOnly = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1034, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 74);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1008, 249);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(103, 20);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Total a Pagar";
+            // 
+            // textBox_total
+            // 
+            this.textBox_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_total.Location = new System.Drawing.Point(1012, 273);
+            this.textBox_total.Name = "textBox_total";
+            this.textBox_total.Size = new System.Drawing.Size(99, 29);
+            this.textBox_total.TabIndex = 6;
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 586);
+            this.Controls.Add(this.textBox_total);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgv_ventas);
             this.Controls.Add(this.groupBox2);
@@ -393,5 +415,7 @@ namespace POLIRUBRO.capaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad_a_vender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox_total;
     }
 }

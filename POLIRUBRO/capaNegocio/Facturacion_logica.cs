@@ -4,7 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using POLIRUBRO.capaDatos;
+
 
 namespace POLIRUBRO
 {
@@ -18,6 +20,25 @@ namespace POLIRUBRO
             return tabla;
         }
 
-       
+        public double Total_a_pagar(DataGridView dgv)
+        {
+            double total = 0;
+
+            foreach (DataGridViewRow fila in dgv.Rows)
+            {
+
+                if (fila.IsNewRow) continue;
+
+              
+                if (double.TryParse(fila.Cells[5].Value.ToString(), out double valor))
+                {
+                    total += valor;
+                }
+            }
+
+            return total;
+        }
+
+
     }
 }

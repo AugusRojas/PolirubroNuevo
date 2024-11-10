@@ -33,7 +33,7 @@ namespace POLIRUBRO.capaDatos
                                     Producto.Precio, Categoria.Nombre_categoria AS Categoria, 
                                     Unidad.Nombre_unidad AS Unidad,
                                     CASE
-                                    WHEN Producto.Fraccionable = 1 THEN 'Sí'
+                                    WHEN Producto.Fraccionable = 1 THEN 'Si'
                                     ELSE 'No'
                                     END AS Fraccionable 
                                     FROM Producto
