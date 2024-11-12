@@ -10,7 +10,7 @@ namespace POLIRUBRO
 {
     public static class Conexion
     {
-        static string conexion = "Server=DESKTOP-4TIIP6L\\SQLEXPRESS; Database=sistema_de_ventas; Integrated Security=True";
+        static string conexion = "Server=AUGUSTO\\SQLEXPRESS; Database=sistema_de_ventas; Integrated Security=True";
 
         public static SqlConnection obtenerConexion()
         {

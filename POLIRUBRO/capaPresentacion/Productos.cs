@@ -91,8 +91,6 @@ namespace POLIRUBRO.capaPresentacion
         {
             verificar.verificar_numeros_evento(e);
         }
-<<<<<<< HEAD
-
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
             
@@ -128,8 +126,5 @@ namespace POLIRUBRO.capaPresentacion
                 //boxCategoria.SelectedIndex = cargarProducto.buscar_id("Nombre_Categoria", "Id_Categoria", "Categoria",Convert.ToInt32(dataGridViewBuscar.Rows[e.RowIndex].Cells["Id_Categoria"].ToString()));
             }
         }
-=======
-       
->>>>>>> e810c35519b591cb1c80b87068ea9fcf8caf2567
     }
 }
