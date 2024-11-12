@@ -28,7 +28,7 @@ namespace POLIRUBRO.capaDatos
                 SqlConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = $@"SELECT 
-                                    Producto.Id_Producto, Producto.Codigo_barra,
+                                    Producto.Id_Productos, Producto.Codigo_barra,
                                     Producto.Nombre, Producto.Stock,
                                     Producto.Precio, Categoria.Nombre_categoria AS Categoria, 
                                     Unidad.Nombre_unidad AS Unidad,

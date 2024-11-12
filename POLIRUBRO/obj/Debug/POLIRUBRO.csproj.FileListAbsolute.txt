@@ -37,3 +37,4 @@ C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.pd
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.exe.config
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.exe
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.pdb
+C:\Users\augus\source\repos\POLIRUBRO\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.categoria_metodo_pago.resources

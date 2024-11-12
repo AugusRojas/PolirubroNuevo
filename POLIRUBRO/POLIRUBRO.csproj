@@ -55,6 +55,12 @@
     <Compile Include="capaNegocio\GenerarReporte.cs" />
     <Compile Include="capaNegocio\Producto.cs" />
     <Compile Include="capaNegocio\Verificar.cs" />
+    <Compile Include="capaPresentacion\categoria_metodo_pago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capaPresentacion\categoria_metodo_pago.Designer.cs">
+      <DependentUpon>categoria_metodo_pago.cs</DependentUpon>
+    </Compile>
     <Compile Include="capaPresentacion\Facturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="capaPresentacion\categoria_metodo_pago.resx">
+      <DependentUpon>categoria_metodo_pago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </EmbeddedResource>

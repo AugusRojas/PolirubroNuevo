@@ -75,7 +75,7 @@ namespace POLIRUBRO.capaPresentacion
             this.dvg_filtrado.RowHeadersWidth = 51;
             this.dvg_filtrado.Size = new System.Drawing.Size(927, 243);
             this.dvg_filtrado.TabIndex = 3;
-            
+            this.dvg_filtrado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_filtrado_CellContentClick);
             this.dvg_filtrado.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_filtrado_CellDoubleClick);
             // 
             // groupBox1

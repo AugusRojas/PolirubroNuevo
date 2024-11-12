@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,8 @@ namespace POLIRUBRO.capaPresentacion
 
         private void Productos_Load(object sender, EventArgs e)
         {
+            dataGridViewBuscar.DataSource = cargarProducto.obtenerTabla();
+            dataGridViewBuscar.AllowUserToAddRows = false;
             //Cargo inicialmente los valores a los Combo box desde la base de datos
             boxCategoria = cargarProducto.cargar_comboBox(boxCategoria,"Nombre_categoria","Categoria");
             boxProveedor = cargarProducto.cargar_comboBox(boxProveedor, "Nombre_proveedor", "Proveedor");
@@ -50,7 +53,7 @@ namespace POLIRUBRO.capaPresentacion
 
             if (    !verificar.verificar_codigoBarra(txtCodigoBarra.Text) ||
                     !verificar.verificar_stock(Convert.ToInt32(txtStock.Text)) ||
-                    !verificar.verificar_precio(Convert.ToInt32(txtPrecio.Text)))
+                    !verificar.verificar_precio(Convert.ToDouble(txtPrecio.Text)))
             {
                 return;
             }
@@ -87,6 +90,42 @@ namespace POLIRUBRO.capaPresentacion
         private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
         {
             verificar.verificar_numeros_evento(e);
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            
+            if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
+            {
+                return;
+            }
+            else
+            {
+                string busqueda = txtBusqueda.Text;
+                dataGridViewBuscar.DataSource = cargarProducto.buscarProductos(busqueda);
+
+            }
+
+           
+      
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewBuscar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                txtPrecio.Text = dataGridViewBuscar.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
+                txtCodigoBarra.Text = dataGridViewBuscar.Rows[e.RowIndex].Cells["Codigo_barra"].Value.ToString();
+                txtProducto.Text = dataGridViewBuscar.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                txtStock.Text = dataGridViewBuscar.Rows[e.RowIndex].Cells["Stock"].Value.ToString();
+                //boxCategoria.SelectedIndex = cargarProducto.buscar_id("Nombre_Categoria", "Id_Categoria", "Categoria",Convert.ToInt32(dataGridViewBuscar.Rows[e.RowIndex].Cells["Id_Categoria"].ToString()));
+            }
         }
     }
 }

@@ -78,6 +78,9 @@ namespace POLIRUBRO.capaPresentacion
             }
         }
 
-       
+        private void dvg_filtrado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
