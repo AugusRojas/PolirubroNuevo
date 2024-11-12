@@ -57,6 +57,26 @@ namespace POLIRUBRO
             return false;
         }
 
+        public double Aplicar_descuento(double cantidad_a_vender, double precio, TextBox descuento)
+        {
+
+            if(descuento.Text == "")
+            {
+                return precio * cantidad_a_vender;
+            }
+
+            else
+            {
+                double subtotal = precio * cantidad_a_vender;
+
+                double descuento_aplicado = subtotal * double.Parse(descuento.Text) / 100;
+
+                subtotal = subtotal - descuento_aplicado;
+
+                return subtotal;
+            }
+
+        }
 
     }
 }

@@ -69,10 +69,10 @@ namespace POLIRUBRO.capaPresentacion
                                 if (double.TryParse(textBox_cantidad_vender.Text, out cantidad_vender))
                                 {
                                     double precio = double.Parse(textBox_precio.Text);
-                                    double subtotal = cantidad_vender * precio;
-                                    dgv_ventas.Rows.Add(textBox_codigo_ean.Text, textBox_Nombre.Text, textBox_precio.Text, textBox_cantidad_vender.Text, textBox_unidad.Text, subtotal);
+                                    double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
+                                    dgv_ventas.Rows.Add(textBox_codigo_ean.Text, textBox_Nombre.Text, textBox_precio.Text, textBox_cantidad_vender.Text, textBox_unidad.Text, subtotal, textBox_descuento.Text);
 
-                                    textBox_cantidad_vender.Clear(); textBox_codigo_ean.Clear(); textBox_Nombre.Clear(); textBox_precio.Clear(); textBox_stock.Clear(); textBox_unidad.Clear();
+                                    textBox_cantidad_vender.Clear(); textBox_codigo_ean.Clear(); textBox_Nombre.Clear(); textBox_precio.Clear(); textBox_stock.Clear(); textBox_unidad.Clear(); textBox_descuento.Clear();
                                     textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("C2");
                                 }
 
@@ -89,10 +89,10 @@ namespace POLIRUBRO.capaPresentacion
                                     cantidad_vender = cantidadEntera;
 
                                     double precio = double.Parse(textBox_precio.Text);
-                                    double subtotal = cantidad_vender * precio;
+                                    double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
 
-                                    dgv_ventas.Rows.Add(textBox_codigo_ean.Text, textBox_Nombre.Text, textBox_precio.Text, textBox_cantidad_vender.Text, textBox_unidad.Text, subtotal);
-                                    textBox_cantidad_vender.Clear(); textBox_codigo_ean.Clear(); textBox_Nombre.Clear(); textBox_precio.Clear(); textBox_stock.Clear(); textBox_unidad.Clear();
+                                    dgv_ventas.Rows.Add(textBox_codigo_ean.Text, textBox_Nombre.Text, textBox_precio.Text, textBox_cantidad_vender.Text, textBox_unidad.Text, subtotal, textBox_descuento.Text);
+                                    textBox_cantidad_vender.Clear(); textBox_codigo_ean.Clear(); textBox_Nombre.Clear(); textBox_precio.Clear(); textBox_stock.Clear(); textBox_unidad.Clear(); textBox_descuento.Clear();
                                     textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("C2");
                                 }
 
