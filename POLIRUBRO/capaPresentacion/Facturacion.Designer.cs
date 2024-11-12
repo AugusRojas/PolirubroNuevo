@@ -34,6 +34,7 @@ namespace POLIRUBRO.capaPresentacion
             this.textBox_fecha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label_fraccionable = new System.Windows.Forms.Label();
             this.textBox_cantidad_vender = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,11 +50,26 @@ namespace POLIRUBRO.capaPresentacion
             this.button_buscar_producto = new System.Windows.Forms.Button();
             this.textBox_codigo_ean = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label_fraccionable = new System.Windows.Forms.Label();
+            this.dgv_ventas = new System.Windows.Forms.DataGridView();
+            this.Codigo_barra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad_a_vender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.X = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox_total = new System.Windows.Forms.TextBox();
+            this.comboBox_metodo_pago = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox_descuento = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ventas)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -122,6 +138,16 @@ namespace POLIRUBRO.capaPresentacion
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informacion del Producto";
+            // 
+            // label_fraccionable
+            // 
+            this.label_fraccionable.AutoSize = true;
+            this.label_fraccionable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fraccionable.Location = new System.Drawing.Point(135, 135);
+            this.label_fraccionable.Name = "label_fraccionable";
+            this.label_fraccionable.Size = new System.Drawing.Size(13, 18);
+            this.label_fraccionable.TabIndex = 15;
+            this.label_fraccionable.Text = "-";
             // 
             // textBox_cantidad_vender
             // 
@@ -259,30 +285,164 @@ namespace POLIRUBRO.capaPresentacion
             this.label3.TabIndex = 0;
             this.label3.Text = "Codigo del Producto:";
             // 
-            // dataGridView1
+            // dgv_ventas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(195, 249);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(762, 279);
-            this.dataGridView1.TabIndex = 3;
+            this.dgv_ventas.AllowUserToAddRows = false;
+            this.dgv_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ventas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo_barra,
+            this.Producto,
+            this.Precio,
+            this.Cantidad_a_vender,
+            this.Unidad,
+            this.SubTotal,
+            this.Descuento,
+            this.X});
+            this.dgv_ventas.Location = new System.Drawing.Point(195, 249);
+            this.dgv_ventas.Name = "dgv_ventas";
+            this.dgv_ventas.ReadOnly = true;
+            this.dgv_ventas.Size = new System.Drawing.Size(762, 279);
+            this.dgv_ventas.TabIndex = 3;
+            this.dgv_ventas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ventas_CellClick);
             // 
-            // label_fraccionable
+            // Codigo_barra
             // 
-            this.label_fraccionable.AutoSize = true;
-            this.label_fraccionable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fraccionable.Location = new System.Drawing.Point(135, 135);
-            this.label_fraccionable.Name = "label_fraccionable";
-            this.label_fraccionable.Size = new System.Drawing.Size(13, 18);
-            this.label_fraccionable.TabIndex = 15;
-            this.label_fraccionable.Text = "-";
+            this.Codigo_barra.HeaderText = "Codigo_barra";
+            this.Codigo_barra.Name = "Codigo_barra";
+            this.Codigo_barra.ReadOnly = true;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 80;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 80;
+            // 
+            // Cantidad_a_vender
+            // 
+            this.Cantidad_a_vender.HeaderText = "Cantidad_a_vender";
+            this.Cantidad_a_vender.Name = "Cantidad_a_vender";
+            this.Cantidad_a_vender.ReadOnly = true;
+            this.Cantidad_a_vender.Width = 120;
+            // 
+            // Unidad
+            // 
+            this.Unidad.HeaderText = "Unidad";
+            this.Unidad.Name = "Unidad";
+            this.Unidad.ReadOnly = true;
+            this.Unidad.Width = 85;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            this.SubTotal.Width = 90;
+            // 
+            // Descuento
+            // 
+            this.Descuento.HeaderText = "Descuento";
+            this.Descuento.Name = "Descuento";
+            this.Descuento.ReadOnly = true;
+            this.Descuento.Width = 70;
+            // 
+            // X
+            // 
+            this.X.HeaderText = "X";
+            this.X.Name = "X";
+            this.X.ReadOnly = true;
+            this.X.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.X.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.X.Text = "";
+            this.X.Width = 35;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1012, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 74);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Agregar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1023, 249);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(103, 20);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Total a Pagar";
+            // 
+            // textBox_total
+            // 
+            this.textBox_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_total.Location = new System.Drawing.Point(1012, 273);
+            this.textBox_total.Name = "textBox_total";
+            this.textBox_total.ReadOnly = true;
+            this.textBox_total.Size = new System.Drawing.Size(124, 29);
+            this.textBox_total.TabIndex = 6;
+            // 
+            // comboBox_metodo_pago
+            // 
+            this.comboBox_metodo_pago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_metodo_pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_metodo_pago.FormattingEnabled = true;
+            this.comboBox_metodo_pago.Location = new System.Drawing.Point(1000, 365);
+            this.comboBox_metodo_pago.Name = "comboBox_metodo_pago";
+            this.comboBox_metodo_pago.Size = new System.Drawing.Size(148, 24);
+            this.comboBox_metodo_pago.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(997, 346);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(151, 16);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Elija el metodo de pago";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox_descuento);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(18, 238);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(144, 64);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Aplicar Descuento";
+            // 
+            // textBox_descuento
+            // 
+            this.textBox_descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_descuento.Location = new System.Drawing.Point(18, 28);
+            this.textBox_descuento.Name = "textBox_descuento";
+            this.textBox_descuento.Size = new System.Drawing.Size(100, 24);
+            this.textBox_descuento.TabIndex = 0;
             // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 586);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1173, 609);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.comboBox_metodo_pago);
+            this.Controls.Add(this.textBox_total);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dgv_ventas);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -293,7 +453,9 @@ namespace POLIRUBRO.capaPresentacion
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ventas)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,7 +483,22 @@ namespace POLIRUBRO.capaPresentacion
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox_precio;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_ventas;
         private System.Windows.Forms.Label label_fraccionable;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox_total;
+        private System.Windows.Forms.ComboBox comboBox_metodo_pago;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBox_descuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_barra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad_a_vender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
+        private System.Windows.Forms.DataGridViewButtonColumn X;
     }
 }

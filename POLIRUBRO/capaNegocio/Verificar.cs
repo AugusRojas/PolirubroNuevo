@@ -10,19 +10,7 @@ namespace POLIRUBRO
 {
     public class Verificar
     {
-        public bool Campo_vacios(string variable)
-        {            
-            if (variable != "")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-            
-        }
-
+       
         public void verificar_letras_evento(KeyPressEventArgs e)
         {
             try
@@ -80,6 +68,19 @@ namespace POLIRUBRO
         {
             if (c.SelectedIndex != -1) { return true; }// verifica que el combo box no este vacio
             else { return false; }
+        }
+
+        public bool Combobox_opcion(ComboBox c)
+        {
+            if(c.SelectedItem == null)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 
