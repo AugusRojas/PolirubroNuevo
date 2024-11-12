@@ -26,10 +26,11 @@ namespace POLIRUBRO
 
             foreach (DataGridViewRow fila in dgv.Rows)
             {
+                if (fila.IsNewRow) 
+                {
+                    continue;
+                }
 
-                if (fila.IsNewRow) continue;
-
-              
                 if (double.TryParse(fila.Cells[5].Value.ToString(), out double valor))
                 {
                     total += valor;
@@ -37,6 +38,23 @@ namespace POLIRUBRO
             }
 
             return total;
+        }
+
+        public bool Comprobacion_Stock(TextBox cantidad, TextBox stock)
+        {
+            if(double.Parse(stock.Text) <= 0)
+            {
+                MessageBox.Show("Producto insuficiente");
+                return true;
+            }
+
+            else if(double.Parse(cantidad.Text) > double.Parse(stock.Text))
+            {
+                MessageBox.Show("La cantidad a vender es mas que el stock disponible");
+                return true;
+            }
+
+            return false;
         }
 
 
