@@ -14,6 +14,7 @@ namespace POLIRUBRO.capaPresentacion
     public partial class Ventana_emergente_buscar__producto : Form
     {
         Facturacion f = new Facturacion();
+        Verificar v = new Verificar();
         public Ventana_emergente_buscar__producto(Facturacion f)
         {
             InitializeComponent();
@@ -22,40 +23,45 @@ namespace POLIRUBRO.capaPresentacion
 
         private void textBox_buscar_filtro_TextChanged(object sender, EventArgs e)
         {
-            string opcion = comboBox1.SelectedItem.ToString();
 
-            if (string.IsNullOrEmpty(opcion))
+            if (v.Combobox_opcion(comboBox1))
             {
-                MessageBox.Show("Por favor, selecciona una opción.");
+                MessageBox.Show("Por favor, elige una opcion para buscar");
             }
 
-            Facturacion_logica llevar = new Facturacion_logica();
-            DataTable respuesta;
-
-            string palabra_escrita = textBox_buscar_filtro.Text.Trim();
-            string filtro;
-
-            switch (opcion)
+            else
             {
-                case "Categoria":
-                    filtro = "Nombre_categoria";
-                    respuesta = llevar.mostrar_productos_filtro(filtro, palabra_escrita);
-                 
-                    break;
+                string opcion = comboBox1.SelectedItem.ToString();
 
-                case "Nombre":
-                    filtro = "Nombre";
-                    respuesta = llevar.mostrar_productos_filtro(filtro, palabra_escrita);
-                    
-                    break;
+                Facturacion_logica llevar = new Facturacion_logica();
+                DataTable respuesta;
 
-                default:
-                    return;
-            }
+                string palabra_escrita = textBox_buscar_filtro.Text.Trim();
+                string filtro;
+
+                switch (opcion)
+                {
+                    case "Categoria":
+                        filtro = "Nombre_categoria";
+                        respuesta = llevar.mostrar_productos_filtro(filtro, palabra_escrita);
+
+                        break;
+
+                    case "Nombre":
+                        filtro = "Nombre";
+                        respuesta = llevar.mostrar_productos_filtro(filtro, palabra_escrita);
+
+                        break;
+
+                    default:
+                        return;
+                }
 
                 dvg_filtrado.DataSource = respuesta;
-            dvg_filtrado.Columns["Codigo_barra"].Width = 130;
-            dvg_filtrado.Columns["Fraccionable"].Width = 110;
+                dvg_filtrado.Columns["Codigo_barra"].Width = 130;
+                dvg_filtrado.Columns["Fraccionable"].Width = 110;
+            }
+           
         }
 
       

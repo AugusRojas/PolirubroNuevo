@@ -1,0 +1,38 @@
+# Archivos de Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos de depuración y optimización
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.log
+*.tlog
+*.lastcodeanalysissucceeded
+
+# Archivos de paquetes NuGet
+packages/
+project.lock.json
+project.fragment.lock.json
+*.nupkg
+*.snupkg
+
+# Archivos de publicación y perfiles de usuario
+*.publishsettings
+*.pubxml
+*.pubxml.user
+
+# Archivos de sistema y temporales
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.temp
