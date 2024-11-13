@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
 
 namespace POLIRUBRO
 {
     public static class Conexion
     {
         // Cambia esta cadena de conexión para que apunte a tu base de datos MySQL en XAMPP
-        static string conexion = "Server=localhost; Database=BD_Ventas; User ID=root; Password=; Port=3306;";
+        static string conexion = "Server=; Database=sistemas_de_ventas ";
 
         // Método para obtener la conexión a la base de datos MySQL
-        public static MySqlConnection ObtenerConexion()
+        public static SqlConnection obtenerConexion()
         {
-            MySqlConnection conector = new MySqlConnection(conexion);
+            SqlConnection conector = new SqlConnection(conexion);
             try
             {
                 conector.Open();
@@ -27,7 +26,7 @@ namespace POLIRUBRO
         }
 
         // Método para cerrar la conexión
-        public static void CerrarConexion(MySqlConnection conexion)
+        public static void CerrarConexion(SqlConnection conexion)
         {
             if (conexion != null && conexion.State == System.Data.ConnectionState.Open)
             {

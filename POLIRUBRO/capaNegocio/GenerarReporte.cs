@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System.Data.SqlClient;
 using POLIRUBRO;
 using System;
 using System.IO;
@@ -9,16 +9,16 @@ public class Reporte
     public void generarReporteCSV()
     {
         // Aquí se coloca la conexión a tu base de datos MySQL
-        MySqlConnection conexion = Conexion.ObtenerConexion();
+        SqlConnection conexion = Conexion.obtenerConexion();
 
         // Definimos la consulta que queremos ejecutar para obtener los datos
         string consulta = "SELECT * FROM Producto"; // Puedes ajustar esta consulta a lo que necesites
-        MySqlCommand comando = new MySqlCommand(consulta, conexion);
+        SqlCommand comando = new SqlCommand(consulta, conexion);
 
         try
         {
             // Ejecutamos la consulta y obtenemos los resultados
-            MySqlDataReader lector = comando.ExecuteReader();
+            SqlDataReader lector = comando.ExecuteReader();
 
             // Creamos un archivo CSV donde vamos a guardar los resultados
             string filePath = "reporte_productos.csv";  // Ruta donde se guardará el archivo
