@@ -17,7 +17,7 @@ namespace POLIRUBRO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new categoria_metodo_pago());
+            Application.Run(new capaPresentacion.Facturacion());
         }
     }
 }
