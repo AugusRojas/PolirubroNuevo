@@ -1,40 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
-using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace POLIRUBRO
 {
     public static class Conexion
     {
-        static string conexion = "Server=AUGUSTO\\SQLEXPRESS; Database=sistema_de_ventas; Integrated Security=True";
+        // Cambia esta cadena de conexión para que apunte a tu base de datos MySQL en XAMPP
+        static string conexion = "Server=localhost; Database=BD_Ventas; User ID=root; Password=; Port=3306;";
 
-        public static SqlConnection obtenerConexion()
+        // Método para obtener la conexión a la base de datos MySQL
+        public static MySqlConnection ObtenerConexion()
         {
-            SqlConnection conector = new SqlConnection(conexion);
+            MySqlConnection conector = new MySqlConnection(conexion);
             try
             {
                 conector.Open();
+                Console.WriteLine("Conexión exitosa a la base de datos.");
                 return conector;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Error de conexión: " + ex.Message);
                 return null;
             }
         }
 
-
-        public static SqlConnection cerrarConexion()
+        // Método para cerrar la conexión
+        public static void CerrarConexion(MySqlConnection conexion)
         {
-            SqlConnection conexion = Conexion.obtenerConexion();
-            conexion.Close();
-            return conexion;
+            if (conexion != null && conexion.State == System.Data.ConnectionState.Open)
+            {
+                conexion.Close();
+                Console.WriteLine("Conexión cerrada.");
+            }
         }
-
-
     }
 }
