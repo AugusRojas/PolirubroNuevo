@@ -39,3 +39,4 @@ C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.ex
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\POLIRUBRO\bin\Debug\POLIRUBRO.pdb
 C:\Users\augus\source\repos\POLIRUBRO\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.categoria_metodo_pago.resources
 C:\Users\augus\source\repos\POLIRUBRO\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.categoria_metodo_pago.resources
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\obj\Debug\POLIRUBRO.capaPresentacion.categoria_metodo_pago.resources

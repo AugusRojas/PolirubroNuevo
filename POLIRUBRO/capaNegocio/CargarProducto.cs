@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POLIRUBRO.capaDatos;
 
 namespace POLIRUBRO
 {
@@ -81,35 +82,7 @@ namespace POLIRUBRO
                 return 1;
             }
         }
-        public DataTable obtenerTabla()
-        {
-            try
-            {
-                SqlConnection conexion = Conexion.obtenerConexion();
-                DataTable tabla = new DataTable();
-                string consulta = "SELECT * FROM Producto";
-                SqlCommand comando = new SqlCommand(consulta, conexion);
-                SqlDataAdapter adapter = new SqlDataAdapter(comando);
-                adapter.Fill(tabla);
-                return tabla;
-
-            } catch { return null; }
-
-        }
-
-        public DataTable buscarProductos(string busqueda)
-        {
-            DataTable dt = new DataTable();
-            SqlConnection conexion = Conexion.obtenerConexion();
-            string consulta = $"SELECT Nombre,Codigo_barra,Stock,Precio FROM Producto " +
-                $"WHERE Nombre LIKE @busqueda";
-            SqlCommand comando = new SqlCommand(consulta, conexion);
-            comando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%");
-            SqlDataAdapter adaptador = new SqlDataAdapter(comando);
-
-            adaptador.Fill(dt);
-            return dt;
-        }
+        
 
         public void insertar_medio_de_pago(string insertar)
         {

@@ -46,18 +46,12 @@
             this.boxCategoria = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.boxFraccionable = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewBuscar = new System.Windows.Forms.DataGridView();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(434, 241);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(56, 48);
             this.btnModificar.TabIndex = 0;
@@ -67,7 +61,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(506, 241);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(56, 48);
             this.btnAgregar.TabIndex = 1;
@@ -76,8 +70,9 @@
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtProducto
+            // 
             this.txtProducto.Location = new System.Drawing.Point(239, 29);
-            this.txtProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProducto.Margin = new System.Windows.Forms.Padding(2);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(92, 20);
             this.txtProducto.TabIndex = 2;
@@ -86,7 +81,7 @@
             // txtCodigoBarra
             // 
             this.txtCodigoBarra.Location = new System.Drawing.Point(239, 156);
-            this.txtCodigoBarra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodigoBarra.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigoBarra.Name = "txtCodigoBarra";
             this.txtCodigoBarra.Size = new System.Drawing.Size(92, 20);
             this.txtCodigoBarra.TabIndex = 5;
@@ -95,7 +90,7 @@
             // txtStock
             // 
             this.txtStock.Location = new System.Drawing.Point(239, 196);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(2);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(92, 20);
             this.txtStock.TabIndex = 6;
@@ -174,7 +169,7 @@
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(239, 236);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(92, 20);
             this.txtPrecio.TabIndex = 14;
@@ -185,7 +180,7 @@
             this.boxProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxProveedor.FormattingEnabled = true;
             this.boxProveedor.Location = new System.Drawing.Point(239, 64);
-            this.boxProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxProveedor.Margin = new System.Windows.Forms.Padding(2);
             this.boxProveedor.Name = "boxProveedor";
             this.boxProveedor.Size = new System.Drawing.Size(92, 21);
             this.boxProveedor.TabIndex = 15;
@@ -195,7 +190,7 @@
             this.boxUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxUnidad.FormattingEnabled = true;
             this.boxUnidad.Location = new System.Drawing.Point(239, 270);
-            this.boxUnidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxUnidad.Margin = new System.Windows.Forms.Padding(2);
             this.boxUnidad.Name = "boxUnidad";
             this.boxUnidad.Size = new System.Drawing.Size(92, 21);
             this.boxUnidad.TabIndex = 16;
@@ -205,7 +200,7 @@
             this.boxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxCategoria.FormattingEnabled = true;
             this.boxCategoria.Location = new System.Drawing.Point(239, 108);
-            this.boxCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.boxCategoria.Name = "boxCategoria";
             this.boxCategoria.Size = new System.Drawing.Size(92, 21);
             this.boxCategoria.TabIndex = 17;
@@ -227,74 +222,16 @@
             "SI",
             "NO"});
             this.boxFraccionable.Location = new System.Drawing.Point(239, 311);
-            this.boxFraccionable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxFraccionable.Margin = new System.Windows.Forms.Padding(2);
             this.boxFraccionable.Name = "boxFraccionable";
             this.boxFraccionable.Size = new System.Drawing.Size(92, 21);
             this.boxFraccionable.TabIndex = 19;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnModificar);
-            this.groupBox1.Controls.Add(this.btnAgregar);
-            this.groupBox1.Controls.Add(this.boxFraccionable);
-            this.groupBox1.Controls.Add(this.txtProducto);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.boxProveedor);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.boxUnidad);
-            this.groupBox1.Controls.Add(this.boxCategoria);
-            this.groupBox1.Controls.Add(this.txtPrecio);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtStock);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtCodigoBarra);
-            this.groupBox1.Location = new System.Drawing.Point(12, 126);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(499, 307);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Carga Producto";
-            // 
-            // dataGridViewBuscar
-            // 
-            this.dataGridViewBuscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBuscar.Location = new System.Drawing.Point(561, 126);
-            this.dataGridViewBuscar.Name = "dataGridViewBuscar";
-            this.dataGridViewBuscar.RowHeadersWidth = 51;
-            this.dataGridViewBuscar.RowTemplate.Height = 24;
-            this.dataGridViewBuscar.Size = new System.Drawing.Size(740, 358);
-            this.dataGridViewBuscar.TabIndex = 21;
-            this.dataGridViewBuscar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBuscar_CellDoubleClick);
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.txtBusqueda.Location = new System.Drawing.Point(881, 52);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(166, 22);
-            this.txtBusqueda.TabIndex = 22;
-            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.18F);
-            this.label9.Location = new System.Drawing.Point(780, 49);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 25);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Buscar";
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(599, 359);
             this.Controls.Add(this.boxFraccionable);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.boxCategoria);
@@ -313,13 +250,10 @@
             this.Controls.Add(this.txtProducto);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnModificar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Productos";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,9 +279,5 @@
         private System.Windows.Forms.ComboBox boxCategoria;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox boxFraccionable;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridViewBuscar;
-        private System.Windows.Forms.TextBox txtBusqueda;
-        private System.Windows.Forms.Label label9;
     }
 }
