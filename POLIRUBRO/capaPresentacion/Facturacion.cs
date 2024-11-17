@@ -19,8 +19,6 @@ namespace POLIRUBRO.capaPresentacion
 
         CargarProducto b = new CargarProducto();
 
-
-
         private void Facturacion_Load(object sender, EventArgs e)
         {
             DateTime fecha = DateTime.Now;
@@ -63,7 +61,7 @@ namespace POLIRUBRO.capaPresentacion
             {
                 if (v.Verificar_vacio_txt(textBox_cantidad_vender))
                 {
-                    if (c.Comprobacion_Stock(textBox_cantidad_vender, textBox_stock));
+                    if (c.Comprobacion_Stock(textBox_cantidad_vender, textBox_stock)) ;
 
                     else
                     {
@@ -170,8 +168,6 @@ namespace POLIRUBRO.capaPresentacion
                             }
                         }
 
-
-
                     }
 
                 }
@@ -216,7 +212,6 @@ namespace POLIRUBRO.capaPresentacion
                     string codigo_barra = fila.Cells["Codigo_barra"].Value.ToString();
                     double cantidad = double.Parse(fila.Cells["Cantidad_a_vender"].Value.ToString());
 
-
                     if (Productos_a_vender.ContainsKey(codigo_barra))
                     {
                         Productos_a_vender[codigo_barra] += cantidad;
@@ -245,13 +240,22 @@ namespace POLIRUBRO.capaPresentacion
 
 
             int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+            int id_venta;
 
-            c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha);
+            c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha, out id_venta);
 
+            foreach (DataGridViewRow p in dgv_ventas.Rows)
+            {  
+                    string idProducto = p.Cells["Id"].Value.ToString();
+                    string cantidad = p.Cells["Cantidad_a_vender"].Value.ToString();
+                    string descuento = p.Cells["Descuento"].Value.ToString();
+                    string subtotal = p.Cells["SubTotal"].Value.ToString();
 
+                    c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);                
+            }
         }
 
-
+     
     }
 
 }

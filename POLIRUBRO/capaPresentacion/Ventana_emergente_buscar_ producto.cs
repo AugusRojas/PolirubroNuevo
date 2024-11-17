@@ -68,7 +68,7 @@ namespace POLIRUBRO.capaPresentacion
 
         private void dvg_filtrado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >=0)
+            if(e.RowIndex >= 0)
             {
                 string Id = dvg_filtrado.Rows[e.RowIndex].Cells["Id_Producto"].Value.ToString();
                 string codigo_barra = dvg_filtrado.Rows[e.RowIndex].Cells["Codigo_barra"].Value.ToString();

@@ -98,23 +98,24 @@ namespace POLIRUBRO.capaDatos
 
         }
 
-
-
         public void insert_datos_venta(int id_metodo_pago, TextBox total, TextBox fecha, out int idVenta)
         {
-            idVenta = 0;  
+            idVenta = 0;
 
             try
             {
                 SqlConnection conexion = Conexion.obtenerConexion();
-              
-                string consulta = $@"INSERT INTO Venta (Id_Metodo_pago, Monto_total, Fecha)  
-                             VALUES ({id_metodo_pago}, {total.Text}, '{fecha.Text}');
-                             SELECT SCOPE_IDENTITY();";  
+
+                string consulta = @"INSERT INTO Venta (Id_Metodo_pago, Monto_total, Fecha) VALUES (@IdMetodoPago, @MontoTotal, @Fecha);
+                            SELECT SCOPE_IDENTITY();";
 
                 SqlCommand comando = new SqlCommand(consulta, conexion);
 
-                idVenta = Convert.ToInt32(comando.ExecuteScalar()); 
+                comando.Parameters.AddWithValue("@IdMetodoPago", id_metodo_pago);
+                comando.Parameters.AddWithValue("@MontoTotal", decimal.Parse(total.Text));
+                comando.Parameters.AddWithValue("@Fecha", DateTime.Parse(fecha.Text));
+
+                idVenta = Convert.ToInt32(comando.ExecuteScalar());
 
                 conexion.Close();
             }
@@ -126,8 +127,24 @@ namespace POLIRUBRO.capaDatos
 
 
 
+        public void insert_datos_producto_en_venta(int idVenta, string idProducto, string cantidad, string descuento, string subtotal)
+        {
+            try
+            {
+                SqlConnection conexion = Conexion.obtenerConexion();
 
+                string consulta = $@"INSERT INTO ProductoXVenta(Id_Venta, Id_Producto, Cantidad, Descuento, Subtotal)VALUES ({idVenta}, {idProducto}, {cantidad}, {descuento}, {subtotal}); ";
 
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.ExecuteNonQuery();
+
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al registrar el producto en la venta: {ex.Message}");
+            }
+        }
 
     }
 

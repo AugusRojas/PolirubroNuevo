@@ -80,8 +80,6 @@ namespace POLIRUBRO
                 }
             }
 
-            // Aquí puedes pasar `Stock_nuevo` a otra capa o utilizarlo según sea necesario.
-
             Clase_cdatos_facturacion a = new Clase_cdatos_facturacion();
             a.Descontar_stock_datos(Stock_nuevo);
         }
@@ -108,11 +106,16 @@ namespace POLIRUBRO
 
         }
 
-        public void Insertar_venta(int id_metodo_pago, TextBox total, TextBox fecha)
+        public void Insertar_venta(int id_metodo_pago, TextBox total, TextBox fecha, out int idVenta)
         {
             Clase_cdatos_facturacion g = new Clase_cdatos_facturacion();
+            g.insert_datos_venta(id_metodo_pago, total, fecha, out idVenta);
+        }
 
-            g.insert_datos_venta(id_metodo_pago, total, fecha);
+        public void Insertar_producto_en_venta(int idVenta, string idProducto, string cantidad, string descuento, string subtotal)
+        {
+            Clase_cdatos_facturacion g = new Clase_cdatos_facturacion();
+            g.insert_datos_producto_en_venta(idVenta, idProducto, cantidad, descuento, subtotal);
         }
 
 
