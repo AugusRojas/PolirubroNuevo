@@ -26,6 +26,8 @@ namespace POLIRUBRO.capaPresentacion
             textBox_fecha.Text = fecha.ToString("d");
 
             comboBox_metodo_pago = b.cargar_comboBox(comboBox_metodo_pago, "Nombre_metodo_pago", "Metodo_pago");
+
+            textBox_descuento.Text = 0.ToString();
         }
 
         private void button_buscar_producto_Click(object sender, EventArgs e)
@@ -109,6 +111,7 @@ namespace POLIRUBRO.capaPresentacion
                                 textBox_stock.Clear();
                                 textBox_unidad.Clear();
                                 textBox_descuento.Clear();
+                                textBox_descuento.Text = 0.ToString();
 
                                 textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
                             }
@@ -159,6 +162,7 @@ namespace POLIRUBRO.capaPresentacion
                                 textBox_stock.Clear();
                                 textBox_unidad.Clear();
                                 textBox_descuento.Clear();
+                                textBox_descuento.Text = 0.ToString();
 
                                 textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
                             }
@@ -199,6 +203,7 @@ namespace POLIRUBRO.capaPresentacion
                 dgv_ventas.Rows.RemoveAt(e.RowIndex);
 
                 textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
+                textBox_descuento.Text = 0.ToString();
             }
         }
 
