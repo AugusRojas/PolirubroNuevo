@@ -71,21 +71,64 @@ namespace POLIRUBRO.capaDatos
         }
 
 
-       // public void Descontar_stock_datos(string codigo_barra, double descuento)
-        //{
-          //  try
-            //{
-              //  SqlConnection conexion = Conexion.obtenerConexion();
+        public void Descontar_stock_datos(Dictionary <string, double> stock_nuevo)
+        {
+            try
+            {
+                SqlConnection conexion = Conexion.obtenerConexion();
 
-                //string consulta = $"update Producto set Stock = {descuento} where Codigo_barra = {codigo_barra}";
+                foreach(var s in stock_nuevo)
+                {
+                    string consulta = $"update Producto set Stock = {s.Value} where Codigo_barra = {s.Key}";
 
-//            }
-             
-  //          catch
-    //        {
+                    SqlCommand comando = new SqlCommand(consulta, conexion);
 
-      //      }
-    
-    }    //}
+                    comando.ExecuteNonQuery();
+
+                    
+                }
+                MessageBox.Show("Stock Actualizado");
+
+            }
+
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+
+
+        public void insert_datos_venta(int id_metodo_pago, TextBox total, TextBox fecha, out int idVenta)
+        {
+            idVenta = 0;  
+
+            try
+            {
+                SqlConnection conexion = Conexion.obtenerConexion();
+              
+                string consulta = $@"INSERT INTO Venta (Id_Metodo_pago, Monto_total, Fecha)  
+                             VALUES ({id_metodo_pago}, {total.Text}, '{fecha.Text}');
+                             SELECT SCOPE_IDENTITY();";  
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+
+                idVenta = Convert.ToInt32(comando.ExecuteScalar()); 
+
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al registrar la venta: {ex.Message}");
+            }
+        }
+
+
+
+
+
+
+    }
 
 }

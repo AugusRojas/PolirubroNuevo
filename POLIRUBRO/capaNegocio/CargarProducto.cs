@@ -14,7 +14,6 @@ namespace POLIRUBRO
 {
     public class CargarProducto
     {
-
         public void cargarProducto(Producto p)
         {
             try

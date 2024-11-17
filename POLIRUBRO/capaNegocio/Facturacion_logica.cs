@@ -26,12 +26,12 @@ namespace POLIRUBRO
 
             foreach (DataGridViewRow fila in dgv.Rows)
             {
-                if (fila.IsNewRow) 
+                if (fila.IsNewRow)
                 {
                     continue;
                 }
 
-                if (double.TryParse(fila.Cells[5].Value.ToString(), out double valor))
+                if (double.TryParse(fila.Cells[6].Value.ToString(), out double valor))
                 {
                     total += valor;
                 }
@@ -42,13 +42,13 @@ namespace POLIRUBRO
 
         public bool Comprobacion_Stock(TextBox cantidad, TextBox stock)
         {
-            if(double.Parse(stock.Text) <= 0)
+            if (double.Parse(stock.Text) <= 0)
             {
                 MessageBox.Show("Producto insuficiente");
                 return true;
             }
 
-            else if(double.Parse(cantidad.Text) > double.Parse(stock.Text))
+            else if (double.Parse(cantidad.Text) > double.Parse(stock.Text))
             {
                 MessageBox.Show("La cantidad a vender es mas que el stock disponible");
                 return true;
@@ -56,6 +56,36 @@ namespace POLIRUBRO
 
             return false;
         }
+
+        public void Descuento_stock(Dictionary<string, double> Productos_a_vender, Dictionary<string, double> Stock_inicial)
+        {
+            Dictionary<string, double> Stock_nuevo = new Dictionary<string, double>();
+
+            foreach (var producto in Productos_a_vender)
+            {
+                string codigo_ean = producto.Key; 
+                double cantidad_a_vender = producto.Value; 
+                
+                if (Stock_inicial.ContainsKey(codigo_ean))
+                {
+                    double stock_inicial = Stock_inicial[codigo_ean]; 
+                    double nuevo_stock = stock_inicial - cantidad_a_vender;
+
+                    Stock_nuevo[codigo_ean] = nuevo_stock; 
+                    
+                }
+                else
+                {
+                    MessageBox.Show($"El producto con código {codigo_ean} no existe en el stock inicial.");
+                }
+            }
+
+            // Aquí puedes pasar `Stock_nuevo` a otra capa o utilizarlo según sea necesario.
+
+            Clase_cdatos_facturacion a = new Clase_cdatos_facturacion();
+            a.Descontar_stock_datos(Stock_nuevo);
+        }
+
 
         public double Aplicar_descuento(double cantidad_a_vender, double precio, TextBox descuento)
         {
@@ -77,6 +107,15 @@ namespace POLIRUBRO
             }
 
         }
+
+        public void Insertar_venta(int id_metodo_pago, TextBox total, TextBox fecha)
+        {
+            Clase_cdatos_facturacion g = new Clase_cdatos_facturacion();
+
+            g.insert_datos_venta(id_metodo_pago, total, fecha);
+        }
+
+
 
     }
 }
