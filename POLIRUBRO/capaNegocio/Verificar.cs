@@ -35,7 +35,7 @@ namespace POLIRUBRO
             else {MessageBox.Show("Nombre demasiado largo o demasiado corto","Longitud", MessageBoxButtons.OK, MessageBoxIcon.Warning); return false; }
         }
 
-        public bool verificar_stock(int stock)
+        public bool verificar_stock(double stock)
         { 
             if (stock <= 1001 && stock>0) { return true; }
             else { MessageBox.Show("No se permite Stock negativo o Stock superior a 1000", "Stock",MessageBoxButtons.OK, MessageBoxIcon.Warning); return false; }

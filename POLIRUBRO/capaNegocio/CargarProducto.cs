@@ -45,9 +45,10 @@ namespace POLIRUBRO
         {
             c.Items.Clear();//Limpiamos el combobox por las dudas
             SqlConnection conexion = Conexion.obtenerConexion();//establecemos conexion
-            string consulta = $"SELECT DISTINCT {nombre_a_buscar} FROM {t};";//creamos la consulta
+            string consulta = $"SELECT {nombre_a_buscar}  FROM {t}";//creamos la consulta
             SqlCommand comando = new SqlCommand(consulta, conexion);//creamos el comando
             SqlDataReader lector = comando.ExecuteReader();//lo ejecutamos
+            c.Items.Add("Seleccione una opcion...");
 
             while (lector.Read())//leemos mientra encuentre indices
             {

@@ -13,14 +13,14 @@ namespace POLIRUBRO.capaNegocio
         public int proveedor { get; set; }
         public int categoria { get; set; }
         public string codigoBarra { get; set; }
-        public int  stock { get; set; }
+        public double  stock { get; set; }
         public double precio { get; set; }
         public int unidad { get; set; }
         public int fraccionable { get; set; }
 
         public Producto(){}
 
-        public Producto(int proveedor, int categoria, string codigoBarra,string nombre, int stock, double precio, int unidad,int fraccionable)
+        public Producto(int proveedor, int categoria, string codigoBarra,string nombre, double stock, double precio, int unidad,int fraccionable)
         {
             this.nombre = nombre;
             this.proveedor = proveedor;
