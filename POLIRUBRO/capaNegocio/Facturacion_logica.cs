@@ -6,7 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using POLIRUBRO.capaDatos;
-
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 
 namespace POLIRUBRO
 {
@@ -118,6 +121,101 @@ namespace POLIRUBRO
             g.insert_datos_producto_en_venta(idVenta, idProducto, cantidad, descuento, subtotal);
         }
 
+
+
+        public void CrearPdf(string htmlContent, string outputPdfPath)
+        {
+            using (FileStream fs = new FileStream(outputPdfPath, FileMode.Create))
+            {
+                Document document = new Document();
+                PdfWriter writer = PdfWriter.GetInstance(document, fs);
+                document.Open();
+
+                // Convierte HTML en PDF
+                using (StringReader sr = new StringReader(htmlContent))
+                {
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, document, sr);
+                }
+
+                document.Close();
+            }
+        }
+
+        public void MostrarConfirmacionYAccion()
+        {
+            DialogResult result = MessageBox.Show("¿Deseas imprimir el comprobante?", "Imprimir Comprobante", MessageBoxButtons.YesNo);
+
+            // Ruta del archivo HTML base
+            string direccion_html = @"C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\imagenes - archivo\Estructura.html";
+
+            string htmlContent = File.ReadAllText(direccion_html);
+
+            Clase_cdatos_facturacion datosFacturacion = new Clase_cdatos_facturacion();
+            DataTable datosUltimaVenta = datosFacturacion.ObtenerUltimaVenta();
+
+            if (datosUltimaVenta.Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron datos de la última venta.");
+                return;
+            }
+
+            DataRow fila = datosUltimaVenta.Rows[0];
+
+            htmlContent = htmlContent.Replace("{FECHA}", Convert.ToDateTime(fila["fecha"]).ToString("dd/MM/yyyy"));
+            htmlContent = htmlContent.Replace("{ID_VENTA}", fila["Id_Venta"].ToString());
+            htmlContent = htmlContent.Replace("{METODO_DE_PAGO}", fila["Metodo_de_pago"].ToString());
+            htmlContent = htmlContent.Replace("{MONTO_TOTAL}", fila["Monto_total"].ToString());
+
+            string filasTabla = "";
+            foreach (DataRow productoFila in datosUltimaVenta.Rows)
+            {
+                string producto = productoFila["Producto"].ToString();
+                string cantidad = productoFila["Cantidad"].ToString();
+                string precio = productoFila["Precio"].ToString();
+                string unidad = productoFila["Unidad"].ToString();
+                string descuento = productoFila["Descuento"].ToString();
+                string subtotal = productoFila["Subtotal"].ToString();
+
+                filasTabla += $@"
+        <tr>
+            <td>{producto}</td>
+            <td>{cantidad}</td>
+            <td>${precio}</td>
+            <td>{unidad}</td>
+            <td>{descuento}%</td>
+            <td>${subtotal}</td>
+        </tr>";
+            }
+
+            htmlContent = htmlContent.Replace("{FILAS_TABLA}", filasTabla);
+
+            string direccion = @"C:\Users\My Home is unique\source\\Repos\LisandroGabrielReinoso\Polirubro\Comprobantes\comprobante - " + DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".pdf";
+
+            CrearPdf(htmlContent, direccion);
+
+            if (result == DialogResult.Yes)
+            {
+                ImprimirPdf(direccion);
+                MessageBox.Show("El comprobante ha sido guardado e impreso.");
+            }
+            else
+            {
+                MessageBox.Show("El comprobante ha sido guardado como PDF.");
+            }
+        }
+
+
+        private void ImprimirPdf(string direccion)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(direccion);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar imprimir: " + ex.Message);
+            }
+        }
 
 
     }

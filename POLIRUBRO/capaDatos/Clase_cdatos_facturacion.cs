@@ -146,6 +146,32 @@ namespace POLIRUBRO.capaDatos
             }
         }
 
+        public DataTable ObtenerUltimaVenta()
+        {
+            DataTable datos = new DataTable();
+
+            try
+            {
+                SqlConnection conexion = Conexion.obtenerConexion();
+
+                string consulta = "select * from Ultima_Venta";
+
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                datos.Load(reader);
+                reader.Close();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener la última venta: {ex.Message}");
+            }
+
+            return datos;
+        }
+
     }
 
 }

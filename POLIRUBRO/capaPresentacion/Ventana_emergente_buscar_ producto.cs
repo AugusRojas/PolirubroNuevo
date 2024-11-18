@@ -64,8 +64,6 @@ namespace POLIRUBRO.capaPresentacion
            
         }
 
-      
-
         private void dvg_filtrado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex >= 0)

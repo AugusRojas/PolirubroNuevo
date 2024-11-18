@@ -104,14 +104,12 @@ namespace POLIRUBRO.capaPresentacion
                                     Stock_inicial[textBox_codigo_ean.Text] = double.Parse(textBox_stock.Text);
                                 }
 
-                                textBox_cantidad_vender.Clear();
-                                textBox_codigo_ean.Clear();
-                                textBox_Nombre.Clear();
-                                textBox_precio.Clear();
+                                textBox_cantidad_vender.Clear();textBox_codigo_ean.Clear();textBox_Nombre.Clear();textBox_precio.Clear();
                                 textBox_stock.Clear();
                                 textBox_unidad.Clear();
                                 textBox_descuento.Clear();
                                 textBox_descuento.Text = 0.ToString();
+                                textBox_Id.Clear();
 
                                 textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
                             }
@@ -162,6 +160,7 @@ namespace POLIRUBRO.capaPresentacion
                                 textBox_stock.Clear();
                                 textBox_unidad.Clear();
                                 textBox_descuento.Clear();
+                                textBox_Id.Clear();
                                 textBox_descuento.Text = 0.ToString();
 
                                 textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
@@ -210,6 +209,12 @@ namespace POLIRUBRO.capaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (dgv_ventas.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay productos cargados para vender", "Error", MessageBoxButtons.OK);
+                return; 
+            }
+
             foreach (DataGridViewRow fila in dgv_ventas.Rows)
             {
                 if (fila.Cells["Codigo_barra"].Value != null && fila.Cells["Cantidad_a_vender"].Value != null)
@@ -239,10 +244,9 @@ namespace POLIRUBRO.capaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("No hay productos cargados para la venta");
+                    MessageBox.Show("No hay productos cargados para la venta.");
                 }
             }
-
 
             int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
             int id_venta;
@@ -250,17 +254,22 @@ namespace POLIRUBRO.capaPresentacion
             c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha, out id_venta);
 
             foreach (DataGridViewRow p in dgv_ventas.Rows)
-            {  
-                    string idProducto = p.Cells["Id"].Value.ToString();
-                    string cantidad = p.Cells["Cantidad_a_vender"].Value.ToString();
-                    string descuento = p.Cells["Descuento"].Value.ToString();
-                    string subtotal = p.Cells["SubTotal"].Value.ToString();
+            {
+                string idProducto = p.Cells["Id"].Value.ToString();
+                string cantidad = p.Cells["Cantidad_a_vender"].Value.ToString();
+                string descuento = p.Cells["Descuento"].Value.ToString();
+                string subtotal = p.Cells["SubTotal"].Value.ToString();
 
-                    c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);                
+                c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);
             }
+
+            textBox_total.Clear();
+            dgv_ventas.Rows.Clear();
+
+            //------------------------------------------------------impresion--------------------------------------------------------------------------
+
+            c.MostrarConfirmacionYAccion();
         }
 
-     
     }
-
 }
