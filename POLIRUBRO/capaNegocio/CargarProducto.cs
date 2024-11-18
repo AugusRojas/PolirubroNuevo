@@ -19,10 +19,7 @@ namespace POLIRUBRO
             try
             {
                 SqlConnection conexion = Conexion.obtenerConexion();//creamos la conexion
-                string consulta = "INSERT INTO Producto (Id_Proveedor, Id_Categoria, Codigo_barra, Nombre, Stock, Precio, Id_Unidad,Fraccionable) " +
-                                                 "VALUES (@Id_Proveedor, @Id_Categoria, @Codigo_barra, @Nombre, @Stock, @Precio, @Id_Unidad,@Fraccionable)";
-
-                SqlCommand comando = new SqlCommand(consulta, conexion);//creamos el comando
+                SqlCommand comando = new SqlCommand("insertarProducto", conexion);//creamos el comando
                 // Agregar parámetros de forma segura
                 comando.Parameters.AddWithValue("@Id_Proveedor", p.proveedor);
                 comando.Parameters.AddWithValue("@Id_Categoria", p.categoria);
@@ -32,6 +29,7 @@ namespace POLIRUBRO
                 comando.Parameters.AddWithValue("@Precio", p.precio);
                 comando.Parameters.AddWithValue("@Id_Unidad", p.unidad);
                 comando.Parameters.AddWithValue("@Fraccionable", p.fraccionable);
+                comando.CommandType = CommandType.StoredProcedure;
                 comando.ExecuteNonQuery();//ejecutamos la consulta
                 conexion.Close();//cerramos conexion
                 MessageBox.Show("Carga exitosa");//mandamos la retroalimentacion
@@ -41,6 +39,7 @@ namespace POLIRUBRO
                 MessageBox.Show(ex.Message);//damos un mensaje de error en caso de error
             }
         }
+
 
         public ComboBox cargar_comboBox(ComboBox c, string nombre_a_buscar, string t)
         {
@@ -62,6 +61,49 @@ namespace POLIRUBRO
             catch(Exception e) { MessageBox.Show(e.Message); return null; }
             // ponemos el valor por default
             return c;//retornamos el ComboBox
+        }
+        public void modificarProducto(Producto p)
+        {
+            try
+            {
+                SqlConnection conexion = Conexion.obtenerConexion();//creamos la conexion
+                SqlCommand comando = new SqlCommand("modificarProducto", conexion);//creamos el comando
+                // Agregar parámetros de forma segura
+                comando.Parameters.AddWithValue("@Id_Proveedor", p.proveedor);
+                comando.Parameters.AddWithValue("@Id_Categoria", p.categoria);
+                comando.Parameters.AddWithValue("@Codigo_barra", p.codigoBarra);
+                comando.Parameters.AddWithValue("@Nombre", p.nombre);
+                comando.Parameters.AddWithValue("@Stock", p.stock);
+                comando.Parameters.AddWithValue("@Precio", p.precio);
+                comando.Parameters.AddWithValue("@Id_Unidad", p.unidad);
+                comando.Parameters.AddWithValue("@Fraccionable", p.fraccionable);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.ExecuteNonQuery();//ejecutamos la consulta
+                conexion.Close();//cerramos conexion
+                MessageBox.Show("Modificacion exitosa");//mandamos la retroalimentacion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);//damos un mensaje de error en caso de error
+            }
+        }
+
+        public void eliminarProducto(string nombre)
+        {
+            try
+            {
+                SqlConnection conexion = Conexion.obtenerConexion();//creamos la conexion
+                SqlCommand comando = new SqlCommand("eliminarProducto", conexion);//creamos el comando
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@Nombre",nombre);
+                comando.ExecuteNonQuery();//ejecutamos la consulta
+                conexion.Close();//cerramos conexion
+                MessageBox.Show("Eliminacion exitosa");//mandamos la retroalimentacion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);//damos un mensaje de error en caso de error
+            }
         }
 
         public int buscar_id(string columna, string id_a_seleccionar, string tabla, string valor)
@@ -87,7 +129,12 @@ namespace POLIRUBRO
             {
                 SqlConnection conexion = Conexion.obtenerConexion();
                 DataTable tabla = new DataTable();
-                string consulta = "SELECT * FROM Producto";
+                string consulta = "SELECT Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
+                                  "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
+                                  "FROM Producto " +
+                                  "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
+                                  "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
+                                  "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor";
                 SqlCommand comando = new SqlCommand(consulta, conexion);
                 SqlDataAdapter adapter = new SqlDataAdapter(comando);
                 adapter.Fill(tabla);
@@ -101,8 +148,13 @@ namespace POLIRUBRO
         {
             DataTable dt = new DataTable();
             SqlConnection conexion = Conexion.obtenerConexion();
-            string consulta = $"SELECT Nombre,Codigo_barra,Stock,Precio FROM Producto " +
-                $"WHERE Nombre LIKE @busqueda";
+            string consulta = "SELECT Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
+                              "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
+                              "FROM Producto " +
+                              "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
+                              "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
+                              "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
+                              "WHERE Producto.Nombre LIKE @busqueda";
             SqlCommand comando = new SqlCommand(consulta, conexion);
             comando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%");
             SqlDataAdapter adaptador = new SqlDataAdapter(comando);

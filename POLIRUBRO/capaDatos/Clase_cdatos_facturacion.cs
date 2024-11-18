@@ -32,10 +32,7 @@ namespace POLIRUBRO.capaDatos
                                     Producto.Nombre, Producto.Stock,
                                     Producto.Precio, Categoria.Nombre_categoria AS Categoria, 
                                     Unidad.Nombre_unidad AS Unidad,
-                                    CASE
-                                    WHEN Producto.Fraccionable = 1 THEN 'Si'
-                                    ELSE 'No'
-                                    END AS Fraccionable 
+              
                                     FROM Producto
                                     LEFT JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria
                                     LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad
