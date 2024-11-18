@@ -70,6 +70,7 @@ namespace POLIRUBRO.capaPresentacion
         {
             if(e.RowIndex >=0)
             {
+                string Id = dvg_filtrado.Rows[e.RowIndex].Cells["Id_Producto"].Value.ToString();
                 string codigo_barra = dvg_filtrado.Rows[e.RowIndex].Cells["Codigo_barra"].Value.ToString();
                 string nombre = dvg_filtrado.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
                 string stock = dvg_filtrado.Rows[e.RowIndex].Cells["Stock"].Value.ToString();
@@ -77,7 +78,7 @@ namespace POLIRUBRO.capaPresentacion
                 string unidad = dvg_filtrado.Rows[e.RowIndex].Cells["Unidad"].Value.ToString();
                 string fraccionable = dvg_filtrado.Rows[e.RowIndex].Cells["Fraccionable"].Value.ToString();
 
-                f.Mostrar_datos(codigo_barra, nombre, stock, precio, unidad, fraccionable);
+                f.Mostrar_datos(Id, codigo_barra, nombre, stock, precio, unidad, fraccionable);
 
                 this.Close();
 
@@ -85,6 +86,11 @@ namespace POLIRUBRO.capaPresentacion
         }
 
         private void dvg_filtrado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Ventana_emergente_buscar__producto_Load(object sender, EventArgs e)
         {
 
         }
