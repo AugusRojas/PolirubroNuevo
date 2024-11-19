@@ -59,3 +59,5 @@ C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\PolirubroNuevo\PO
 C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\PolirubroNuevo\POLIRUBRO\bin\Debug\BouncyCastle.Cryptography.xml
 C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\PolirubroNuevo\POLIRUBRO\bin\Debug\itextsharp.xml
 C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\PolirubroNuevo\POLIRUBRO\obj\Debug\POLIRUBRO.csproj.CopyComplete
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\PolirubroNuevo\POLIRUBRO\bin\Debug\Microsoft.VisualStudio.LiveShare.dll
+C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\PolirubroNuevo\POLIRUBRO\bin\Debug\Microsoft.VisualStudio.LiveShare.xml

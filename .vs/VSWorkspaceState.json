@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\POLIRUBRO",
-    "\\POLIRUBRO\\capaNegocio",
+    "\\POLIRUBRO\\capaDatos",
     "\\POLIRUBRO\\capaPresentacion"
   ],
-  "SelectedNode": "\\POLIRUBRO\\capaPresentacion\\Facturacion.cs",
   "PreviewInSolutionExplorer": false
 }
