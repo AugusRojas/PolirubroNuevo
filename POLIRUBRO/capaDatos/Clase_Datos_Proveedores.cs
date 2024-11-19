@@ -7,6 +7,7 @@ using POLIRUBRO.capaNegocio;
 
 namespace POLIRUBRO.capaDatos
 {
+    //Hola Puto;
     public class Clase_Datos_Proveedores
     {
         public DataTable Buscar_Proveedores(string filtro, string palabra_escrita)
