@@ -17,7 +17,7 @@ namespace POLIRUBRO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new capaPresentacion.Productos());
+            Application.Run(new Facturacion());
         }
     }
 }

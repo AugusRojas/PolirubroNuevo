@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\POLIRUBRO\\capaNegocio"
+    "\\POLIRUBRO",
+    "\\POLIRUBRO\\capaDatos",
+    "\\POLIRUBRO\\capaNegocio",
+    "\\POLIRUBRO\\capaPresentacion",
+    "\\POLIRUBRO\\imagenes - archivo"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\POLIRUBRO\\imagenes - archivo\\Estructura.html",
   "PreviewInSolutionExplorer": false
 }
