@@ -6,7 +6,7 @@ namespace POLIRUBRO
     public static class Conexion
     {
         // Cambia esta cadena de conexión para que apunte a tu base de datos MySQL en XAMPP
-        static string conexion = "Server=AUGUSTO\\SQLEXPRESS; Database=sistema_de_ventas; Integrated Security=True;";
+        static string conexion = "Server=JOSUE\\SQLEXPRESS; Database=POLIRUBRO; Integrated Security=True;";
 
         // Método para obtener la conexión a la base de datos MySQL
         public static SqlConnection obtenerConexion()
