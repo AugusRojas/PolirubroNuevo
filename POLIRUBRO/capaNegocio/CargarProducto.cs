@@ -8,12 +8,12 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POLIRUBRO.capaDatos;
 
 namespace POLIRUBRO
 {
     public class CargarProducto
     {
-
         public void cargarProducto(Producto p)
         {
             try
@@ -163,7 +163,6 @@ namespace POLIRUBRO
             adaptador.Fill(dt);
             return dt;
         }
-
         public void insertar_medio_de_pago(string insertar)
         {
             SqlConnection conexion = Conexion.obtenerConexion();
