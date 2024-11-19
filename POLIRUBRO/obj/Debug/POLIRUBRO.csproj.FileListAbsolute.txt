@@ -45,7 +45,6 @@ C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\bin\Debug\POLIRUBRO.pdb
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.csproj.AssemblyReference.cache
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.capaPresentacion.categoria_metodo_pago.resources
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.capaPresentacion.Facturacion.resources
-C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.Form1.resources
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.capaPresentacion.Productos.resources
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.capaPresentacion.Proveedores.resources
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.capaPresentacion.Ventana_emergente_buscar__producto.resources
@@ -54,3 +53,4 @@ C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.cspr
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.csproj.CoreCompileInputs.cache
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.exe
 C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.pdb
+C:\Users\Estudiante\Source\Repos\gabriell-v16\Polirubro\obj\Debug\POLIRUBRO.capaPresentacion.MenuSistema.resources
