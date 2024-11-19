@@ -261,7 +261,6 @@
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(166, 22);
             this.txtBusqueda.TabIndex = 22;
-            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // label9
             // 

@@ -45,7 +45,7 @@ namespace POLIRUBRO.capaPresentacion
             this.label2.Location = new System.Drawing.Point(8, 45);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 20);
+            this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Buscar por";
             // 
@@ -59,7 +59,7 @@ namespace POLIRUBRO.capaPresentacion
             this.comboBox1.Location = new System.Drawing.Point(89, 42);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(136, 26);
+            this.comboBox1.Size = new System.Drawing.Size(136, 23);
             this.comboBox1.TabIndex = 1;
             // 
             // dvg_filtrado
@@ -98,13 +98,13 @@ namespace POLIRUBRO.capaPresentacion
             this.textBox_buscar_filtro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_buscar_filtro.Location = new System.Drawing.Point(238, 42);
             this.textBox_buscar_filtro.Name = "textBox_buscar_filtro";
-            this.textBox_buscar_filtro.Size = new System.Drawing.Size(136, 26);
+            this.textBox_buscar_filtro.Size = new System.Drawing.Size(136, 22);
             this.textBox_buscar_filtro.TabIndex = 3;
             this.textBox_buscar_filtro.TextChanged += new System.EventHandler(this.textBox_buscar_filtro_TextChanged);
             // 
             // Ventana_emergente_buscar__producto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 387);
             this.Controls.Add(this.groupBox1);
@@ -114,6 +114,7 @@ namespace POLIRUBRO.capaPresentacion
             this.Name = "Ventana_emergente_buscar__producto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana_emergente_buscar__producto";
+            this.Load += new System.EventHandler(this.Ventana_emergente_buscar__producto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_filtrado)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
