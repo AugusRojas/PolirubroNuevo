@@ -89,14 +89,14 @@ namespace POLIRUBRO
             }
         }
 
-        public void eliminarProducto(string nombre)
+        public void eliminarProducto(int Id)
         {
             try
             {
                 SqlConnection conexion = Conexion.obtenerConexion();//creamos la conexion
                 SqlCommand comando = new SqlCommand("eliminarProducto", conexion);//creamos el comando
                 comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@Nombre",nombre);
+                comando.Parameters.AddWithValue("@Id",Id);
                 comando.ExecuteNonQuery();//ejecutamos la consulta
                 conexion.Close();//cerramos conexion
                 MessageBox.Show("Eliminacion exitosa");//mandamos la retroalimentacion
@@ -130,7 +130,7 @@ namespace POLIRUBRO
             {
                 SqlConnection conexion = Conexion.obtenerConexion();
                 DataTable tabla = new DataTable();
-                string consulta = "SELECT Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
+                string consulta = "SELECT  Producto.Id_Producto AS Id ,Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
                                   "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
                                   "FROM Producto " +
                                   "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
@@ -149,7 +149,7 @@ namespace POLIRUBRO
         {
             DataTable dt = new DataTable();
             SqlConnection conexion = Conexion.obtenerConexion();
-            string consulta = "SELECT Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
+            string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
                               "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
                               "FROM Producto " +
                               "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
@@ -166,9 +166,8 @@ namespace POLIRUBRO
         public void insertar_medio_de_pago(string insertar)
         {
             SqlConnection conexion = Conexion.obtenerConexion();
-            SqlCommand comando = new SqlCommand("insertarMetodoPago", conexion);
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@Nombre_metodo_pago", insertar);
+            SqlCommand comando = new SqlCommand("INSERT INTO Metodo_pago (Nombre_metodo_pago) VALUES (@insertar);", conexion);
+            comando.Parameters.AddWithValue("@insertar", insertar);
             comando.ExecuteNonQuery();
             conexion.Close();
             MessageBox.Show("Agregado medio de pago exitosamente");

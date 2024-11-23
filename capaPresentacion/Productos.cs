@@ -56,18 +56,27 @@ namespace POLIRUBRO.capaPresentacion
             }
             else
             {
-                p.nombre = txtProducto.Text;
-                p.precio= Convert.ToDouble(txtPrecio.Text);
-                p.codigoBarra = txtCodigoBarra.Text;
-                p.stock = Convert.ToDouble(txtStock.Text);
-                p.proveedor = cargarProducto.buscar_id("Nombre_proveedor", "Id_Proveedor", "Proveedor", boxProveedor.SelectedItem.ToString());
-                p.categoria = cargarProducto.buscar_id("Nombre_Categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString());
-                p.unidad = cargarProducto.buscar_id("Nombre_Unidad", "Id_Unidad", "Unidad", boxUnidad.SelectedItem.ToString());
-                if (boxFraccionable.SelectedIndex==0) { p.fraccionable = 1; }
-                else { p.fraccionable = 0; }
-                //Llamo a la funcion cargarProducto y le paso el producto(p)
-                cargarProducto.cargarProducto(p);
-                dataGridView1.DataSource= cargarProducto.obtenerTabla();
+
+                if (!verificar.verificar_repetido(txtCodigoBarra.Text))
+                {
+                    MessageBox.Show("Codigo de barra ya existente", "Codigo de barra repetido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    p.nombre = txtProducto.Text;
+                    p.precio = Convert.ToDouble(txtPrecio.Text);
+                    p.codigoBarra = txtCodigoBarra.Text;
+                    p.stock = Convert.ToDouble(txtStock.Text);
+                    p.proveedor = cargarProducto.buscar_id("Nombre_proveedor", "Id_Proveedor", "Proveedor", boxProveedor.SelectedItem.ToString());
+                    p.categoria = cargarProducto.buscar_id("Nombre_Categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString());
+                    p.unidad = cargarProducto.buscar_id("Nombre_Unidad", "Id_Unidad", "Unidad", boxUnidad.SelectedItem.ToString());
+                    if (boxFraccionable.SelectedIndex == 0) { p.fraccionable = 1; }
+                    else { p.fraccionable = 0; }
+                    //Llamo a la funcion cargarProducto y le paso el producto(p)
+                    cargarProducto.cargarProducto(p);
+                    dataGridView1.DataSource = cargarProducto.obtenerTabla();
+                }
             }
         }
         private void txtProducto_KeyPress(object sender, KeyPressEventArgs e)
@@ -149,6 +158,7 @@ namespace POLIRUBRO.capaPresentacion
             Console.WriteLine(cargarProducto.buscar_id("Nombre_unidad", "Id_Unidad", "Unidad", dataGridView1.Rows[e.RowIndex].Cells["Unidad"].Value.ToString()));
             if (e.RowIndex >=0)
             {
+                txtId.Text = dataGridView1.Rows[e.RowIndex].Cells["Id"].Value.ToString();
                 txtPrecio.Text = dataGridView1.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
                 txtCodigoBarra.Text = dataGridView1.Rows[e.RowIndex].Cells["Codigo_barra"].Value.ToString();
                 txtProducto.Text = dataGridView1.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
@@ -170,7 +180,8 @@ namespace POLIRUBRO.capaPresentacion
             }
             else
             {
-            cargarProducto.eliminarProducto(txtProducto.Text);
+                cargarProducto.eliminarProducto(Convert.ToInt32(txtId.Text));
+                cargarProducto.obtenerTabla();
 
             }
         }

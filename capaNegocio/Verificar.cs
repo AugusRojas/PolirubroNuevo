@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -35,6 +36,28 @@ namespace POLIRUBRO
             else {MessageBox.Show("Nombre demasiado largo o demasiado corto","Longitud", MessageBoxButtons.OK, MessageBoxIcon.Warning); return false; }
         }
 
+        public bool verificar_repetido(string codigoBarra)
+        {
+            SqlConnection conexion = Conexion.obtenerConexion();
+            string consulta = @"SELECT COUNT(Codigo_barra) AS TOTAL FROM Producto where Codigo_barra = @codigoBarra;";
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            comando.Parameters.AddWithValue(@"codigoBarra", codigoBarra);
+            SqlDataReader lector = comando.ExecuteReader();
+            if (lector.Read()) // Leer la fila
+            {
+                int count = lector.GetInt32(0); // Obtener el valor de la primera columna
+
+                if (count > 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
         public bool verificar_stock(double stock)
         { 
             if (stock <= 1001 && stock>0) { return true; }
