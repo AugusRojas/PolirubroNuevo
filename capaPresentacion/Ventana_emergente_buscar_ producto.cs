@@ -76,11 +76,7 @@ namespace POLIRUBRO.capaPresentacion
                 string unidad = dvg_filtrado.Rows[e.RowIndex].Cells["Unidad"].Value.ToString();
                 string fraccionable = dvg_filtrado.Rows[e.RowIndex].Cells["Fraccionable"].Value.ToString();
 
-<<<<<<< HEAD:POLIRUBRO/capaPresentacion/Ventana_emergente_buscar_ producto.cs
-                f.Mostrar_datos(Id, codigo_barra, nombre, stock, precio, unidad, fraccionable);
-=======
                 f.Mostrar_datos(Id,codigo_barra, nombre, stock, precio, unidad, fraccionable);
->>>>>>> 2f1f12c55481a22fa39752452a3fdd24b1eae0ae:capaPresentacion/Ventana_emergente_buscar_ producto.cs
 
                 this.Close();
 
