@@ -10,7 +10,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
-
+using POLIRUBRO.capaNegocio;
 
 namespace POLIRUBRO
 {
@@ -148,9 +148,6 @@ namespace POLIRUBRO
         public void MostrarConfirmacionYAccion()
         {
             DialogResult result = MessageBox.Show("¿Deseas imprimir el comprobante?", "Imprimir Comprobante", MessageBoxButtons.YesNo);
-
-            // Ruta del archivo HTML base
-            //string direccion_html = @"C:\Users\augus\source\repos\PolirubroNuevo\PolirubroNuevo\archivo - img\Estructura.html";
 
             string htmlContent = @"
 <!DOCTYPE html>
@@ -356,13 +353,17 @@ namespace POLIRUBRO
 
             htmlContent = htmlContent.Replace("{FILAS_TABLA}", filasTabla);
 
-            string direccion = @"C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\PolirubroNuevo\Comprobantes - " + DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".pdf";
+            Creacion_dinamica_carpetas creacion = new Creacion_dinamica_carpetas();
+            string carpetaComprobantes = creacion.Crear_carpeta_comprobante();
 
-            CrearPdf(htmlContent, direccion);
+            string nombreArchivo = $"Comprobante-{DateTime.Now:yyyy-MM-dd_HH-mm}.pdf";
+            string rutaArchivo = Path.Combine(carpetaComprobantes, nombreArchivo);
+
+            CrearPdf(htmlContent, rutaArchivo);
 
             if (result == DialogResult.Yes)
             {
-                ImprimirPdf(direccion);
+                ImprimirPdf(rutaArchivo);
                 MessageBox.Show("El comprobante ha sido guardado e impreso.");
             }
             else
