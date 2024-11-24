@@ -3,10 +3,8 @@
     "",
     "\\POLIRUBRO",
     "\\POLIRUBRO\\capaDatos",
-    "\\POLIRUBRO\\capaNegocio",
-    "\\POLIRUBRO\\capaPresentacion",
-    "\\POLIRUBRO\\imagenes - archivo"
+    "\\POLIRUBRO\\capaPresentacion"
   ],
-  "SelectedNode": "\\POLIRUBRO\\imagenes - archivo\\Estructura.html",
+  "SelectedNode": "\\POLIRUBRO\\capaDatos\\Clase_cdatos_facturacion.cs",
   "PreviewInSolutionExplorer": false
 }

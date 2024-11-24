@@ -63,7 +63,12 @@ namespace POLIRUBRO.capaPresentacion
             {
                 if (v.Verificar_vacio_txt(textBox_cantidad_vender))
                 {
-                    if (c.Comprobacion_Stock(textBox_cantidad_vender, textBox_stock)) ;
+                    double sumador = double.Parse(textBox_cantidad_vender.Text);
+                    if (c.Comprobacion_Stock(ref sumador, textBox_stock))
+                    {
+                        // Si el método devuelve "true", ya sabés que hay problema de stock.
+                        MessageBox.Show($"La cantidad ajustada es {sumador}");
+                    }
 
                     else
                     {
@@ -104,7 +109,7 @@ namespace POLIRUBRO.capaPresentacion
                                     Stock_inicial[textBox_codigo_ean.Text] = double.Parse(textBox_stock.Text);
                                 }
 
-                                textBox_cantidad_vender.Clear(); textBox_codigo_ean.Clear(); textBox_Nombre.Clear(); textBox_precio.Clear();
+                                textBox_cantidad_vender.Clear();textBox_codigo_ean.Clear();textBox_Nombre.Clear();textBox_precio.Clear();
                                 textBox_stock.Clear();
                                 textBox_unidad.Clear();
                                 textBox_descuento.Clear();
@@ -207,14 +212,12 @@ namespace POLIRUBRO.capaPresentacion
         }
 
 
-
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
             if (dgv_ventas.Rows.Count == 0)
             {
                 MessageBox.Show("No hay productos cargados para vender", "Error", MessageBoxButtons.OK);
-                return;
+                return; 
             }
 
             foreach (DataGridViewRow fila in dgv_ventas.Rows)
@@ -272,6 +275,34 @@ namespace POLIRUBRO.capaPresentacion
 
             c.MostrarConfirmacionYAccion();
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Productos p = new Productos();
+            p.Show();
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Proveedores pr = new Proveedores();
+            pr.Show();
+        }
+
+        private void metodoDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            categoria_metodo_pago mp = new categoria_metodo_pago();
+            mp.Show();
+        }
+
+        private void generarReporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Generar_Reporte gr = new Generar_Reporte();
+            gr.Show();
+        }
+
+        private void textBox_cantidad_vender_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            v.verificar_numeros_evento(e);
+        }
     }
 }
-
