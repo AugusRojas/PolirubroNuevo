@@ -46,11 +46,9 @@ namespace POLIRUBRO.capaPresentacion
             this.label2.Location = new System.Drawing.Point(8, 45);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-<<<<<<< HEAD:POLIRUBRO/capaPresentacion/Ventana_emergente_buscar_ producto.Designer.cs
-            this.label2.Size = new System.Drawing.Size(73, 16);
-=======
+
             this.label2.Size = new System.Drawing.Size(96, 20);
->>>>>>> 2f1f12c55481a22fa39752452a3fdd24b1eae0ae:capaPresentacion/Ventana_emergente_buscar_ producto.Designer.cs
+
             this.label2.TabIndex = 0;
             this.label2.Text = "Buscar por";
             // 

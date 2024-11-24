@@ -70,16 +70,16 @@ namespace POLIRUBRO
 
             foreach (var producto in Productos_a_vender)
             {
-                string codigo_ean = producto.Key; 
-                double cantidad_a_vender = producto.Value; 
-                
+                string codigo_ean = producto.Key;
+                double cantidad_a_vender = producto.Value;
+
                 if (Stock_inicial.ContainsKey(codigo_ean))
                 {
-                    double stock_inicial = Stock_inicial[codigo_ean]; 
+                    double stock_inicial = Stock_inicial[codigo_ean];
                     double nuevo_stock = stock_inicial - cantidad_a_vender;
 
-                    Stock_nuevo[codigo_ean] = nuevo_stock; 
-                    
+                    Stock_nuevo[codigo_ean] = nuevo_stock;
+
                 }
                 else
                 {
@@ -95,7 +95,7 @@ namespace POLIRUBRO
         public double Aplicar_descuento(double cantidad_a_vender, double precio, TextBox descuento)
         {
 
-            if(descuento.Text == "")
+            if (descuento.Text == "")
             {
                 return precio * cantidad_a_vender;
             }
@@ -150,9 +150,172 @@ namespace POLIRUBRO
             DialogResult result = MessageBox.Show("¿Deseas imprimir el comprobante?", "Imprimir Comprobante", MessageBoxButtons.YesNo);
 
             // Ruta del archivo HTML base
-            string direccion_html = @"C:\Users\augus\source\repos\PolirubroNuevo\PolirubroNuevo\archivo - img\Estructura.html";
+            //string direccion_html = @"C:\Users\augus\source\repos\PolirubroNuevo\PolirubroNuevo\archivo - img\Estructura.html";
 
-            string htmlContent = File.ReadAllText(direccion_html);
+            string htmlContent = @"
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .factura {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .header, .footer {
+            margin-bottom: 20px;
+        }
+
+        .header-info {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .header-info p {
+            margin: 5px 0;
+        }
+
+        .footer {
+            text-align: right;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        td {
+            font-size: 13px;
+        }
+
+        .total-line {
+            border-top: 2px solid #ccc;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .total-final {
+            font-size: 18px;
+            font-weight: bold;
+            padding-top: 10px;
+            color: #333;
+            margin-bottom: 200px;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .factura {
+                border: none;
+                margin-right: 100px;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            h2, h3 {
+                page-break-before: always;
+            }
+
+            .total-final {
+                page-break-after: always;
+            }
+        }
+
+        .fecha {
+            text-align: right;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        h2 {
+            margin-bottom: 26px;
+        }
+
+        #metodo {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class='factura'>
+        <p class='fecha'>Fecha: {FECHA}</p>
+        <h2>N° de Comprobante #{ID_VENTA}</h2>
+        <div class='header'>
+            <div class='header-info'>
+                <p><strong>Polirubro:</strong> DE TODO UN POCO</p>
+                <p><strong>Dirección:</strong> Alicia p de Garzon 850</p>
+                <p><strong>Teléfono:</strong> 3815730404</p>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>$/Unidad</th>
+                    <th>Descuento</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {FILAS_TABLA}
+            </tbody>
+        </table>
+        <p id='metodo'>Método de pago: {METODO_DE_PAGO}</p>
+        <div class='footer'>
+            <div class='total-line'></div>
+            <p class='total-final'>TOTAL: $ {MONTO_TOTAL}</p>
+        </div>
+    </div>
+</body>
+</html>";
+
 
             Clase_cdatos_facturacion datosFacturacion = new Clase_cdatos_facturacion();
             DataTable datosUltimaVenta = datosFacturacion.ObtenerUltimaVenta();
@@ -181,19 +344,19 @@ namespace POLIRUBRO
                 string subtotal = productoFila["Subtotal"].ToString();
 
                 filasTabla += $@"
-        <tr>
-            <td>{producto}</td>
-            <td>{cantidad}</td>
-            <td>${precio}</td>
-            <td>{unidad}</td>
-            <td>{descuento}%</td>
-            <td>${subtotal}</td>
-        </tr>";
+                                <tr>
+                                  <td>{producto}</td>
+                                  <td>{cantidad}</td>
+                                  <td>${precio}</td>
+                                  <td>{unidad}</td>
+                                  <td>{descuento}%</td>
+                                  <td>${subtotal}</td>
+                                </tr>";
             }
 
             htmlContent = htmlContent.Replace("{FILAS_TABLA}", filasTabla);
 
-            string direccion = @"C:\Users\augus\source\repos\PolirubroNuevo\PolirubroNuevo\Comprobantes - " + DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".pdf";
+            string direccion = @"C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\PolirubroNuevo\Comprobantes - " + DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".pdf";
 
             CrearPdf(htmlContent, direccion);
 

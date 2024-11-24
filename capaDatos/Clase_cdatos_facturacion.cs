@@ -28,14 +28,21 @@ namespace POLIRUBRO.capaDatos
                 SqlConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = $@"SELECT 
-                                    Producto.Id_Producto, Producto.Codigo_barra,
-                                    Producto.Nombre, Producto.Stock,
-                                    Producto.Precio, Categoria.Nombre_categoria AS Categoria, 
+                                    Producto.Id_Producto,
+                                    Producto.Codigo_barra,
+                                    Producto.Nombre,
+                                    Producto.Stock,
+                                    Producto.Precio,
+                                    Categoria.Nombre_categoria AS Categoria, 
                                     Unidad.Nombre_unidad AS Unidad,
-                                    Producto.Fraccionable
-                                    FROM Producto
+                                    CASE 
+                                    WHEN Producto.Fraccionable = 1 THEN 'Sí'
+                                    ELSE 'No'
+                                    END AS Fraccionable
+                                    FROM 
+                                    Producto 
                                     LEFT JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria
-                                    LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad
+                                    LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad  
                                     WHERE {filtro} LIKE '%" + palabra_escrita + "%'";
 
                 SqlCommand comando = new SqlCommand(consulta, conexion);
