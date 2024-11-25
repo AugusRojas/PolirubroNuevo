@@ -28,17 +28,21 @@ namespace POLIRUBRO.capaDatos
                 SqlConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = $@"SELECT 
-                                    Producto.Id_Producto, Producto.Codigo_barra,
-                                    Producto.Nombre, Producto.Stock,
-                                    Producto.Precio, Categoria.Nombre_categoria AS Categoria, 
+                                    Producto.Id_Producto,
+                                    Producto.Codigo_barra,
+                                    Producto.Nombre,
+                                    Producto.Stock,
+                                    Producto.Precio,
+                                    Categoria.Nombre_categoria AS Categoria, 
                                     Unidad.Nombre_unidad AS Unidad,
-                                    CASE
-                                    WHEN Producto.Fraccionable = 1 THEN 'Si'
+                                    CASE 
+                                    WHEN Producto.Fraccionable = 1 THEN 'Sí'
                                     ELSE 'No'
-                                    END AS Fraccionable 
-                                    FROM Producto
+                                    END AS Fraccionable
+                                    FROM 
+                                    Producto 
                                     LEFT JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria
-                                    LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad
+                                    LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad  
                                     WHERE {filtro} LIKE '%" + palabra_escrita + "%'";
 
                 SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -71,13 +75,13 @@ namespace POLIRUBRO.capaDatos
         }
 
 
-        public void Descontar_stock_datos(Dictionary<string, double> stock_nuevo)
+        public void Descontar_stock_datos(Dictionary <string, double> stock_nuevo)
         {
             try
             {
                 SqlConnection conexion = Conexion.obtenerConexion();
 
-                foreach (var s in stock_nuevo)
+                foreach(var s in stock_nuevo)
                 {
                     string consulta = $"update Producto set Stock = {s.Value} where Codigo_barra = {s.Key}";
 
@@ -85,13 +89,13 @@ namespace POLIRUBRO.capaDatos
 
                     comando.ExecuteNonQuery();
 
-
+                    
                 }
                 MessageBox.Show("Stock Actualizado");
 
             }
 
-            catch (Exception e)
+            catch(Exception e)
             {
                 MessageBox.Show(e.Message);
             }

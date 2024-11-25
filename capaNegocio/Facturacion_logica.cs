@@ -10,6 +10,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
+using POLIRUBRO.capaNegocio;
 
 namespace POLIRUBRO
 {
@@ -43,21 +44,24 @@ namespace POLIRUBRO
             return total;
         }
 
-        public bool Comprobacion_Stock(TextBox cantidad, TextBox stock)
+        public bool Comprobacion_Stock(ref double cantidad, TextBox stock)
         {
-            if (double.Parse(stock.Text) <= 0)
+            double stockDisponible = double.Parse(stock.Text); // Parseamos el stock una vez.
+
+            if (stockDisponible <= 0)
             {
                 MessageBox.Show("Producto insuficiente");
+                cantidad = 0; // Reseteamos cantidad.
                 return true;
             }
-
-            else if (double.Parse(cantidad.Text) > double.Parse(stock.Text))
+            else if (cantidad > stockDisponible)
             {
-                MessageBox.Show("La cantidad a vender es mas que el stock disponible");
+                MessageBox.Show("La cantidad a vender es mayor que el stock disponible");
+                cantidad = stockDisponible; // Ajustamos a lo máximo permitido.
                 return true;
             }
 
-            return false;
+            return false; // Todo OK, no hay problema con el stock.
         }
 
         public void Descuento_stock(Dictionary<string, double> Productos_a_vender, Dictionary<string, double> Stock_inicial)
@@ -145,10 +149,170 @@ namespace POLIRUBRO
         {
             DialogResult result = MessageBox.Show("¿Deseas imprimir el comprobante?", "Imprimir Comprobante", MessageBoxButtons.YesNo);
 
-            // Ruta del archivo HTML base
-            string direccion_html = @"C:\Users\My Home is unique\Source\Repos\LisandroGabrielReinoso\Polirubro\POLIRUBRO\imagenes - archivo\Estructura.html";
+            string htmlContent = @"
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
 
-            string htmlContent = File.ReadAllText(direccion_html);
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .factura {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .header, .footer {
+            margin-bottom: 20px;
+        }
+
+        .header-info {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .header-info p {
+            margin: 5px 0;
+        }
+
+        .footer {
+            text-align: right;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        td {
+            font-size: 13px;
+        }
+
+        .total-line {
+            border-top: 2px solid #ccc;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .total-final {
+            font-size: 18px;
+            font-weight: bold;
+            padding-top: 10px;
+            color: #333;
+            margin-bottom: 200px;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .factura {
+                border: none;
+                margin-right: 100px;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            h2, h3 {
+                page-break-before: always;
+            }
+
+            .total-final {
+                page-break-after: always;
+            }
+        }
+
+        .fecha {
+            text-align: right;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        h2 {
+            margin-bottom: 26px;
+        }
+
+        #metodo {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class='factura'>
+        <p class='fecha'>Fecha: {FECHA}</p>
+        <h2>N° de Comprobante #{ID_VENTA}</h2>
+        <div class='header'>
+            <div class='header-info'>
+                <p><strong>Polirubro:</strong> DE TODO UN POCO</p>
+                <p><strong>Dirección:</strong> Alicia p de Garzon 850</p>
+                <p><strong>Teléfono:</strong> 3815730404</p>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>$/Unidad</th>
+                    <th>Descuento</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {FILAS_TABLA}
+            </tbody>
+        </table>
+        <p id='metodo'>Método de pago: {METODO_DE_PAGO}</p>
+        <div class='footer'>
+            <div class='total-line'></div>
+            <p class='total-final'>TOTAL: $ {MONTO_TOTAL}</p>
+        </div>
+    </div>
+</body>
+</html>";
+
 
             Clase_cdatos_facturacion datosFacturacion = new Clase_cdatos_facturacion();
             DataTable datosUltimaVenta = datosFacturacion.ObtenerUltimaVenta();
@@ -177,25 +341,29 @@ namespace POLIRUBRO
                 string subtotal = productoFila["Subtotal"].ToString();
 
                 filasTabla += $@"
-        <tr>
-            <td>{producto}</td>
-            <td>{cantidad}</td>
-            <td>${precio}</td>
-            <td>{unidad}</td>
-            <td>{descuento}%</td>
-            <td>${subtotal}</td>
-        </tr>";
+                                <tr>
+                                  <td>{producto}</td>
+                                  <td>{cantidad}</td>
+                                  <td>${precio}</td>
+                                  <td>{unidad}</td>
+                                  <td>{descuento}%</td>
+                                  <td>${subtotal}</td>
+                                </tr>";
             }
 
             htmlContent = htmlContent.Replace("{FILAS_TABLA}", filasTabla);
 
-            string direccion = @"C:\Users\My Home is unique\source\\Repos\LisandroGabrielReinoso\Polirubro\Comprobantes\comprobante - " + DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".pdf";
+            Creacion_dinamica_carpetas creacion = new Creacion_dinamica_carpetas();
+            string carpetaComprobantes = creacion.Crear_carpeta_comprobante();
 
-            CrearPdf(htmlContent, direccion);
+            string nombreArchivo = $"Comprobante-{DateTime.Now:yyyy-MM-dd_HH-mm}.pdf";
+            string rutaArchivo = Path.Combine(carpetaComprobantes, nombreArchivo);
+
+            CrearPdf(htmlContent, rutaArchivo);
 
             if (result == DialogResult.Yes)
             {
-                ImprimirPdf(direccion);
+                ImprimirPdf(rutaArchivo);
                 MessageBox.Show("El comprobante ha sido guardado e impreso.");
             }
             else
