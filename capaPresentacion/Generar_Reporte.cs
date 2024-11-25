@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
+using POLIRUBRO.capaNegocio;
 
 namespace POLIRUBRO.capaPresentacion
 {
@@ -16,20 +18,18 @@ namespace POLIRUBRO.capaPresentacion
         {
             try
             {
-                string rutaDestino = @"C:\Descargas";
+                Creacion_dinamica_carpetas creacionCarpetas = new Creacion_dinamica_carpetas();
 
-                if (!System.IO.Directory.Exists(rutaDestino))
-                {
-                    System.IO.Directory.CreateDirectory(rutaDestino);
-                }
+                string rutaDestino = creacionCarpetas.Crear_carpeta_reporte();
 
                 Reporte reporte = new Reporte();
                 DataTable data = reporte.obtenerDatosReporte();
 
-                string rutaPDF = System.IO.Path.Combine(rutaDestino, "Reporte.pdf");
+                string rutaPDF = Path.Combine(rutaDestino, "Reporte.pdf");
+
                 reporte.generarReportePDF(data, rutaPDF);
 
-                MessageBox.Show("Reporte en PDF generado exitosamente en C:\\Descargas.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Reporte en PDF generado exitosamente en:\n{rutaPDF}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -42,20 +42,18 @@ namespace POLIRUBRO.capaPresentacion
         {
             try
             {
-                string rutaDestino = @"C:\Descargas";
+                Creacion_dinamica_carpetas creacion = new Creacion_dinamica_carpetas();
 
-                if (!System.IO.Directory.Exists(rutaDestino))
-                {
-                    System.IO.Directory.CreateDirectory(rutaDestino);
-                }
+                string rutaDestino = creacion.Crear_carpeta_reporte();
 
                 Reporte reporte = new Reporte();
                 DataTable data = reporte.obtenerDatosReporte();
 
-                string rutaExcel = System.IO.Path.Combine(rutaDestino, "Reporte.xlsx");
+                string rutaExcel = Path.Combine(rutaDestino, "Reporte.xlsx");
+
                 reporte.generarReporteExcel(data, rutaExcel);
 
-                MessageBox.Show("Reporte en Excel generado exitosamente en C:\\Descargas.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Reporte en Excel generado exitosamente en:\n{rutaExcel}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

@@ -158,6 +158,7 @@
     <Compile Include="capaNegocio\Buscar.cs" />
     <Compile Include="capaNegocio\CargarProducto.cs" />
     <Compile Include="capaNegocio\CargarProveedor.cs" />
+    <Compile Include="capaNegocio\Creacion_dinamica_carpetas.cs" />
     <Compile Include="capaNegocio\Facturacion_logica.cs" />
     <Compile Include="capaNegocio\GenerarReporte.cs" />
     <Compile Include="capaNegocio\Producto.cs" />
@@ -244,7 +245,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="archivo - img\Estructura.html" />
     <Content Include="images.ico" />
     <None Include="Resources\icons8-pdf-195.png" />
     <None Include="Resources\icons8-excel-150.png" />

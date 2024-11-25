@@ -700,5 +700,6 @@ namespace POLIRUBRO.capaPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewButtonColumn X;
+        private System.Windows.Forms.Button button2;
     }
 }
