@@ -155,7 +155,7 @@ namespace POLIRUBRO
                               "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
                               "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
                               "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
-                              "WHERE Producto.Nombre LIKE @busqueda";
+                              "WHERE Producto.Codigo_barra LIKE @busqueda";
             SqlCommand comando = new SqlCommand(consulta, conexion);
             comando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%");
             SqlDataAdapter adaptador = new SqlDataAdapter(comando);

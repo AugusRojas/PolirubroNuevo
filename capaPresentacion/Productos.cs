@@ -57,7 +57,7 @@ namespace POLIRUBRO.capaPresentacion
             else
             {
 
-                if (!verificar.verificar_repetido(txtCodigoBarra.Text))
+                if (verificar.verificar_repetido(txtCodigoBarra.Text))
                 {
                     MessageBox.Show("Codigo de barra ya existente", "Codigo de barra repetido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 

@@ -29,8 +29,8 @@ namespace POLIRUBRO.capaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_fecha = new System.Windows.Forms.TextBox();
@@ -102,9 +102,9 @@ namespace POLIRUBRO.capaPresentacion
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox1.Location = new System.Drawing.Point(16, 154);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(211, 84);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -114,7 +114,7 @@ namespace POLIRUBRO.capaPresentacion
             // 
             this.textBox_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_fecha.Location = new System.Drawing.Point(81, 37);
-            this.textBox_fecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_fecha.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_fecha.Name = "textBox_fecha";
             this.textBox_fecha.ReadOnly = true;
             this.textBox_fecha.Size = new System.Drawing.Size(99, 26);
@@ -154,9 +154,9 @@ namespace POLIRUBRO.capaPresentacion
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox2.Location = new System.Drawing.Point(260, 47);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(1016, 219);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
@@ -176,7 +176,7 @@ namespace POLIRUBRO.capaPresentacion
             // textBox_Id
             // 
             this.textBox_Id.Location = new System.Drawing.Point(797, 162);
-            this.textBox_Id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_Id.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Id.Name = "textBox_Id";
             this.textBox_Id.ReadOnly = true;
             this.textBox_Id.Size = new System.Drawing.Size(109, 29);
@@ -196,7 +196,7 @@ namespace POLIRUBRO.capaPresentacion
             // textBox_cantidad_vender
             // 
             this.textBox_cantidad_vender.Location = new System.Drawing.Point(348, 162);
-            this.textBox_cantidad_vender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_cantidad_vender.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_cantidad_vender.Name = "textBox_cantidad_vender";
             this.textBox_cantidad_vender.Size = new System.Drawing.Size(179, 29);
             this.textBox_cantidad_vender.TabIndex = 14;
@@ -227,7 +227,7 @@ namespace POLIRUBRO.capaPresentacion
             // textBox_unidad
             // 
             this.textBox_unidad.Location = new System.Drawing.Point(797, 74);
-            this.textBox_unidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_unidad.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_unidad.Name = "textBox_unidad";
             this.textBox_unidad.ReadOnly = true;
             this.textBox_unidad.Size = new System.Drawing.Size(144, 29);
@@ -257,7 +257,7 @@ namespace POLIRUBRO.capaPresentacion
             // textBox_precio
             // 
             this.textBox_precio.Location = new System.Drawing.Point(661, 74);
-            this.textBox_precio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_precio.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_precio.Name = "textBox_precio";
             this.textBox_precio.ReadOnly = true;
             this.textBox_precio.Size = new System.Drawing.Size(97, 29);
@@ -277,7 +277,7 @@ namespace POLIRUBRO.capaPresentacion
             // textBox_stock
             // 
             this.textBox_stock.Location = new System.Drawing.Point(516, 74);
-            this.textBox_stock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_stock.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_stock.Name = "textBox_stock";
             this.textBox_stock.ReadOnly = true;
             this.textBox_stock.Size = new System.Drawing.Size(100, 29);
@@ -297,7 +297,7 @@ namespace POLIRUBRO.capaPresentacion
             // textBox_Nombre
             // 
             this.textBox_Nombre.Location = new System.Drawing.Point(348, 73);
-            this.textBox_Nombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_Nombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.ReadOnly = true;
             this.textBox_Nombre.Size = new System.Drawing.Size(132, 29);
@@ -325,7 +325,7 @@ namespace POLIRUBRO.capaPresentacion
             this.button_buscar_producto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_buscar_producto.ForeColor = System.Drawing.SystemColors.Info;
             this.button_buscar_producto.Location = new System.Drawing.Point(229, 73);
-            this.button_buscar_producto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_buscar_producto.Margin = new System.Windows.Forms.Padding(4);
             this.button_buscar_producto.Name = "button_buscar_producto";
             this.button_buscar_producto.Size = new System.Drawing.Size(95, 31);
             this.button_buscar_producto.TabIndex = 2;
@@ -336,10 +336,12 @@ namespace POLIRUBRO.capaPresentacion
             // textBox_codigo_ean
             // 
             this.textBox_codigo_ean.Location = new System.Drawing.Point(27, 73);
-            this.textBox_codigo_ean.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_codigo_ean.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_codigo_ean.Name = "textBox_codigo_ean";
             this.textBox_codigo_ean.Size = new System.Drawing.Size(176, 29);
             this.textBox_codigo_ean.TabIndex = 1;
+            this.textBox_codigo_ean.TextChanged += new System.EventHandler(this.textBox_codigo_ean_TextChanged);
+            this.textBox_codigo_ean.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_codigo_ean_KeyDown);
             // 
             // label3
             // 
@@ -356,14 +358,14 @@ namespace POLIRUBRO.capaPresentacion
             // 
             this.dgv_ventas.AllowUserToAddRows = false;
             this.dgv_ventas.BackgroundColor = System.Drawing.Color.LavenderBlush;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_ventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_ventas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ventas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -377,14 +379,14 @@ namespace POLIRUBRO.capaPresentacion
             this.X});
             this.dgv_ventas.GridColor = System.Drawing.Color.DarkSlateGray;
             this.dgv_ventas.Location = new System.Drawing.Point(260, 306);
-            this.dgv_ventas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_ventas.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_ventas.Name = "dgv_ventas";
             this.dgv_ventas.ReadOnly = true;
             this.dgv_ventas.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            this.dgv_ventas.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            this.dgv_ventas.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_ventas.Size = new System.Drawing.Size(1016, 343);
             this.dgv_ventas.TabIndex = 3;
             this.dgv_ventas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ventas_CellClick);
@@ -473,7 +475,7 @@ namespace POLIRUBRO.capaPresentacion
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(1356, 114);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 91);
             this.button1.TabIndex = 4;
@@ -496,7 +498,7 @@ namespace POLIRUBRO.capaPresentacion
             // 
             this.textBox_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_total.Location = new System.Drawing.Point(1349, 336);
-            this.textBox_total.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_total.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_total.Name = "textBox_total";
             this.textBox_total.ReadOnly = true;
             this.textBox_total.Size = new System.Drawing.Size(164, 34);
@@ -508,7 +510,7 @@ namespace POLIRUBRO.capaPresentacion
             this.comboBox_metodo_pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_metodo_pago.FormattingEnabled = true;
             this.comboBox_metodo_pago.Location = new System.Drawing.Point(1333, 449);
-            this.comboBox_metodo_pago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox_metodo_pago.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_metodo_pago.Name = "comboBox_metodo_pago";
             this.comboBox_metodo_pago.Size = new System.Drawing.Size(208, 28);
             this.comboBox_metodo_pago.TabIndex = 7;
@@ -530,9 +532,9 @@ namespace POLIRUBRO.capaPresentacion
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox3.Location = new System.Drawing.Point(24, 358);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(192, 79);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
@@ -542,7 +544,7 @@ namespace POLIRUBRO.capaPresentacion
             // 
             this.textBox_descuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_descuento.Location = new System.Drawing.Point(24, 34);
-            this.textBox_descuento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_descuento.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_descuento.Name = "textBox_descuento";
             this.textBox_descuento.Size = new System.Drawing.Size(132, 29);
             this.textBox_descuento.TabIndex = 0;
@@ -554,7 +556,7 @@ namespace POLIRUBRO.capaPresentacion
             this.button_vender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_vender.ForeColor = System.Drawing.Color.Black;
             this.button_vender.Location = new System.Drawing.Point(1356, 556);
-            this.button_vender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_vender.Margin = new System.Windows.Forms.Padding(4);
             this.button_vender.Name = "button_vender";
             this.button_vender.Size = new System.Drawing.Size(145, 94);
             this.button_vender.TabIndex = 17;
@@ -575,7 +577,7 @@ namespace POLIRUBRO.capaPresentacion
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.ShowItemToolTips = true;
-            this.menuStrip1.Size = new System.Drawing.Size(1605, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1605, 30);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -634,7 +636,7 @@ namespace POLIRUBRO.capaPresentacion
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Facturacion";
             this.Text = "Facturacion";
             this.Load += new System.EventHandler(this.Facturacion_Load);
