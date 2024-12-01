@@ -44,7 +44,7 @@ namespace POLIRUBRO
             return total;
         }
 
-        public bool Comprobacion_Stock(ref double cantidad, TextBox stock)
+        public bool Comprobacion_Stock(double cantidad, TextBox stock)
         {
             double stockDisponible = double.Parse(stock.Text); // Parseamos el stock una vez.
 
