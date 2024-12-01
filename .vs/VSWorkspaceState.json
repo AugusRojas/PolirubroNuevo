@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\capaNegocio",
+    "\\capaPresentacion",
+    "\\Comprobantes",
     "\\POLIRUBRO",
     "\\POLIRUBRO\\capaDatos",
     "\\POLIRUBRO\\capaPresentacion"
   ],
-  "SelectedNode": "\\POLIRUBRO\\capaDatos\\Clase_cdatos_facturacion.cs",
+  "SelectedNode": "\\capaNegocio\\Facturacion_logica.cs",
   "PreviewInSolutionExplorer": false
 }
