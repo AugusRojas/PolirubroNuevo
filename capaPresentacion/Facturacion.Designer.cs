@@ -480,6 +480,8 @@ namespace POLIRUBRO.capaPresentacion
             this.comboBox_metodo_pago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_metodo_pago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_metodo_pago.FormattingEnabled = true;
+            this.comboBox_metodo_pago.Items.AddRange(new object[] {
+            "Seleccione un metodo de pago"});
             this.comboBox_metodo_pago.Location = new System.Drawing.Point(1000, 365);
             this.comboBox_metodo_pago.Name = "comboBox_metodo_pago";
             this.comboBox_metodo_pago.Size = new System.Drawing.Size(157, 24);

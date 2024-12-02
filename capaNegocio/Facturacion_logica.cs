@@ -44,7 +44,7 @@ namespace POLIRUBRO
             return total;
         }
 
-        public bool Comprobacion_Stock(double cantidad, TextBox stock)
+        public bool Comprobacion_Stock(ref double cantidad, TextBox stock)
         {
             double stockDisponible = double.Parse(stock.Text); // Parseamos el stock una vez.
 
@@ -293,9 +293,9 @@ namespace POLIRUBRO
             <thead>
                 <tr>
                     <th>Producto</th>
+                    <th>$/Unidad</th>
                     <th>Cantidad</th>
                     <th>Precio</th>
-                    <th>$/Unidad</th>
                     <th>Descuento</th>
                     <th>Subtotal</th>
                 </tr>
@@ -334,18 +334,18 @@ namespace POLIRUBRO
             foreach (DataRow productoFila in datosUltimaVenta.Rows)
             {
                 string producto = productoFila["Producto"].ToString();
+                string unidad = productoFila["Unidad"].ToString();
                 string cantidad = productoFila["Cantidad"].ToString();
                 string precio = productoFila["Precio"].ToString();
-                string unidad = productoFila["Unidad"].ToString();
                 string descuento = productoFila["Descuento"].ToString();
                 string subtotal = productoFila["Subtotal"].ToString();
 
                 filasTabla += $@"
                                 <tr>
                                   <td>{producto}</td>
+                                  <td>{unidad}</td>
                                   <td>{cantidad}</td>
                                   <td>${precio}</td>
-                                  <td>{unidad}</td>
                                   <td>{descuento}%</td>
                                   <td>${subtotal}</td>
                                 </tr>";
