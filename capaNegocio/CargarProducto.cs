@@ -174,8 +174,10 @@ namespace POLIRUBRO
                               "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
                               "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
                               "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
+
                               "WHERE Producto.Nombre LIKE @busqueda";
             SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+
             comando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%");
             SQLiteDataAdapter adaptador = new SQLiteDataAdapter(comando);
 
