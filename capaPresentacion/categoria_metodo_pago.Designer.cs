@@ -38,10 +38,10 @@
             this.groupCategoria = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.boxCategoria = new System.Windows.Forms.ComboBox();
+            this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupMetodoPago.SuspendLayout();
             this.groupCategoria.SuspendLayout();
@@ -57,9 +57,9 @@
             this.groupMetodoPago.Controls.Add(this.textBox2);
             this.groupMetodoPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupMetodoPago.Location = new System.Drawing.Point(309, 11);
-            this.groupMetodoPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupMetodoPago.Margin = new System.Windows.Forms.Padding(2);
             this.groupMetodoPago.Name = "groupMetodoPago";
-            this.groupMetodoPago.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupMetodoPago.Padding = new System.Windows.Forms.Padding(2);
             this.groupMetodoPago.Size = new System.Drawing.Size(370, 320);
             this.groupMetodoPago.TabIndex = 0;
             this.groupMetodoPago.TabStop = false;
@@ -81,7 +81,7 @@
             this.boxPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxPago.FormattingEnabled = true;
             this.boxPago.Location = new System.Drawing.Point(181, 178);
-            this.boxPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxPago.Margin = new System.Windows.Forms.Padding(2);
             this.boxPago.Name = "boxPago";
             this.boxPago.Size = new System.Drawing.Size(183, 21);
             this.boxPago.TabIndex = 7;
@@ -93,7 +93,7 @@
             this.btnEliminarPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarPago.Location = new System.Drawing.Point(11, 231);
-            this.btnEliminarPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminarPago.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarPago.Name = "btnEliminarPago";
             this.btnEliminarPago.Size = new System.Drawing.Size(80, 29);
             this.btnEliminarPago.TabIndex = 6;
@@ -107,7 +107,7 @@
             this.btnAgregarPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregarPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarPago.Location = new System.Drawing.Point(11, 74);
-            this.btnAgregarPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarPago.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarPago.Name = "btnAgregarPago";
             this.btnAgregarPago.Size = new System.Drawing.Size(80, 28);
             this.btnAgregarPago.TabIndex = 5;
@@ -129,7 +129,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(173, 35);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 24);
             this.textBox2.TabIndex = 3;
@@ -146,9 +146,9 @@
             this.groupCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupCategoria.Location = new System.Drawing.Point(11, 11);
-            this.groupCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.groupCategoria.Name = "groupCategoria";
-            this.groupCategoria.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupCategoria.Padding = new System.Windows.Forms.Padding(2);
             this.groupCategoria.Size = new System.Drawing.Size(294, 320);
             this.groupCategoria.TabIndex = 1;
             this.groupCategoria.TabStop = false;
@@ -170,11 +170,26 @@
             this.boxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boxCategoria.FormattingEnabled = true;
             this.boxCategoria.Location = new System.Drawing.Point(141, 177);
-            this.boxCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.boxCategoria.Name = "boxCategoria";
             this.boxCategoria.Size = new System.Drawing.Size(144, 21);
             this.boxCategoria.TabIndex = 2;
             this.boxCategoria.Text = "Seleccione una categoria...";
+            this.boxCategoria.SelectedIndexChanged += new System.EventHandler(this.boxCategoria_SelectedIndexChanged);
+            // 
+            // btnEliminarCategoria
+            // 
+            this.btnEliminarCategoria.BackColor = System.Drawing.Color.LightCoral;
+            this.btnEliminarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(171, 231);
+            this.btnEliminarCategoria.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminarCategoria.Name = "btnEliminarCategoria";
+            this.btnEliminarCategoria.Size = new System.Drawing.Size(79, 29);
+            this.btnEliminarCategoria.TabIndex = 4;
+            this.btnEliminarCategoria.Text = "Eliminar";
+            this.btnEliminarCategoria.UseVisualStyleBackColor = false;
+            this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
             // 
             // btnAgregarCategoria
             // 
@@ -183,7 +198,7 @@
             this.btnAgregarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarCategoria.ForeColor = System.Drawing.Color.Black;
             this.btnAgregarCategoria.Location = new System.Drawing.Point(171, 74);
-            this.btnAgregarCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(79, 28);
             this.btnAgregarCategoria.TabIndex = 6;
@@ -194,7 +209,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(119, 30);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(144, 24);
             this.textBox1.TabIndex = 2;
@@ -211,20 +226,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Nueva categoria";
             // 
-            // btnEliminarCategoria
-            // 
-            this.btnEliminarCategoria.BackColor = System.Drawing.Color.LightCoral;
-            this.btnEliminarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEliminarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(171, 231);
-            this.btnEliminarCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnEliminarCategoria.Name = "btnEliminarCategoria";
-            this.btnEliminarCategoria.Size = new System.Drawing.Size(79, 29);
-            this.btnEliminarCategoria.TabIndex = 4;
-            this.btnEliminarCategoria.Text = "Eliminar";
-            this.btnEliminarCategoria.UseVisualStyleBackColor = false;
-            this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
-            // 
             // categoria_metodo_pago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,7 +235,7 @@
             this.Controls.Add(this.groupCategoria);
             this.Controls.Add(this.groupMetodoPago);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "categoria_metodo_pago";
             this.Text = "categoria_metodo_pago";
             this.Load += new System.EventHandler(this.categoria_metodo_pago_Load);

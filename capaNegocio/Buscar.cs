@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
 
 namespace POLIRUBRO
 {
@@ -12,14 +13,14 @@ namespace POLIRUBRO
     {
         public void buscar_producto(string nombre)
         {
-            SqlConnection conexion = Conexion.obtenerConexion(); // Usar MySqlConnection
-            string consulta = $"SELECT * FROM Producto WHERE Nombre = @Nombre"; // Consulta ajustada
+            SQLiteConnection conexion = Conexion.obtenerConexion(); 
+            string consulta = $"SELECT * FROM Producto WHERE Nombre = @Nombre"; 
 
-            SqlCommand comando = new SqlCommand(consulta, conexion); // Usar MySqlCommand
-            comando.Parameters.AddWithValue("@Nombre", nombre); // Usar parámetros de forma segura
+            SQLiteCommand comando = new SQLiteCommand(consulta, conexion); 
+            comando.Parameters.AddWithValue("@Nombre", nombre); 
 
-            SqlDataAdapter adaptador = new SqlDataAdapter(comando); // Usar MySqlDataAdapter
-            // Puedes agregar aquí el código para ejecutar la consulta y procesar los resultados si es necesario.
+            SQLiteDataAdapter adaptador = new SQLiteDataAdapter(comando); // Usar SQLiteDataAdapter
+                                                                          // Puedes agregar aquí el código para ejecutar la consulta y procesar los resultados si es necesario.
         }
     }
 }

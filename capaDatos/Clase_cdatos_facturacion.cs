@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace POLIRUBRO.capaDatos
@@ -25,7 +22,7 @@ namespace POLIRUBRO.capaDatos
 
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = $@"SELECT 
                                     Producto.Id_Producto,
@@ -43,11 +40,12 @@ namespace POLIRUBRO.capaDatos
                                     Producto 
                                     LEFT JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria
                                     LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad  
-                                    WHERE {filtro} LIKE '%" + palabra_escrita + "%'";
+                                    WHERE {filtro} LIKE '%' || @palabra || '%'";
 
-                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@palabra", palabra_escrita);
 
-                SqlDataReader leer = comando.ExecuteReader();
+                SQLiteDataReader leer = comando.ExecuteReader();
 
                 while (leer.Read())
                 {
@@ -55,8 +53,8 @@ namespace POLIRUBRO.capaDatos
                     fila["Id_Producto"] = leer["Id_Producto"];
                     fila["Codigo_barra"] = leer["Codigo_barra"].ToString();
                     fila["Nombre"] = leer["Nombre"];
-                    fila["Stock"] = leer["Stock"].ToString();
-                    fila["Precio"] = leer["Precio"].ToString();
+                    fila["Stock"] = leer["Stock"];
+                    fila["Precio"] = leer["Precio"];
                     fila["Categoria"] = leer["Categoria"];
                     fila["Unidad"] = leer["Unidad"].ToString();
                     fila["Fraccionable"] = leer["Fraccionable"];
@@ -70,36 +68,32 @@ namespace POLIRUBRO.capaDatos
                 MessageBox.Show($"Error al buscar productos: {ex.Message}");
             }
 
-
             return datos;
         }
 
-
-        public void Descontar_stock_datos(Dictionary <string, double> stock_nuevo)
+        public void Descontar_stock_datos(Dictionary<string, double> stock_nuevo)
         {
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
-                foreach(var s in stock_nuevo)
+                foreach (var s in stock_nuevo)
                 {
-                    string consulta = $"update Producto set Stock = {s.Value} where Codigo_barra = {s.Key}";
+                    string consulta = $"UPDATE Producto SET Stock = @Stock WHERE Codigo_barra = @Codigo";
 
-                    SqlCommand comando = new SqlCommand(consulta, conexion);
+                    SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                    comando.Parameters.AddWithValue("@Stock", s.Value);
+                    comando.Parameters.AddWithValue("@Codigo", s.Key);
 
                     comando.ExecuteNonQuery();
-
-                    
                 }
-                MessageBox.Show("Stock Actualizado");
 
+                MessageBox.Show("Stock actualizado");
             }
-
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-
         }
 
         public void insert_datos_venta(int id_metodo_pago, TextBox total, TextBox fecha, out int idVenta)
@@ -108,13 +102,12 @@ namespace POLIRUBRO.capaDatos
 
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = @"INSERT INTO Venta (Id_Metodo_pago, Monto_total, Fecha) VALUES (@IdMetodoPago, @MontoTotal, @Fecha);
-                            SELECT SCOPE_IDENTITY();";
+                                    SELECT last_insert_rowid();";
 
-                SqlCommand comando = new SqlCommand(consulta, conexion);
-
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@IdMetodoPago", id_metodo_pago);
                 comando.Parameters.AddWithValue("@MontoTotal", decimal.Parse(total.Text));
                 comando.Parameters.AddWithValue("@Fecha", DateTime.Parse(fecha.Text));
@@ -129,17 +122,22 @@ namespace POLIRUBRO.capaDatos
             }
         }
 
-
-
         public void insert_datos_producto_en_venta(int idVenta, string idProducto, string cantidad, string descuento, string subtotal)
         {
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
-                string consulta = $@"INSERT INTO ProductoXVenta(Id_Venta, Id_Producto, Cantidad, Descuento, Subtotal)VALUES ({idVenta}, {idProducto}, {cantidad}, {descuento}, {subtotal}); ";
+                string consulta = $@"INSERT INTO ProductoXVenta(Id_Venta, Id_Producto, Cantidad, Descuento, Subtotal)
+                                     VALUES (@IdVenta, @IdProducto, @Cantidad, @Descuento, @Subtotal);";
 
-                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@IdVenta", idVenta);
+                comando.Parameters.AddWithValue("@IdProducto", idProducto);
+                comando.Parameters.AddWithValue("@Cantidad", cantidad);
+                comando.Parameters.AddWithValue("@Descuento", descuento);
+                comando.Parameters.AddWithValue("@Subtotal", subtotal);
+
                 comando.ExecuteNonQuery();
 
                 conexion.Close();
@@ -156,13 +154,13 @@ namespace POLIRUBRO.capaDatos
 
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
-                string consulta = "select * from Ultima_Venta";
+                string consulta = "SELECT * FROM Ultima_Venta";
 
-                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 
-                SqlDataReader reader = comando.ExecuteReader();
+                SQLiteDataReader reader = comando.ExecuteReader();
 
                 datos.Load(reader);
                 reader.Close();
@@ -175,7 +173,5 @@ namespace POLIRUBRO.capaDatos
 
             return datos;
         }
-
     }
-
 }
