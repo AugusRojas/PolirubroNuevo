@@ -70,7 +70,7 @@ namespace POLIRUBRO.capaPresentacion
                 {
                     double sumador = double.Parse(textBox_cantidad_vender.Text);
 
-                    if (c.Comprobacion_Stock(sumador, textBox_stock))
+                    if (c.Comprobacion_Stock(ref sumador, textBox_stock))
                     {
                         // Si el método devuelve "true", ya sabés que hay problema de stock.
                         MessageBox.Show($"La cantidad ajustada es {sumador} o No puede agregar más de lo que hay en stock");
@@ -79,14 +79,12 @@ namespace POLIRUBRO.capaPresentacion
 
                     double cantidad_vender;
                     string codigo_barra = textBox_codigo_ean.Text;
-                    bool esFraccionable = label_fraccionable.Text == "Si";
+                    bool esFraccionable = label_fraccionable.Text == "Sí";
 
                     if (esFraccionable)
                     {
                         if (double.TryParse(textBox_cantidad_vender.Text, out cantidad_vender))
                         {
-                            Stock_inicial[codigo_barra] -= cantidad_vender;
-
                             double precio = double.Parse(textBox_precio.Text);
                             double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
 
@@ -101,9 +99,7 @@ namespace POLIRUBRO.capaPresentacion
                                     double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
                                     double nuevaCantidad = cantidadExistente + cantidad_vender;
 
-                                    Stock_inicial[codigo_barra] += cantidadExistente;
-
-                                    if (Stock_inicial[codigo_barra] < nuevaCantidad)
+                                    if (Stock_inicial[codigo_barra] < cantidad_vender)
                                     {
                                         MessageBox.Show("La cantidad que quieres ingresar supera el stock disponible");
                                         return;
@@ -137,7 +133,7 @@ namespace POLIRUBRO.capaPresentacion
                             textBox_Id.Clear();
                             textBox_descuento.Text = 0.ToString();
 
-                            textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
+                            textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
                         }
                         else
                         {
@@ -150,8 +146,6 @@ namespace POLIRUBRO.capaPresentacion
                         {
                             cantidad_vender = cantidadEntera;
 
-                            Stock_inicial[codigo_barra] -= cantidad_vender;
-
                             double precio = double.Parse(textBox_precio.Text);
                             double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
 
@@ -164,16 +158,14 @@ namespace POLIRUBRO.capaPresentacion
                                     productoRepetido = true;
 
                                     double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
-                                    double nuevaCantidad = cantidadExistente + cantidad_vender;
 
-                                    Stock_inicial[codigo_barra] += cantidadExistente;
-
-                                    if (Stock_inicial[codigo_barra] < nuevaCantidad)
+                                    if (Stock_inicial[codigo_barra] < cantidad_vender)
                                     {
                                         MessageBox.Show("La cantidad que quieres ingresar supera el stock disponible");
                                         return;
                                     }
 
+                                    double nuevaCantidad = cantidadExistente + cantidad_vender;
                                     row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
 
                                     double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
@@ -202,7 +194,7 @@ namespace POLIRUBRO.capaPresentacion
                             textBox_Id.Clear();
                             textBox_descuento.Text = 0.ToString();
 
-                            textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
+                            textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
                         }
                         else
                         {
@@ -229,7 +221,7 @@ namespace POLIRUBRO.capaPresentacion
             if (e.ColumnIndex == dgv_ventas.Columns["X"].Index && e.RowIndex >= 0)
             {
                 string codigo_barra = dgv_ventas.Rows[e.RowIndex].Cells["Codigo_barra"].Value.ToString();
-                double cantidad_a_vender_eliminada = double.Parse(dgv_ventas.Rows[e.RowIndex].Cells["Cantidad_a_vender"].Value.ToString()); 
+                double cantidad_a_vender_eliminada = double.Parse(dgv_ventas.Rows[e.RowIndex].Cells["Cantidad_a_vender"].Value.ToString());
 
                 if (Productos_a_vender.ContainsKey(codigo_barra))
                 {
@@ -245,12 +237,17 @@ namespace POLIRUBRO.capaPresentacion
             }
         }
 
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (dgv_ventas.Rows.Count == 0)
             {
                 MessageBox.Show("No hay productos cargados para vender", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (comboBox_metodo_pago.SelectedIndex == 0)
+            {
+                MessageBox.Show("Por favor, seleccione un método de pago antes de continuar.", "Error", MessageBoxButtons.OK);
                 return;
             }
 
@@ -285,29 +282,34 @@ namespace POLIRUBRO.capaPresentacion
                 {
                     MessageBox.Show("No hay productos cargados para la venta.");
                 }
+
+
+
+
+                int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+                int id_venta;
+
+                c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha, out id_venta);
+
+                foreach (DataGridViewRow p in dgv_ventas.Rows)
+                {
+                    string idProducto = p.Cells["Id"].Value.ToString();
+                    string cantidad = p.Cells["Cantidad_a_vender"].Value.ToString();
+                    string descuento = p.Cells["Descuento"].Value.ToString();
+                    string subtotal = p.Cells["SubTotal"].Value.ToString();
+
+                    c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);
+                }
+
+                textBox_total.Clear();
+                dgv_ventas.Rows.Clear();
+
+                //------------------------------------------------------impresion--------------------------------------------------------------------------
+
+                c.MostrarConfirmacionYAccion();
             }
 
-            int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
-            int id_venta;
 
-            c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha, out id_venta);
-
-            foreach (DataGridViewRow p in dgv_ventas.Rows)
-            {
-                string idProducto = p.Cells["Id"].Value.ToString();
-                string cantidad = p.Cells["Cantidad_a_vender"].Value.ToString();
-                string descuento = p.Cells["Descuento"].Value.ToString();
-                string subtotal = p.Cells["SubTotal"].Value.ToString();
-
-                c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);
-            }
-
-            textBox_total.Clear();
-            dgv_ventas.Rows.Clear();
-
-            //------------------------------------------------------impresion--------------------------------------------------------------------------
-
-            c.MostrarConfirmacionYAccion();
         }
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -360,7 +362,7 @@ namespace POLIRUBRO.capaPresentacion
                     if (v.Verificar_vacio_txt(textBox_cantidad_vender))
                     {
                         double sumador = double.Parse(textBox_cantidad_vender.Text);
-                        if (c.Comprobacion_Stock(sumador, textBox_stock))
+                        if (c.Comprobacion_Stock(ref sumador, textBox_stock))
                         {
                             // Si el método devuelve "true", ya sabés que hay problema de stock.
                             MessageBox.Show($"La cantidad ajustada es {sumador}");

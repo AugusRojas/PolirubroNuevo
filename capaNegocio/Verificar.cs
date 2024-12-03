@@ -28,7 +28,11 @@ namespace POLIRUBRO
 
         public void verificar_numeros_evento(KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8) { e.Handled = true; }
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
+            {
+                e.Handled = true;
+                return;
+            }
         }
 
         public bool verificar_producto_texto(string producto)
