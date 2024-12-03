@@ -6,6 +6,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace POLIRUBRO
 {
@@ -38,11 +39,11 @@ namespace POLIRUBRO
 
         public bool verificar_repetido(string codigoBarra)
         {
-            SqlConnection conexion = Conexion.obtenerConexion();
+            SQLiteConnection conexion = Conexion.obtenerConexion();
             string consulta = @"SELECT COUNT(Codigo_barra) AS TOTAL FROM Producto where Codigo_barra = @codigoBarra;";
-            SqlCommand comando = new SqlCommand(consulta, conexion);
+            SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
             comando.Parameters.AddWithValue(@"codigoBarra", codigoBarra);
-            SqlDataReader lector = comando.ExecuteReader();
+            SQLiteDataReader lector = comando.ExecuteReader();
             if (lector.Read()) // Leer la fila
             {
                 int count = lector.GetInt32(0); // Obtener el valor de la primera columna

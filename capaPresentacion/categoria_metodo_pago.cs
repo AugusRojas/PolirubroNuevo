@@ -88,6 +88,9 @@ namespace POLIRUBRO.capaPresentacion
             }
         }
 
+        private void boxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

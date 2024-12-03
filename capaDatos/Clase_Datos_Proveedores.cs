@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Windows.Forms;
 using POLIRUBRO.capaNegocio;
 
@@ -20,18 +20,18 @@ namespace POLIRUBRO.capaDatos
 
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = $@"SELECT 
                                     Id_Proveedor, Nombre_proveedor,
                                     CUIT, Domicilio, Telefono
                                     FROM Proveedor
-                                    WHERE {filtro} LIKE '%' + @palabra + '%'";
+                                    WHERE {filtro} LIKE '%' || @palabra || '%'";
 
-                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@palabra", palabra_escrita);
 
-                SqlDataReader leer = comando.ExecuteReader();
+                SQLiteDataReader leer = comando.ExecuteReader();
 
                 while (leer.Read())
                 {
@@ -58,10 +58,10 @@ namespace POLIRUBRO.capaDatos
         {
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = "INSERT INTO Proveedor (Nombre_proveedor, CUIT, Domicilio, Telefono) VALUES (@Nombre, @CUIT, @Domicilio, @Telefono)";
-                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 
                 comando.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
                 comando.Parameters.AddWithValue("@CUIT", proveedor.CUIT);
@@ -80,10 +80,10 @@ namespace POLIRUBRO.capaDatos
         {
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = "UPDATE Proveedor SET Nombre_proveedor = @Nombre, CUIT = @CUIT, Domicilio = @Domicilio, Telefono = @Telefono WHERE Id_Proveedor = @Id";
-                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 
                 comando.Parameters.AddWithValue("@Id", proveedor.Id);
                 comando.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
@@ -103,10 +103,10 @@ namespace POLIRUBRO.capaDatos
         {
             try
             {
-                SqlConnection conexion = Conexion.obtenerConexion();
+                SQLiteConnection conexion = Conexion.obtenerConexion();
 
                 string consulta = "DELETE FROM Proveedor WHERE Id_Proveedor = @Id";
-                SqlCommand comando = new SqlCommand(consulta, conexion);
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 
                 comando.Parameters.AddWithValue("@Id", id);
 

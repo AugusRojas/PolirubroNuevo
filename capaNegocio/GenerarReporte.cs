@@ -5,6 +5,7 @@ using System.IO;
 using iTextSharp.text; // Biblioteca para PDF
 using iTextSharp.text.pdf;
 using OfficeOpenXml; // Biblioteca para Excel
+using System.Data.SQLite;
 
 namespace POLIRUBRO
 {
@@ -15,7 +16,7 @@ namespace POLIRUBRO
         {
             try
             {
-                using (SqlConnection conexion = Conexion.obtenerConexion())
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
                     string consulta = @"
                 SELECT 
@@ -29,8 +30,8 @@ namespace POLIRUBRO
                 JOIN 
                     Producto p ON pxv.Id_Producto = p.Id_Producto";
 
-                    SqlCommand comando = new SqlCommand(consulta, conexion);
-                    SqlDataAdapter adaptador = new SqlDataAdapter(comando);
+                    SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                    SQLiteDataAdapter adaptador = new SQLiteDataAdapter(comando);
 
                     DataTable tabla = new DataTable();
                     adaptador.Fill(tabla);

@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace POLIRUBRO
 {
     public static class Conexion
     {
-        // Cambia esta cadena de conexión para que apunte a tu base de datos MySQL en XAMPP
-        static string conexion = "Server=DESKTOP-4TIIP6L\\SQLEXPRESS; Database=sistema_de_ventas; Integrated Security=True;";
+        static string conexion = "Data Source=sistema_de_ventas.db; Version=3;";
 
-        // Método para obtener la conexión a la base de datos MySQL
-        public static SqlConnection obtenerConexion()
+        public static SQLiteConnection obtenerConexion()
         {
-            SqlConnection conector = new SqlConnection(conexion);
+            SQLiteConnection conector = new SQLiteConnection(conexion);
             try
             {
                 conector.Open();
-                Console.WriteLine("Conexión exitosa a la base de datos.");
+                Console.WriteLine("Conexión exitosa a la base de datos SQLite.");
                 return conector;
             }
             catch (Exception ex)
@@ -25,8 +23,7 @@ namespace POLIRUBRO
             }
         }
 
-        // Método para cerrar la conexión
-        public static void CerrarConexion(SqlConnection conexion)
+        public static void CerrarConexion(SQLiteConnection conexion)
         {
             if (conexion != null && conexion.State == System.Data.ConnectionState.Open)
             {
