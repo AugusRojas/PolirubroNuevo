@@ -70,7 +70,7 @@ namespace POLIRUBRO
                 SQLiteConnection conexion = Conexion.obtenerConexion();
                 string consulta = "UPDATE Producto SET Id_Proveedor = @Id_Proveedor, Id_Categoria = @Id_Categoria, Codigo_barra = @Codigo_barra, " +
                                   "Stock = @Stock, Precio = @Precio, Id_Unidad = @Id_Unidad, Fraccionable = @Fraccionable " +
-                                  "WHERE Nombre = @Nombre";
+                                  "WHERE Codigo_barra = @Codigo_barra OR Nombre = @Nombre";
                 SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 
                 comando.Parameters.AddWithValue("@Id_Proveedor", p.proveedor);
@@ -168,14 +168,14 @@ namespace POLIRUBRO
         {
             DataTable dt = new DataTable();
             SQLiteConnection conexion = Conexion.obtenerConexion();
-            string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
+            string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre as Producto, Producto.Stock, Producto.Precio, " +
                               "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
                               "FROM Producto " +
                               "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
                               "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
                               "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
 
-                              "WHERE Producto.Nombre LIKE @busqueda";
+                              "WHERE Producto.Codigo_barra LIKE @busqueda";
             SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 
             comando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%");

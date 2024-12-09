@@ -348,7 +348,7 @@ namespace POLIRUBRO.capaPresentacion
                 CargarProducto cargar = new CargarProducto();
                 DataTable dt = new DataTable();
                 dt = cargar.buscarProductos(textBox_codigo_ean.Text);
-                textBox_Nombre.Text = dt.Rows[0]["Nombre"].ToString();
+                textBox_Nombre.Text = dt.Rows[0]["Producto"].ToString();
                 textBox_stock.Text = dt.Rows[0]["Stock"].ToString();
                 textBox_precio.Text = dt.Rows[0]["Precio"].ToString();
                 textBox_unidad.Text = dt.Rows[0]["Unidad"].ToString();
