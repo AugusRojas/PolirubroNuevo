@@ -63,145 +63,144 @@ namespace POLIRUBRO.capaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (v.Verificar_vacio_txt(textBox_codigo_ean) && v.Verificar_vacio_txt(textBox_Nombre) && v.Verificar_vacio_txt(textBox_precio) && v.Verificar_vacio_txt(textBox_stock)
-                && v.Verificar_vacio_txt(textBox_unidad))
+            if (v.Verificar_vacio_txt(textBox_codigo_ean) && v.Verificar_vacio_txt(textBox_Nombre) &&
+                v.Verificar_vacio_txt(textBox_precio) && v.Verificar_vacio_txt(textBox_stock)
+                 && v.Verificar_vacio_txt(textBox_unidad))
             {
                 if (v.Verificar_vacio_txt(textBox_cantidad_vender))
                 {
                     double sumador = double.Parse(textBox_cantidad_vender.Text);
-
                     if (c.Comprobacion_Stock(ref sumador, textBox_stock))
                     {
                         // Si el método devuelve "true", ya sabés que hay problema de stock.
-                        MessageBox.Show($"La cantidad ajustada es {sumador} o No puede agregar más de lo que hay en stock");
+                        MessageBox.Show($"La cantidad ajustada es {sumador}");
                         return;
                     }
 
-                    double cantidad_vender;
-                    string codigo_barra = textBox_codigo_ean.Text;
-                    bool esFraccionable = label_fraccionable.Text == "Sí";
-
-                    if (esFraccionable)
-                    {
-                        if (double.TryParse(textBox_cantidad_vender.Text, out cantidad_vender))
-                        {
-                            double precio = double.Parse(textBox_precio.Text);
-                            double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
-
-                            bool productoRepetido = false;
-
-                            foreach (DataGridViewRow row in dgv_ventas.Rows)
-                            {
-                                if (row.Cells["Codigo_barra"].Value.ToString() == codigo_barra)
-                                {
-                                    productoRepetido = true;
-
-                                    double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
-                                    double nuevaCantidad = cantidadExistente + cantidad_vender;
-
-                                    if (Stock_inicial[codigo_barra] < cantidad_vender)
-                                    {
-                                        MessageBox.Show("La cantidad que quieres ingresar supera el stock disponible");
-                                        return;
-                                    }
-
-                                    row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
-
-                                    double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
-                                    row.Cells["Subtotal"].Value = nuevoSubtotal;
-
-                                    Stock_inicial[codigo_barra] -= cantidad_vender;
-
-                                    break;
-                                }
-                            }
-
-                            if (!productoRepetido)
-                            {
-                                dgv_ventas.Rows.Add(textBox_Id.Text, codigo_barra, textBox_Nombre.Text, textBox_precio.Text, cantidad_vender, textBox_unidad.Text, subtotal, textBox_descuento.Text);
-
-                                Stock_inicial[codigo_barra] -= cantidad_vender;
-                            }
-
-                            textBox_cantidad_vender.Clear();
-                            textBox_codigo_ean.Clear();
-                            textBox_Nombre.Clear();
-                            textBox_precio.Clear();
-                            textBox_stock.Clear();
-                            textBox_unidad.Clear();
-                            textBox_descuento.Clear();
-                            textBox_Id.Clear();
-                            textBox_descuento.Text = 0.ToString();
-
-                            textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ingrese un número válido para la cantidad.");
-                        }
-                    }
                     else
                     {
-                        if (int.TryParse(textBox_cantidad_vender.Text, out int cantidadEntera))
+                        double cantidad_vender;
+
+                        bool esFraccionable = label_fraccionable.Text == "Sí";
+
+                        if (esFraccionable)
                         {
-                            cantidad_vender = cantidadEntera;
-
-                            double precio = double.Parse(textBox_precio.Text);
-                            double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
-
-                            bool productoRepetido = false;
-
-                            foreach (DataGridViewRow row in dgv_ventas.Rows)
+                            if (double.TryParse(textBox_cantidad_vender.Text, out cantidad_vender))
                             {
-                                if (row.Cells["Codigo_barra"].Value.ToString() == codigo_barra)
+                                double precio = double.Parse(textBox_precio.Text);
+                                double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
+
+                                bool productoRepetido = false;
+
+                                foreach (DataGridViewRow row in dgv_ventas.Rows)
                                 {
-                                    productoRepetido = true;
-
-                                    double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
-
-                                    if (Stock_inicial[codigo_barra] < cantidad_vender)
+                                    if (row.Cells["Codigo_barra"].Value.ToString() == textBox_codigo_ean.Text)
                                     {
-                                        MessageBox.Show("La cantidad que quieres ingresar supera el stock disponible");
-                                        return;
+                                        productoRepetido = true;
+
+                                        double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
+                                        double nuevaCantidad = cantidadExistente + cantidad_vender;
+
+                                        if(nuevaCantidad > Stock_inicial[textBox_codigo_ean.Text])
+                                        {
+                                            MessageBox.Show("los productos a vender pasan del stock");
+                                            return;
+                                        }
+
+                                        row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
+
+                                        double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
+                                        row.Cells["Subtotal"].Value = nuevoSubtotal;
+
+                                        break;
                                     }
-
-                                    double nuevaCantidad = cantidadExistente + cantidad_vender;
-                                    row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
-
-                                    double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
-                                    row.Cells["Subtotal"].Value = nuevoSubtotal;
-
-                                    Stock_inicial[codigo_barra] -= cantidad_vender;
-
-                                    break;
                                 }
-                            }
 
-                            if (!productoRepetido)
+                                if (!productoRepetido)
+                                {
+                                    dgv_ventas.Rows.Add(textBox_Id.Text, textBox_codigo_ean.Text, textBox_Nombre.Text, textBox_precio.Text, textBox_cantidad_vender.Text, textBox_unidad.Text, subtotal, textBox_descuento.Text);
+
+                                    Stock_inicial[textBox_codigo_ean.Text] = double.Parse(textBox_stock.Text);
+                                }
+
+                                textBox_cantidad_vender.Clear(); textBox_codigo_ean.Clear(); textBox_Nombre.Clear(); textBox_precio.Clear();
+                                textBox_stock.Clear();
+                                textBox_unidad.Clear();
+                                textBox_descuento.Clear();
+                                textBox_descuento.Text = 0.ToString();
+                                textBox_Id.Clear();
+
+                                textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
+                            }
+                            else
                             {
-                                dgv_ventas.Rows.Add(textBox_Id.Text, codigo_barra, textBox_Nombre.Text, textBox_precio.Text, cantidad_vender, textBox_unidad.Text, subtotal, textBox_descuento.Text);
-
-                                Stock_inicial[codigo_barra] -= cantidad_vender;
+                                MessageBox.Show("Ingrese un número válido para la cantidad.");
                             }
-
-                            textBox_cantidad_vender.Clear();
-                            textBox_codigo_ean.Clear();
-                            textBox_Nombre.Clear();
-                            textBox_precio.Clear();
-                            textBox_stock.Clear();
-                            textBox_unidad.Clear();
-                            textBox_descuento.Clear();
-                            textBox_Id.Clear();
-                            textBox_descuento.Text = 0.ToString();
-
-                            textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
                         }
                         else
                         {
-                            MessageBox.Show("Este producto no permite cantidades decimales. Ingrese un número entero.");
+                            if (int.TryParse(textBox_cantidad_vender.Text, out int cantidadEntera))
+                            {
+                                cantidad_vender = cantidadEntera;
+
+                                double precio = double.Parse(textBox_precio.Text);
+                                double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
+
+                                bool productoRepetido = false;
+
+                                foreach (DataGridViewRow row in dgv_ventas.Rows)
+                                {
+                                    if (row.Cells["Codigo_barra"].Value.ToString() == textBox_codigo_ean.Text)
+                                    {
+                                        productoRepetido = true;
+
+                                        double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
+                                        double nuevaCantidad = cantidadExistente + cantidad_vender;
+
+                                        if (nuevaCantidad > Stock_inicial[textBox_codigo_ean.Text])
+                                        {
+                                            MessageBox.Show("los productos a vender pasan del stock");
+                                            return;
+                                        }
+
+                                        row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
+
+                                        double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
+                                        row.Cells["Subtotal"].Value = nuevoSubtotal;
+
+                                        break;
+                                    }
+                                }
+
+                                if (!productoRepetido)
+                                {
+                                    dgv_ventas.Rows.Add(textBox_Id.Text, textBox_codigo_ean.Text, textBox_Nombre.Text, textBox_precio.Text, textBox_cantidad_vender.Text, textBox_unidad.Text, subtotal, textBox_descuento.Text);
+
+                                    Stock_inicial[textBox_codigo_ean.Text] = double.Parse(textBox_stock.Text);
+                                }
+
+                                textBox_cantidad_vender.Clear();
+                                textBox_codigo_ean.Clear();
+                                textBox_Nombre.Clear();
+                                textBox_precio.Clear();
+                                textBox_stock.Clear();
+                                textBox_unidad.Clear();
+                                textBox_descuento.Clear();
+                                textBox_Id.Clear();
+                                textBox_descuento.Text = 0.ToString();
+
+                                textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Este producto no permite cantidades decimales. Ingrese un número entero.");
+                            }
                         }
+
                     }
+
                 }
+
                 else
                 {
                     MessageBox.Show("Ingrese una cantidad para ser vendida");
@@ -211,7 +210,9 @@ namespace POLIRUBRO.capaPresentacion
             {
                 MessageBox.Show("Complete todos los campos para poder realizar la registración de los productos");
             }
+
         }
+
 
 
 
@@ -225,16 +226,15 @@ namespace POLIRUBRO.capaPresentacion
 
                 if (Productos_a_vender.ContainsKey(codigo_barra))
                 {
-                    Stock_inicial[codigo_barra] += cantidad_a_vender_eliminada;
-
+                    Productos_a_vender[codigo_barra] -= cantidad_a_vender_eliminada;
                     Productos_a_vender.Remove(codigo_barra);
                 }
 
                 dgv_ventas.Rows.RemoveAt(e.RowIndex);
 
-                textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
-                textBox_descuento.Text = 0.ToString();
+                textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -261,56 +261,44 @@ namespace POLIRUBRO.capaPresentacion
                     if (Productos_a_vender.ContainsKey(codigo_barra))
                     {
                         Productos_a_vender[codigo_barra] += cantidad;
-
-                        foreach (DataGridViewRow row in dgv_ventas.Rows)
-                        {
-                            if (row.Cells["Codigo_barra"].Value.ToString() == codigo_barra)
-                            {
-                                double cantidadActualizada = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString()) + cantidad;
-                                row.Cells["Cantidad_a_vender"].Value = cantidadActualizada;
-                                break;
-                            }
-                        }
                     }
                     else
                     {
                         Productos_a_vender.Add(codigo_barra, cantidad);
-                        c.Descuento_stock(Productos_a_vender, Stock_inicial);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No hay productos cargados para la venta.");
+                    MessageBox.Show("Hay productos con información incompleta en la tabla.", "Error");
+                    return;
                 }
-
-
-
-
-                int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
-                int id_venta;
-
-                c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha, out id_venta);
-
-                foreach (DataGridViewRow p in dgv_ventas.Rows)
-                {
-                    string idProducto = p.Cells["Id"].Value.ToString();
-                    string cantidad = p.Cells["Cantidad_a_vender"].Value.ToString();
-                    string descuento = p.Cells["Descuento"].Value.ToString();
-                    string subtotal = p.Cells["SubTotal"].Value.ToString();
-
-                    c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);
-                }
-
-                textBox_total.Clear();
-                dgv_ventas.Rows.Clear();
-
-                //------------------------------------------------------impresion--------------------------------------------------------------------------
-
-                c.MostrarConfirmacionYAccion();
             }
 
+            c.Descuento_stock(Productos_a_vender, Stock_inicial);
 
+            int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+            int id_venta;
+
+           
+            c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha, out id_venta);
+
+            foreach (DataGridViewRow p in dgv_ventas.Rows)
+            {
+                string idProducto = p.Cells["Id"].Value.ToString();
+                string cantidad = p.Cells["Cantidad_a_vender"].Value.ToString();
+                string descuento = p.Cells["Descuento"].Value.ToString();
+                string subtotal = p.Cells["SubTotal"].Value.ToString();
+
+                c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);
+            }
+
+            textBox_total.Clear();
+            dgv_ventas.Rows.Clear();
+            Productos_a_vender.Clear();
+
+            c.MostrarConfirmacionYAccion();
         }
+
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {

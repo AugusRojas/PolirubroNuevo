@@ -134,9 +134,9 @@ namespace POLIRUBRO.capaDatos
                 SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@IdVenta", idVenta);
                 comando.Parameters.AddWithValue("@IdProducto", idProducto);
-                comando.Parameters.AddWithValue("@Cantidad", cantidad);
-                comando.Parameters.AddWithValue("@Descuento", descuento);
-                comando.Parameters.AddWithValue("@Subtotal", subtotal);
+                comando.Parameters.AddWithValue("@Cantidad", double.Parse(cantidad));
+                comando.Parameters.AddWithValue("@Descuento", double.Parse(descuento));
+                comando.Parameters.AddWithValue("@Subtotal", double.Parse(subtotal));
 
                 comando.ExecuteNonQuery();
 
