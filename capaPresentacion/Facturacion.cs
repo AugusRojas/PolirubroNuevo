@@ -88,7 +88,7 @@ namespace POLIRUBRO.capaPresentacion
                             if (double.TryParse(textBox_cantidad_vender.Text, out cantidad_vender))
                             {
                                 double precio = double.Parse(textBox_precio.Text);
-                                double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
+                                double subtotal = c.Aplicar_descuento(cantidad_vender, precio, descuentoAcumulado);
 
                                 bool productoRepetido = false;
 
@@ -116,7 +116,7 @@ namespace POLIRUBRO.capaPresentacion
 
                                         descuentoAcumulado += double.Parse(textBox_descuento.Text);
                                         row.Cells["Descuento"].Value = descuentoAcumulado;
-                                        double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
+                                        double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, descuentoAcumulado);
                                        
                                         row.Cells["Subtotal"].Value = nuevoSubtotal;
 
@@ -155,7 +155,7 @@ namespace POLIRUBRO.capaPresentacion
                                 cantidad_vender = cantidadEntera;
 
                                 double precio = double.Parse(textBox_precio.Text);
-                                double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
+                                double subtotal = c.Aplicar_descuento(cantidad_vender, precio, descuentoAcumulado);
 
                                 bool productoRepetido = false;
 
@@ -181,7 +181,7 @@ namespace POLIRUBRO.capaPresentacion
 
                                         row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
 
-                                        double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
+                                        double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, descuentoAcumulado);
                                         descuentoAcumulado += double.Parse(textBox_descuento.Text);
                                         row.Cells["Subtotal"].Value = nuevoSubtotal;
 
@@ -376,7 +376,7 @@ namespace POLIRUBRO.capaPresentacion
                         else
                         {
                             double cantidad_vender;
-
+                            double descuentoAcumulado = double.Parse(textBox_descuento.Text);
                             bool esFraccionable = label_fraccionable.Text == "Si";
 
                             if (esFraccionable)
@@ -384,7 +384,7 @@ namespace POLIRUBRO.capaPresentacion
                                 if (double.TryParse(textBox_cantidad_vender.Text, out cantidad_vender))
                                 {
                                     double precio = double.Parse(textBox_precio.Text);
-                                    double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
+                                    double subtotal = c.Aplicar_descuento(cantidad_vender, precio, descuentoAcumulado);
 
                                     bool productoRepetido = false;
 
@@ -398,7 +398,7 @@ namespace POLIRUBRO.capaPresentacion
                                             double nuevaCantidad = cantidadExistente + cantidad_vender;
                                             row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
 
-                                            double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
+                                            double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, descuentoAcumulado);
                                             row.Cells["Subtotal"].Value = nuevoSubtotal;
 
                                             break;
@@ -433,7 +433,7 @@ namespace POLIRUBRO.capaPresentacion
                                     cantidad_vender = cantidadEntera;
 
                                     double precio = double.Parse(textBox_precio.Text);
-                                    double subtotal = c.Aplicar_descuento(cantidad_vender, precio, textBox_descuento);
+                                    double subtotal = c.Aplicar_descuento(cantidad_vender, precio, descuentoAcumulado);
 
                                     bool productoRepetido = false;
 
@@ -447,7 +447,7 @@ namespace POLIRUBRO.capaPresentacion
                                             double nuevaCantidad = cantidadExistente + cantidad_vender;
                                             row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
 
-                                            double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
+                                            double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, descuentoAcumulado);
                                             row.Cells["Subtotal"].Value = nuevoSubtotal;
 
                                             break;
