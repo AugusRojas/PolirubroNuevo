@@ -80,7 +80,7 @@ namespace POLIRUBRO.capaPresentacion
                     else
                     {
                         double cantidad_vender;
-
+                        double descuentoAcumulado = double.Parse(textBox_descuento.Text);
                         bool esFraccionable = label_fraccionable.Text == "Sí";
 
                         if (esFraccionable)
@@ -96,6 +96,11 @@ namespace POLIRUBRO.capaPresentacion
                                 {
                                     if (row.Cells["Codigo_barra"].Value.ToString() == textBox_codigo_ean.Text)
                                     {
+                                        if(row.Cells["Descuento"].Value.ToString() != textBox_descuento.Text)
+                                        {
+                                            continue;
+                                        }
+
                                         productoRepetido = true;
 
                                         double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
@@ -109,11 +114,16 @@ namespace POLIRUBRO.capaPresentacion
 
                                         row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
 
+                                        descuentoAcumulado += double.Parse(textBox_descuento.Text);
+                                        row.Cells["Descuento"].Value = descuentoAcumulado;
                                         double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
+                                       
                                         row.Cells["Subtotal"].Value = nuevoSubtotal;
 
                                         break;
                                     }
+
+                                    
                                 }
 
                                 if (!productoRepetido)
@@ -122,6 +132,7 @@ namespace POLIRUBRO.capaPresentacion
 
                                     Stock_inicial[textBox_codigo_ean.Text] = double.Parse(textBox_stock.Text);
                                 }
+
 
                                 textBox_cantidad_vender.Clear(); textBox_codigo_ean.Clear(); textBox_Nombre.Clear(); textBox_precio.Clear();
                                 textBox_stock.Clear();
@@ -152,6 +163,11 @@ namespace POLIRUBRO.capaPresentacion
                                 {
                                     if (row.Cells["Codigo_barra"].Value.ToString() == textBox_codigo_ean.Text)
                                     {
+                                        if (row.Cells["Descuento"].Value.ToString() != textBox_descuento.Text)
+                                        {
+                                            continue;
+                                        }
+
                                         productoRepetido = true;
 
                                         double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
@@ -166,6 +182,7 @@ namespace POLIRUBRO.capaPresentacion
                                         row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
 
                                         double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, textBox_descuento);
+                                        descuentoAcumulado += double.Parse(textBox_descuento.Text);
                                         row.Cells["Subtotal"].Value = nuevoSubtotal;
 
                                         break;

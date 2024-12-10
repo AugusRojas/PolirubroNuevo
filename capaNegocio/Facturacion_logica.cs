@@ -92,10 +92,10 @@ namespace POLIRUBRO
         }
 
 
-        public double Aplicar_descuento(double cantidad_a_vender, double precio, TextBox descuento)
+        public double Aplicar_descuento(double cantidad_a_vender, double precio, double descuento)
         {
 
-            if (descuento.Text == "")
+            if (descuento == 0)
             {
                 return precio * cantidad_a_vender;
             }
@@ -104,7 +104,7 @@ namespace POLIRUBRO
             {
                 double subtotal = precio * cantidad_a_vender;
 
-                double descuento_aplicado = subtotal * double.Parse(descuento.Text) / 100;
+                double descuento_aplicado = subtotal * descuento / 100;
 
                 subtotal = subtotal - descuento_aplicado;
 
