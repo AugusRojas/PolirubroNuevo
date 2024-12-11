@@ -20,31 +20,33 @@ namespace POLIRUBRO.capaDatos
 
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
-
-                string consulta = $@"SELECT 
-                                    Id_Proveedor, Nombre_proveedor,
-                                    CUIT, Domicilio, Telefono
-                                    FROM Proveedor
-                                    WHERE {filtro} LIKE '%' || @palabra || '%'";
-
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-                comando.Parameters.AddWithValue("@palabra", palabra_escrita);
-
-                SQLiteDataReader leer = comando.ExecuteReader();
-
-                while (leer.Read())
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
-                    DataRow fila = datos.NewRow();
-                    fila["Id_Proveedor"] = leer["Id_Proveedor"];
-                    fila["Nombre_proveedor"] = leer["Nombre_proveedor"].ToString();
-                    fila["CUIT"] = leer["CUIT"].ToString();
-                    fila["Domicilio"] = leer["Domicilio"].ToString();
-                    fila["Telefono"] = leer["Telefono"].ToString();
-                    datos.Rows.Add(fila);
-                }
+                    string consulta = $@"SELECT 
+                                        Id_Proveedor, Nombre_proveedor,
+                                        CUIT, Domicilio, Telefono
+                                        FROM Proveedor
+                                        WHERE {filtro} LIKE '%' || @palabra || '%'";
 
-                leer.Close();
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@palabra", palabra_escrita);
+
+                        using (SQLiteDataReader leer = comando.ExecuteReader())
+                        {
+                            while (leer.Read())
+                            {
+                                DataRow fila = datos.NewRow();
+                                fila["Id_Proveedor"] = leer["Id_Proveedor"];
+                                fila["Nombre_proveedor"] = leer["Nombre_proveedor"].ToString();
+                                fila["CUIT"] = leer["CUIT"].ToString();
+                                fila["Domicilio"] = leer["Domicilio"].ToString();
+                                fila["Telefono"] = leer["Telefono"].ToString();
+                                datos.Rows.Add(fila);
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -58,17 +60,20 @@ namespace POLIRUBRO.capaDatos
         {
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = "INSERT INTO Proveedor (Nombre_proveedor, CUIT, Domicilio, Telefono) VALUES (@Nombre, @CUIT, @Domicilio, @Telefono)";
 
-                string consulta = "INSERT INTO Proveedor (Nombre_proveedor, CUIT, Domicilio, Telefono) VALUES (@Nombre, @CUIT, @Domicilio, @Telefono)";
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
+                        comando.Parameters.AddWithValue("@CUIT", proveedor.CUIT);
+                        comando.Parameters.AddWithValue("@Domicilio", proveedor.Domicilio);
+                        comando.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
 
-                comando.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
-                comando.Parameters.AddWithValue("@CUIT", proveedor.CUIT);
-                comando.Parameters.AddWithValue("@Domicilio", proveedor.Domicilio);
-                comando.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
-
-                comando.ExecuteNonQuery();
+                        comando.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -80,18 +85,21 @@ namespace POLIRUBRO.capaDatos
         {
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = "UPDATE Proveedor SET Nombre_proveedor = @Nombre, CUIT = @CUIT, Domicilio = @Domicilio, Telefono = @Telefono WHERE Id_Proveedor = @Id";
 
-                string consulta = "UPDATE Proveedor SET Nombre_proveedor = @Nombre, CUIT = @CUIT, Domicilio = @Domicilio, Telefono = @Telefono WHERE Id_Proveedor = @Id";
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Id", proveedor.Id);
+                        comando.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
+                        comando.Parameters.AddWithValue("@CUIT", proveedor.CUIT);
+                        comando.Parameters.AddWithValue("@Domicilio", proveedor.Domicilio);
+                        comando.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
 
-                comando.Parameters.AddWithValue("@Id", proveedor.Id);
-                comando.Parameters.AddWithValue("@Nombre", proveedor.Nombre);
-                comando.Parameters.AddWithValue("@CUIT", proveedor.CUIT);
-                comando.Parameters.AddWithValue("@Domicilio", proveedor.Domicilio);
-                comando.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
-
-                comando.ExecuteNonQuery();
+                        comando.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -103,14 +111,16 @@ namespace POLIRUBRO.capaDatos
         {
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = "DELETE FROM Proveedor WHERE Id_Proveedor = @Id";
 
-                string consulta = "DELETE FROM Proveedor WHERE Id_Proveedor = @Id";
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-
-                comando.Parameters.AddWithValue("@Id", id);
-
-                comando.ExecuteNonQuery();
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@Id", id);
+                        comando.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception ex)
             {

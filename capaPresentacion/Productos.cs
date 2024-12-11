@@ -81,7 +81,7 @@ namespace POLIRUBRO.capaPresentacion
         }
         private void txtProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            verificar.verificar_letras_evento(e);
+            verificar.verificar_letras_evento(sender,e);
         }
 
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -99,11 +99,6 @@ namespace POLIRUBRO.capaPresentacion
             verificar.verificar_numeros_evento(e);
         }
         
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-
-        }
         private void dataGridViewBuscar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -184,6 +179,57 @@ namespace POLIRUBRO.capaPresentacion
                 cargarProducto.obtenerTabla();
 
             }
+        }
+
+        private void txtProducto_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) { txtCodigoBarra.Focus(); }
+        }
+
+        private void txtCodigoBarra_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) { txtPrecio.Focus(); }
+        }
+
+        private void txtPrecio_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) { txtStock.Focus(); }
+        }
+
+        private void textBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!verificar.Verificar_vacio_txt(textBox2))
+                {
+                    MessageBox.Show("No se permiten campos vacios", "Carga categoria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    cargarProducto.insertar_categoria(textBox2.Text);
+                    boxCategoria = cargarProducto.cargar_comboBox(boxCategoria, "Nombre_categoria", "Categoria");
+                    textBox2.Text = " ";
+                }
+            }
+
+        }
+
+        private void textBox3_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!verificar.Verificar_vacio_txt(textBox3))
+                {
+                    MessageBox.Show("No se permiten campos vacios", "Carga categoria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    cargarProducto.insertar_unidad(textBox3.Text);
+                    boxCategoria = cargarProducto.cargar_comboBox(boxUnidad, "Nombre_unidad", "Unidad");
+                    textBox3.Text = " ";
+                }
+            }
+
         }
     }
 }

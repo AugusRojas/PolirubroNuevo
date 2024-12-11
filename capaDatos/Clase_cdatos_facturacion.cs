@@ -22,46 +22,47 @@ namespace POLIRUBRO.capaDatos
 
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
-
-                string consulta = $@"SELECT 
-                                    Producto.Id_Producto,
-                                    Producto.Codigo_barra,
-                                    Producto.Nombre,
-                                    Producto.Stock,
-                                    Producto.Precio,
-                                    Categoria.Nombre_categoria AS Categoria, 
-                                    Unidad.Nombre_unidad AS Unidad,
-                                    CASE 
-                                    WHEN Producto.Fraccionable = 1 THEN 'Sí'
-                                    ELSE 'No'
-                                    END AS Fraccionable
-                                    FROM 
-                                    Producto 
-                                    LEFT JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria
-                                    LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad  
-                                    WHERE {filtro} LIKE '%' || @palabra || '%'";
-
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-                comando.Parameters.AddWithValue("@palabra", palabra_escrita);
-
-                SQLiteDataReader leer = comando.ExecuteReader();
-
-                while (leer.Read())
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
-                    DataRow fila = datos.NewRow();
-                    fila["Id_Producto"] = leer["Id_Producto"];
-                    fila["Codigo_barra"] = leer["Codigo_barra"].ToString();
-                    fila["Nombre"] = leer["Nombre"];
-                    fila["Stock"] = leer["Stock"];
-                    fila["Precio"] = leer["Precio"];
-                    fila["Categoria"] = leer["Categoria"];
-                    fila["Unidad"] = leer["Unidad"].ToString();
-                    fila["Fraccionable"] = leer["Fraccionable"];
-                    datos.Rows.Add(fila);
-                }
+                    string consulta = $@"SELECT 
+                                        Producto.Id_Producto,
+                                        Producto.Codigo_barra,
+                                        Producto.Nombre,
+                                        Producto.Stock,
+                                        Producto.Precio,
+                                        Categoria.Nombre_categoria AS Categoria, 
+                                        Unidad.Nombre_unidad AS Unidad,
+                                        CASE 
+                                        WHEN Producto.Fraccionable = 1 THEN 'Sí'
+                                        ELSE 'No'
+                                        END AS Fraccionable
+                                        FROM 
+                                        Producto 
+                                        LEFT JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria
+                                        LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad  
+                                        WHERE {filtro} LIKE '%' || @palabra || '%'";
 
-                leer.Close();
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@palabra", palabra_escrita);
+                        using (SQLiteDataReader leer = comando.ExecuteReader())
+                        {
+                            while (leer.Read())
+                            {
+                                DataRow fila = datos.NewRow();
+                                fila["Id_Producto"] = leer["Id_Producto"];
+                                fila["Codigo_barra"] = leer["Codigo_barra"].ToString();
+                                fila["Nombre"] = leer["Nombre"];
+                                fila["Stock"] = leer["Stock"];
+                                fila["Precio"] = leer["Precio"];
+                                fila["Categoria"] = leer["Categoria"];
+                                fila["Unidad"] = leer["Unidad"].ToString();
+                                fila["Fraccionable"] = leer["Fraccionable"];
+                                datos.Rows.Add(fila);
+                            }
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -75,20 +76,21 @@ namespace POLIRUBRO.capaDatos
         {
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
-
-                foreach (var s in stock_nuevo)
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
-                    string consulta = $"UPDATE Producto SET Stock = @Stock WHERE Codigo_barra = @Codigo";
+                    foreach (var s in stock_nuevo)
+                    {
+                        string consulta = "UPDATE Producto SET Stock = @Stock WHERE Codigo_barra = @Codigo";
 
-                    SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-                    comando.Parameters.AddWithValue("@Stock", s.Value);
-                    comando.Parameters.AddWithValue("@Codigo", s.Key);
-
-                    comando.ExecuteNonQuery();
+                        using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                        {
+                            comando.Parameters.AddWithValue("@Stock", s.Value);
+                            comando.Parameters.AddWithValue("@Codigo", s.Key);
+                            comando.ExecuteNonQuery();
+                        }
+                    }
+                    MessageBox.Show("Stock actualizado");
                 }
-
-                MessageBox.Show("Stock actualizado");
             }
             catch (Exception e)
             {
@@ -102,19 +104,20 @@ namespace POLIRUBRO.capaDatos
 
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = @"INSERT INTO Venta (Id_Metodo_pago, Monto_total, Fecha) VALUES (@IdMetodoPago, @MontoTotal, @Fecha);
+                                        SELECT last_insert_rowid();";
 
-                string consulta = @"INSERT INTO Venta (Id_Metodo_pago, Monto_total, Fecha) VALUES (@IdMetodoPago, @MontoTotal, @Fecha);
-                                    SELECT last_insert_rowid();";
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@IdMetodoPago", id_metodo_pago);
+                        comando.Parameters.AddWithValue("@MontoTotal", decimal.Parse(total.Text));
+                        comando.Parameters.AddWithValue("@Fecha", DateTime.Parse(fecha.Text));
 
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-                comando.Parameters.AddWithValue("@IdMetodoPago", id_metodo_pago);
-                comando.Parameters.AddWithValue("@MontoTotal", decimal.Parse(total.Text));
-                comando.Parameters.AddWithValue("@Fecha", DateTime.Parse(fecha.Text));
-
-                idVenta = Convert.ToInt32(comando.ExecuteScalar());
-
-                conexion.Close();
+                        idVenta = Convert.ToInt32(comando.ExecuteScalar());
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -126,21 +129,20 @@ namespace POLIRUBRO.capaDatos
         {
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = "INSERT INTO ProductoXVenta(Id_Venta, Id_Producto, Cantidad, Descuento, Subtotal) VALUES (@IdVenta, @IdProducto, @Cantidad, @Descuento, @Subtotal);";
 
-                string consulta = $@"INSERT INTO ProductoXVenta(Id_Venta, Id_Producto, Cantidad, Descuento, Subtotal)
-                                     VALUES (@IdVenta, @IdProducto, @Cantidad, @Descuento, @Subtotal);";
-
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-                comando.Parameters.AddWithValue("@IdVenta", idVenta);
-                comando.Parameters.AddWithValue("@IdProducto", idProducto);
-                comando.Parameters.AddWithValue("@Cantidad", double.Parse(cantidad));
-                comando.Parameters.AddWithValue("@Descuento", double.Parse(descuento));
-                comando.Parameters.AddWithValue("@Subtotal", double.Parse(subtotal));
-
-                comando.ExecuteNonQuery();
-
-                conexion.Close();
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@IdVenta", idVenta);
+                        comando.Parameters.AddWithValue("@IdProducto", idProducto);
+                        comando.Parameters.AddWithValue("@Cantidad", double.Parse(cantidad));
+                        comando.Parameters.AddWithValue("@Descuento", double.Parse(descuento));
+                        comando.Parameters.AddWithValue("@Subtotal", double.Parse(subtotal));
+                        comando.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -154,17 +156,16 @@ namespace POLIRUBRO.capaDatos
 
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = "SELECT * FROM Ultima_Venta";
 
-                string consulta = "SELECT * FROM Ultima_Venta";
-
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-
-                SQLiteDataReader reader = comando.ExecuteReader();
-
-                datos.Load(reader);
-                reader.Close();
-                conexion.Close();
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    using (SQLiteDataReader reader = comando.ExecuteReader())
+                    {
+                        datos.Load(reader);
+                    }
+                }
             }
             catch (Exception ex)
             {

@@ -19,18 +19,7 @@ namespace POLIRUBRO.capaPresentacion
         }
         CargarProducto cargarProducto = new CargarProducto();
         Verificar verificar = new Verificar();
-        private void btnAgregarCategoria_Click(object sender, EventArgs e)
-        {
-            if (!verificar.Verificar_vacio_txt(textBox1))
-            {
-                MessageBox.Show("No se permiten campos vacios","Carga categoria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                cargarProducto.insertar_categoria(textBox1.Text);
-                boxCategoria = cargarProducto.cargar_comboBox(boxCategoria, "Nombre_categoria", "Categoria");
-            }
-        }
+    
 
         private void categoria_metodo_pago_Load(object sender, EventArgs e)
         {
@@ -40,25 +29,12 @@ namespace POLIRUBRO.capaPresentacion
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            verificar.verificar_letras_evento(e);
+            verificar.verificar_letras_evento(sender,e);
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            verificar.verificar_letras_evento(e);
-        }
-
-        private void btnAgregarPago_Click(object sender, EventArgs e)
-        {
-            if (!verificar.Verificar_vacio_txt(textBox2))
-            {
-                MessageBox.Show("No se permiten campos vacios", "Carga metodo de pago", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                cargarProducto.insertar_medio_de_pago(textBox2.Text);
-                boxPago = cargarProducto.cargar_comboBox(boxPago, "Nombre_metodo_pago", "Metodo_pago");
-            }
+            verificar.verificar_letras_evento(sender,e);
         }
 
         private void btnEliminarPago_Click(object sender, EventArgs e)
@@ -87,10 +63,16 @@ namespace POLIRUBRO.capaPresentacion
                 boxCategoria = cargarProducto.cargar_comboBox(boxCategoria, "Nombre_categoria", "Categoria");
             }
         }
-
-        private void boxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            if (!verificar.Verificar_vacio_comboBox(boxUnidad))
+            {
+                MessageBox.Show("No se permiten campos vacios", "Eliminar Unidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                cargarProducto.eliminar_unidad(cargarProducto.buscar_id("Nombre_unidad","Id_Unidad","Unidad",boxCategoria.SelectedItem.ToString()));
+            }
         }
     }
 }

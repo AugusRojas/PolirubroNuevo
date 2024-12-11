@@ -1,4 +1,5 @@
-﻿using POLIRUBRO.capaNegocio;
+﻿using DocumentFormat.OpenXml.Drawing;
+using POLIRUBRO.capaNegocio;
 using System;
 using System.Data;
 using System.Data.SQLite;
@@ -10,9 +11,9 @@ namespace POLIRUBRO
     {
         public void cargarProducto(Producto p)
         {
+                SQLiteConnection conexion = Conexion.obtenerConexion();
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
                 string consulta = "INSERT INTO Producto (Id_Proveedor, Id_Categoria, Codigo_barra, Nombre, Stock, Precio, Id_Unidad, Fraccionable) " +
                                   "VALUES (@Id_Proveedor, @Id_Categoria, @Codigo_barra, @Nombre, @Stock, @Precio, @Id_Unidad, @Fraccionable)";
                 SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
@@ -27,12 +28,18 @@ namespace POLIRUBRO
                 comando.Parameters.AddWithValue("@Fraccionable", p.fraccionable);
 
                 comando.ExecuteNonQuery();
-                conexion.Close();
                 MessageBox.Show("Producto cargado exitosamente");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
             }
         }
 
@@ -65,9 +72,9 @@ namespace POLIRUBRO
 
         public void modificarProducto(Producto p)
         {
+                SQLiteConnection conexion = Conexion.obtenerConexion();
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
                 string consulta = "UPDATE Producto SET Id_Proveedor = @Id_Proveedor, Id_Categoria = @Id_Categoria, Codigo_barra = @Codigo_barra, " +
                                   "Stock = @Stock, Precio = @Precio, Id_Unidad = @Id_Unidad, Fraccionable = @Fraccionable " +
                                   "WHERE Codigo_barra = @Codigo_barra OR Nombre = @Nombre";
@@ -83,20 +90,20 @@ namespace POLIRUBRO
                 comando.Parameters.AddWithValue("@Fraccionable", p.fraccionable);
 
                 comando.ExecuteNonQuery();
-                conexion.Close();
                 MessageBox.Show("Producto modificado exitosamente");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            finally { conexion.Close(); }
         }
 
         public void eliminarProducto(int Id)
         {
+                SQLiteConnection conexion = Conexion.obtenerConexion();
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
                 using (var transaccion = conexion.BeginTransaction())
                 {
                     string eliminarVentas = "DELETE FROM ProductoXVenta WHERE Id_Producto = @Id";
@@ -118,20 +125,22 @@ namespace POLIRUBRO
             {
                 MessageBox.Show(ex.Message);
             }
+            finally { conexion.Close(); }
         }
 
         public int buscar_id(string columna, string id_a_seleccionar, string tabla, string valor)
         {
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
-                string consulta = $"SELECT {id_a_seleccionar} FROM {tabla} WHERE {columna} = @valor";
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-                comando.Parameters.AddWithValue("@valor", valor);
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = $"SELECT {id_a_seleccionar} FROM {tabla} WHERE {columna} = @valor";
+                    SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                    comando.Parameters.AddWithValue("@valor", valor);
 
-                int resultado_id = (int?)(long?)comando.ExecuteScalar() ?? -1;
-                conexion.Close();
-                return resultado_id;
+                    int resultado_id = (int?)(long?)comando.ExecuteScalar() ?? -1;
+                    return resultado_id;
+                }
             }
             catch (Exception ex)
             {
@@ -142,88 +151,143 @@ namespace POLIRUBRO
 
         public DataTable obtenerTabla()
         {
-            try
+            using (SQLiteConnection conexion = Conexion.obtenerConexion())
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
-                DataTable tabla = new DataTable();
-                string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
-                                  "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
-                                  "FROM Producto " +
-                                  "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
-                                  "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
-                                  "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor";
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comando);
+                try
+                {
+                    DataTable tabla = new DataTable();
+                    string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
+                                      "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
+                                      "FROM Producto " +
+                                      "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
+                                      "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
+                                      "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor";
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        SQLiteDataAdapter adapter = new SQLiteDataAdapter(comando);
+                        adapter.Fill(tabla);
+                    }
+                    return tabla;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return null;
+                }
+                finally
+                {
+                    if (conexion.State == ConnectionState.Open)
+                    {
+                        conexion.Close();
+                    }
 
-                adapter.Fill(tabla);
-                return tabla;
-            }
-            catch
-            {
-                return null;
+                }
             }
         }
 
         public DataTable buscarProductos(string busqueda)
         {
-            DataTable dt = new DataTable();
-            SQLiteConnection conexion = Conexion.obtenerConexion();
-            string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre as Producto, Producto.Stock, Producto.Precio, " +
-                              "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
-                              "FROM Producto " +
-                              "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
-                              "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
-                              "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
+                SQLiteConnection conexion = Conexion.obtenerConexion();
+            try
+            {
+                DataTable dt = new DataTable();
+                string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre as Producto, Producto.Stock, Producto.Precio, " +
+                                  "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
+                                  "FROM Producto " +
+                                  "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
+                                  "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
+                                  "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
 
-                              "WHERE Producto.Codigo_barra LIKE @busqueda";
-            SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                                  "WHERE Producto.Codigo_barra = @busqueda";
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 
-            comando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%");
-            SQLiteDataAdapter adaptador = new SQLiteDataAdapter(comando);
+                comando.Parameters.AddWithValue("@busqueda", busqueda);
+                SQLiteDataAdapter adaptador = new SQLiteDataAdapter(comando);
 
-            adaptador.Fill(dt);
-            return dt;
+                adaptador.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
+            finally { conexion.Close(); }
+            
         }
 
         public void insertar_medio_de_pago(string insertar)
         {
-            SQLiteConnection conexion = Conexion.obtenerConexion();
-            string consulta = "INSERT INTO Metodo_pago (Nombre_metodo_pago) VALUES (@insertar)";
-            SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-            comando.Parameters.AddWithValue("@insertar", insertar);
-            comando.ExecuteNonQuery();
-            conexion.Close();
-            MessageBox.Show("Medio de pago agregado exitosamente");
+                SQLiteConnection conexion = Conexion.obtenerConexion();
+            try
+            {
+                string consulta = "INSERT INTO Metodo_pago (Nombre_metodo_pago) VALUES (@insertar)";
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@insertar", insertar);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            finally { conexion.Close(); }
         }
 
         public void insertar_categoria(string insertar)
         {
-            SQLiteConnection conexion = Conexion.obtenerConexion();
-            string consulta = "INSERT INTO Categoria (Nombre_categoria) VALUES (@insertar)";
-            SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
-            comando.Parameters.AddWithValue("@insertar", insertar);
-            comando.ExecuteNonQuery();
-            conexion.Close();
-            MessageBox.Show("Categoría agregada exitosamente");
+                SQLiteConnection conexion = Conexion.obtenerConexion();
+            try
+            {
+                string consulta = "INSERT INTO Categoria (Nombre_categoria) VALUES (@insertar)";
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@insertar", insertar);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            finally { conexion.Close(); }
+        }
+
+        public void insertar_unidad(string insertar)
+        {
+                SQLiteConnection conexion = Conexion.obtenerConexion();
+            try
+            {
+                string consulta = "INSERT INTO Unidad (Nombre_unidad) VALUES(@insertar)";
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@insertar", insertar);
+                comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            finally { conexion.Close(); }
+        }
+
+        public void eliminar_unidad(int eliminar)
+        {
+                SQLiteConnection conexion = Conexion.obtenerConexion();
+            try
+            {
+                string consulta = "DELETE FROM Unidad WHERE Id_Unidad = @eliminar";
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@eliminar", eliminar);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("Eliminado exitosamente");
+            }
+            catch (Exception e) { MessageBox.Show(e.Message);}
+            finally { conexion.Close(); }
+            
         }
 
         public void eliminar_pago(int eliminar)
         {
+                SQLiteConnection conexion = Conexion.obtenerConexion();
             try
             {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
                 string consulta = "DELETE FROM Metodo_pago WHERE Id_Metodo_pago = @eliminar";
                 SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@eliminar", eliminar);
-
                 comando.ExecuteNonQuery();
-                conexion.Close();
                 MessageBox.Show("Método de pago eliminado exitosamente");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            finally { conexion.Close(); }
+            
         }
 
         public void eliminar_categoria(int eliminar)

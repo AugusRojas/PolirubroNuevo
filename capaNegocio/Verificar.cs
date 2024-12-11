@@ -12,19 +12,33 @@ namespace POLIRUBRO
 {
     public class Verificar
     {
-       
-        public void verificar_letras_evento(KeyPressEventArgs e)
+
+        public void verificar_letras_evento(object sender, KeyPressEventArgs e)
         {
             try
             {
-                if ((!char.IsLetter(e.KeyChar) && e.KeyChar != (char)8))//verifica que no puedan ingresar dijitos ni parametros de control
-                { 
-                    e.Handled = true; //En caso de que sea, lo ignora
+                // Obtenemos el control que disparó el evento (TextBox)
+                TextBox textBox = sender as TextBox;
+
+                // Verifica que no ingresen caracteres que no sean letras ni la tecla Backspace (8) ni espacio (32)
+                if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ' ')
+                {
+                    e.Handled = true; // Si no es válido, lo ignora
+                }
+
+                // Verifica si el usuario ingresó un espacio y si el último carácter del TextBox también es un espacio
+                if (e.KeyChar == ' ' && textBox != null && textBox.Text.EndsWith(" "))
+                {
+                    e.Handled = true; // No permite doble espacio
                 }
 
             }
-            catch (Exception ex) { MessageBox.Show($"Error {ex.Message}");}
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
+
 
         public void verificar_numeros_evento(KeyPressEventArgs e)
         {

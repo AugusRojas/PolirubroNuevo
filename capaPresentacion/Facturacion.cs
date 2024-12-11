@@ -353,12 +353,17 @@ namespace POLIRUBRO.capaPresentacion
                 CargarProducto cargar = new CargarProducto();
                 DataTable dt = new DataTable();
                 dt = cargar.buscarProductos(textBox_codigo_ean.Text);
-                textBox_Nombre.Text = dt.Rows[0]["Producto"].ToString();
-                textBox_stock.Text = dt.Rows[0]["Stock"].ToString();
-                textBox_precio.Text = dt.Rows[0]["Precio"].ToString();
-                textBox_unidad.Text = dt.Rows[0]["Unidad"].ToString();
-                textBox_Id.Text = dt.Rows[0]["Id"].ToString();
-                textBox_cantidad_vender.Text = "1";
+                if (dt.Rows.Count > 0 && dt.Rows[0] != null)
+                {
+                    textBox_Nombre.Text = dt.Rows[0]["Producto"].ToString();
+                    textBox_stock.Text = dt.Rows[0]["Stock"].ToString();
+                    textBox_precio.Text = dt.Rows[0]["Precio"].ToString();
+                    textBox_unidad.Text = dt.Rows[0]["Unidad"].ToString();
+                    textBox_Id.Text = dt.Rows[0]["Id"].ToString();
+                    textBox_cantidad_vender.Text = "1";
+                }
+                else { MessageBox.Show("Producto no encontrado"); return; }
+                
 
                 if (v.Verificar_vacio_txt(textBox_codigo_ean) && v.Verificar_vacio_txt(textBox_Nombre) &&
                v.Verificar_vacio_txt(textBox_precio) && v.Verificar_vacio_txt(textBox_stock)
