@@ -149,6 +149,32 @@ namespace POLIRUBRO
             }
         }
 
+
+        public string buscar_valor_id(string columna, int indice_a_elegir, string tabla, string valor)
+        {
+            try
+            {
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = $"SELECT {columna} FROM {tabla} WHERE {indice_a_elegir} = @valor";
+                    SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                    comando.Parameters.AddWithValue("@valor", valor);
+
+                    // Acá no casteamos a int, porque no sabemos si es texto, número, etc.
+                    object resultado = comando.ExecuteScalar();
+
+                    // Si el resultado es nulo, devolvemos un string vacío
+                    return resultado?.ToString() ?? string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return string.Empty;
+            }
+        }
+
+
         public DataTable obtenerTabla()
         {
             using (SQLiteConnection conexion = Conexion.obtenerConexion())
@@ -191,14 +217,14 @@ namespace POLIRUBRO
             try
             {
                 DataTable dt = new DataTable();
-                string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre as Producto, Producto.Stock, Producto.Precio, " +
+                string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
                                   "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
                                   "FROM Producto " +
                                   "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
                                   "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
                                   "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
 
-                                  "WHERE Producto.Codigo_barra = @busqueda";
+                                  "WHERE Producto.Codigo_barra = @busqueda OR Producto.Nombre = @busqueda" ;
                 SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 
                 comando.Parameters.AddWithValue("@busqueda", busqueda);

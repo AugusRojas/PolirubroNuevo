@@ -91,7 +91,7 @@ namespace POLIRUBRO
 
         public bool verificar_codigoBarra(string codigoBarra)
         {
-            if ((codigoBarra.Length == 13))
+            if ((codigoBarra.Length == 13) || codigoBarra.Length==8)
             {   
                 return true;
             }
