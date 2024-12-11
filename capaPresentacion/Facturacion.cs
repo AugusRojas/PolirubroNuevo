@@ -392,10 +392,22 @@ namespace POLIRUBRO.capaPresentacion
                                     {
                                         if (row.Cells["Codigo_barra"].Value.ToString() == textBox_codigo_ean.Text)
                                         {
+                                            if (row.Cells["Descuento"].Value.ToString() != textBox_descuento.Text)
+                                            {
+                                                continue;
+                                            }
+
                                             productoRepetido = true;
 
                                             double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
                                             double nuevaCantidad = cantidadExistente + cantidad_vender;
+
+                                            if(nuevaCantidad > Stock_inicial[textBox_codigo_ean.Text])
+                                            {
+                                                MessageBox.Show("los productos a vender pasan del stock");
+                                                return;
+                                            }
+
                                             row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
 
                                             double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, descuentoAcumulado);
@@ -441,10 +453,22 @@ namespace POLIRUBRO.capaPresentacion
                                     {
                                         if (row.Cells["Codigo_barra"].Value.ToString() == textBox_codigo_ean.Text)
                                         {
+                                            if(row.Cells["Descuento"].Value.ToString() != textBox_descuento.Text )
+                                            {
+                                                continue;
+                                            }
+
                                             productoRepetido = true;
 
                                             double cantidadExistente = double.Parse(row.Cells["Cantidad_a_vender"].Value.ToString());
                                             double nuevaCantidad = cantidadExistente + cantidad_vender;
+
+                                            if (nuevaCantidad > Stock_inicial[textBox_codigo_ean.Text])
+                                            {
+                                                MessageBox.Show("los productos a vender pasan del stock");
+                                                return;
+                                            }
+
                                             row.Cells["Cantidad_a_vender"].Value = nuevaCantidad;
 
                                             double nuevoSubtotal = c.Aplicar_descuento(nuevaCantidad, precio, descuentoAcumulado);
