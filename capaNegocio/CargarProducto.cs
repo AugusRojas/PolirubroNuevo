@@ -150,13 +150,13 @@ namespace POLIRUBRO
         }
 
 
-        public string buscar_valor_id(string columna, int indice_a_elegir, string tabla, string valor)
+        public string buscar_valor_id(string selec, string columna, string tabla, int valor)
         {
             try
             {
                 using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
-                    string consulta = $"SELECT {columna} FROM {tabla} WHERE {indice_a_elegir} = @valor";
+                    string consulta = $"SELECT {selec} FROM {tabla} WHERE {columna} = @valor";
                     SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
                     comando.Parameters.AddWithValue("@valor", valor);
 
@@ -182,17 +182,28 @@ namespace POLIRUBRO
                 try
                 {
                     DataTable tabla = new DataTable();
-                    string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
-                                      "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
-                                      "FROM Producto " +
-                                      "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
-                                      "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
-                                      "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor";
-                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
-                    {
-                        SQLiteDataAdapter adapter = new SQLiteDataAdapter(comando);
-                        adapter.Fill(tabla);
-                    }
+                    string consulta = $@"SELECT 
+                                        Producto.Id_Producto AS Id,
+                                        Producto.Codigo_barra,
+                                        Producto.Nombre,
+                                        Proveedor.Nombre_proveedor,
+                                        Producto.Stock,
+                                        Producto.Precio,
+                                        Categoria.Nombre_categoria AS Categoria, 
+                                        Unidad.Nombre_unidad AS Unidad,
+                                        CASE 
+                                        WHEN Producto.Fraccionable = 1 THEN 'Sí'
+                                        ELSE 'No'
+                                        END AS Fraccionable
+                                        FROM 
+                                        Producto 
+                                        LEFT JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria
+                                        LEFT JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor
+                                        LEFT JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad";  
+                    SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(comando);
+                    adapter.Fill(tabla);
+                    
                     return tabla;
                 }
                 catch (Exception ex)
@@ -223,7 +234,6 @@ namespace POLIRUBRO
                                   "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
                                   "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
                                   "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
-
                                   "WHERE Producto.Codigo_barra = @busqueda OR Producto.Nombre = @busqueda" ;
                 SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
 

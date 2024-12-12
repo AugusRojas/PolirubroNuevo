@@ -162,11 +162,12 @@ namespace POLIRUBRO.capaPresentacion
                 txtCodigoBarra.Text = dataGridView1.Rows[e.RowIndex].Cells["Codigo_barra"].Value.ToString(); 
                 txtProducto.Text = dataGridView1.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
                 txtStock.Text = dataGridView1.Rows[e.RowIndex].Cells["Stock"].Value.ToString();
-                boxCategoria.SelectedValue = cargarProducto.buscar_valor_id("Nombre_categoria", cargarProducto.buscar_id("Nombre_categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString()), "Categoria", dataGridView1.Rows[e.RowIndex].Cells["Categoria"].Value.ToString());
-                boxUnidad.SelectedValue = cargarProducto.buscar_valor_id("Nombre_unidad", cargarProducto.buscar_id("Nombre_Unidad", "Id_Unidad", "Unidad", boxUnidad.SelectedItem.ToString()), "Unidad", dataGridView1.Rows[e.RowIndex].Cells["Unidad"].Value.ToString());
-                boxProveedor.SelectedValue = cargarProducto.buscar_valor_id("Nombre_proveedor",cargarProducto.buscar_id("Nombre_proveedor","Id_Proveedor","Proveedor",boxProveedor.SelectedItem.ToString()), "Proveedor", dataGridView1.Rows[e.RowIndex].Cells["Nombre_Proveedor"].Value.ToString());
+                boxCategoria.SelectedText = cargarProducto.buscar_valor_id("Nombre_categoria", "Id_Categoria", "Categoria", cargarProducto.buscar_id("Nombre_categoria", "Id_Categoria", "Categoria", dataGridView1.Rows[e.RowIndex].Cells["Categoria"].Value.ToString()));
+                boxUnidad.SelectedText = cargarProducto.buscar_valor_id("Nombre_unidad","Id_Unidad" , "Unidad", cargarProducto.buscar_id("Nombre_Unidad", "Id_Unidad", "Unidad", dataGridView1.Rows[e.RowIndex].Cells["Unidad"].Value.ToString()));
+                string respeusta = cargarProducto.buscar_valor_id("Nombre_proveedor", "Id_Proveedor", "Proveedor",  cargarProducto.buscar_id("Nombre_proveedor", "Id_Proveedor", "Proveedor", dataGridView1.Rows[e.RowIndex].Cells["Nombre_Proveedor"].Value.ToString()));
+                Console.WriteLine(respeusta);
                 int opcion;
-                if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Fraccionable"].Value) == 1) { opcion = 0; } else { opcion = 1; }
+                if (dataGridView1.Rows[e.RowIndex].Cells["Fraccionable"].Value.ToString() == "SI") { opcion = 1; } else { opcion = 0; }
                 boxFraccionable.SelectedIndex = opcion;
             }
         }
