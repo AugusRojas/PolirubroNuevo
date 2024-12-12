@@ -25,6 +25,7 @@ namespace POLIRUBRO.capaPresentacion
         {
             boxCategoria = cargarProducto.cargar_comboBox(boxCategoria,"Nombre_categoria","Categoria");
             boxPago = cargarProducto.cargar_comboBox(boxPago, "Nombre_metodo_pago", "Metodo_pago");
+            boxUnidad = cargarProducto.cargar_comboBox(boxUnidad, "Nombre_Unidad", "Unidad");
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -72,6 +73,7 @@ namespace POLIRUBRO.capaPresentacion
             else
             {
                 cargarProducto.eliminar_unidad(cargarProducto.buscar_id("Nombre_unidad","Id_Unidad","Unidad",boxCategoria.SelectedItem.ToString()));
+                boxUnidad = cargarProducto.cargar_comboBox(boxUnidad, "Nombre_Unidad", "Unidad");
             }
         }
     }
