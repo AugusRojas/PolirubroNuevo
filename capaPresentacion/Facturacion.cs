@@ -140,8 +140,16 @@ namespace POLIRUBRO.capaPresentacion
                                 textBox_descuento.Clear();
                                 textBox_descuento.Text = 0.ToString();
                                 textBox_Id.Clear();
+                                int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+                                if (b.buscar_valor_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", id_metodo_pago) == "Transferencia Bancaria")
+                                {
+                                textBox_total.Text = (Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00")) * 0.10 + Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00"))).ToString();
+                                }
+                                else
+                                {
+                                    textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
 
-                                textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
+                                }
                             }
                             else
                             {
@@ -206,7 +214,17 @@ namespace POLIRUBRO.capaPresentacion
                                 textBox_Id.Clear();
                                 textBox_descuento.Text = 0.ToString();
 
-                                textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
+                                int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+                                if (b.buscar_valor_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", id_metodo_pago) == "Transferencia Bancaria")
+                                {
+                                    textBox_total.Text = (Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00")) * 0.10 + Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00"))).ToString();
+                                }
+                                else
+                                {
+
+                                    textBox_total.Text = Convert.ToDouble(c.Total_a_pagar(dgv_ventas)).ToString("0.00");
+                                }
+
                             }
                             else
                             {
@@ -249,7 +267,16 @@ namespace POLIRUBRO.capaPresentacion
 
                 dgv_ventas.Rows.RemoveAt(e.RowIndex);
 
-                textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString("0.00");
+                int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+                if (b.buscar_valor_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", id_metodo_pago) == "Transferencia Bancaria")
+                {
+                    textBox_total.Text = (Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00")) * 0.10 + Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00"))).ToString();
+                }
+                else
+                {
+
+                    textBox_total.Text = Convert.ToDouble(c.Total_a_pagar(dgv_ventas)).ToString("0.00");
+                }
             }
 
         }
@@ -292,6 +319,7 @@ namespace POLIRUBRO.capaPresentacion
             }
 
             c.Descuento_stock(Productos_a_vender, Stock_inicial);
+
 
             int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
             int id_venta;
@@ -355,7 +383,7 @@ namespace POLIRUBRO.capaPresentacion
                 dt = cargar.buscarProductos(textBox_codigo_ean.Text);
                 if (dt.Rows.Count > 0 && dt.Rows[0] != null)
                 {
-                    textBox_Nombre.Text = dt.Rows[0]["Producto"].ToString();
+                    textBox_Nombre.Text = dt.Rows[0]["Nombre"].ToString();
                     textBox_stock.Text = dt.Rows[0]["Stock"].ToString();
                     textBox_precio.Text = dt.Rows[0]["Precio"].ToString();
                     textBox_unidad.Text = dt.Rows[0]["Unidad"].ToString();
@@ -436,7 +464,16 @@ namespace POLIRUBRO.capaPresentacion
                                     textBox_descuento.Text = 0.ToString();
                                     textBox_Id.Clear();
 
-                                    textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
+                                    int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+                                    if (b.buscar_valor_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", id_metodo_pago) == "Transferencia Bancaria")
+                                    {
+                                        textBox_total.Text = (Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00")) * 0.10 + Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00"))).ToString();
+                                    }
+                                    else
+                                    {
+
+                                        textBox_total.Text = Convert.ToDouble(c.Total_a_pagar(dgv_ventas)).ToString("0.00");
+                                    }
                                 }
                                 else
                                 {
@@ -500,7 +537,16 @@ namespace POLIRUBRO.capaPresentacion
                                     textBox_Id.Clear();
                                     textBox_descuento.Text = 0.ToString();
 
-                                    textBox_total.Text = c.Total_a_pagar(dgv_ventas).ToString();
+                                    int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+                                    if (b.buscar_valor_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", id_metodo_pago) == "Transferencia Bancaria")
+                                    {
+                                        textBox_total.Text = (Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00")) * 0.10 + Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00"))).ToString();
+                                    }
+                                    else
+                                    {
+
+                                        textBox_total.Text = Convert.ToDouble(c.Total_a_pagar(dgv_ventas)).ToString("0.00");
+                                    }
                                 }
                                 else
                                 {
@@ -529,6 +575,20 @@ namespace POLIRUBRO.capaPresentacion
         private void textBox_codigo_ean_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox_metodo_pago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
+            if (b.buscar_valor_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", id_metodo_pago) == "Transferencia Bancaria")
+            {
+                textBox_total.Text = (Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00")) * 0.10 + Convert.ToDouble(c.Total_a_pagar(dgv_ventas).ToString("0.00"))).ToString();
+            }
+            else
+            {
+
+            textBox_total.Text = Convert.ToDouble(c.Total_a_pagar(dgv_ventas)).ToString("0.00");
+            }
         }
     }
 }
