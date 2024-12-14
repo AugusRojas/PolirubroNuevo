@@ -336,7 +336,7 @@ namespace POLIRUBRO.capaPresentacion
 
                 c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);
             }
-
+            txtTotalDiario.Text = (Convert.ToDouble(textBox_total.Text) + Convert.ToDouble(txtTotalDiario.Text)).ToString("0.00");
             textBox_total.Clear();
             dgv_ventas.Rows.Clear();
             Productos_a_vender.Clear();

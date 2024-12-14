@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SQLite;
+using System.Threading;
 
 namespace POLIRUBRO
 {
@@ -15,6 +16,7 @@ namespace POLIRUBRO
             {
                 conector.Open();
                 Console.WriteLine("Conexión exitosa a la base de datos SQLite.");
+                
                 return conector;
             }
             catch (Exception ex)
