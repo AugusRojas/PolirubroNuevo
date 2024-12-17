@@ -605,5 +605,11 @@ namespace POLIRUBRO.capaPresentacion
             textBox_total.Text = Convert.ToDouble(c.Total_a_pagar(dgv_ventas)).ToString("0.00");
             }
         }
+
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Historial h = new Historial();
+            h.Show();
+        }
     }
 }
