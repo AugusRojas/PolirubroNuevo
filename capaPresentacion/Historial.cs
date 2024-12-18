@@ -15,16 +15,19 @@ namespace POLIRUBRO.capaPresentacion
     {
 
         private readonly HistorialLogica _historialLogica;
+        private readonly CargarProducto _cargarProducto;
         public Historial()
         {
             InitializeComponent();
             _historialLogica = new HistorialLogica();
+            _cargarProducto = new CargarProducto();
         }
 
         private bool mostrandoDetalles = false;
 
         private void Historial_Load(object sender, EventArgs e)
         {
+            comboBox1 = _cargarProducto.cargar_comboBox(comboBox1,"Nombre_metodo_pago", "Metodo_pago");
             dataGridView1.DataSource = _historialLogica.ObtenerTotalesPorFecha();
             mostrandoDetalles = false;
         }
@@ -60,6 +63,18 @@ namespace POLIRUBRO.capaPresentacion
         private void button3_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = _historialLogica.ObtenerPromedio();
+            mostrandoDetalles = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string metodoPago = comboBox1.SelectedItem.ToString();
+            if(metodoPago == "Seleccione una opción...")
+            {
+                MessageBox.Show("Seleccione una opción válida para el historial");
+                return;
+            }
+            dataGridView1.DataSource = _historialLogica.ObtenerHistorial(metodoPago);
             mostrandoDetalles = true;
         }
     }

@@ -120,5 +120,24 @@ namespace POLIRUBRO.capaDatos
             }
         }
 
+        public DataTable historialMetodoPago(string nombrePago)
+        {
+            try
+            {
+                DataTable table = new DataTable();
+                string query = "SELECT \r\n    Producto.Nombre AS Producto,\r\n    ProductoXVenta.Cantidad AS Cantidad,\r\n    ProductoXVenta.Subtotal AS Subtotal,\r\n    Venta.Fecha AS FechaVenta\r\nFROM ProductoXVenta\r\nJOIN Producto ON ProductoXVenta.Id_Producto = Producto.Id_Producto\r\nJOIN Venta ON ProductoXVenta.Id_Venta = Venta.Id_Venta\r\nJOIN Metodo_pago ON Venta.Id_Metodo_pago = Metodo_pago.Id_Metodo_pago\r\nWHERE Metodo_pago.Nombre_metodo_pago = @metodoPago\r\nORDER BY Venta.Fecha DESC;\r\n";
+                SQLiteCommand command = new SQLiteCommand(query, _conexion);
+                command.Parameters.AddWithValue("@metodoPago", nombrePago);
+                SQLiteDataAdapter ad = new SQLiteDataAdapter(command);
+                ad.Fill(table);
+                return table;
+            
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
     }
 }
