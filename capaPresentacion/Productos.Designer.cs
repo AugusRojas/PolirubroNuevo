@@ -77,7 +77,7 @@
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
             this.btnModificar.Location = new System.Drawing.Point(688, 86);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(79, 33);
             this.btnModificar.TabIndex = 0;
@@ -92,7 +92,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
             this.btnAgregar.Location = new System.Drawing.Point(688, 8);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(78, 37);
             this.btnAgregar.TabIndex = 1;
@@ -104,7 +104,7 @@
             // 
             this.txtProducto.BackColor = System.Drawing.SystemColors.Control;
             this.txtProducto.Location = new System.Drawing.Point(122, 18);
-            this.txtProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProducto.Margin = new System.Windows.Forms.Padding(2);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(108, 20);
             this.txtProducto.TabIndex = 2;
@@ -115,7 +115,7 @@
             // 
             this.txtCodigoBarra.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodigoBarra.Location = new System.Drawing.Point(122, 47);
-            this.txtCodigoBarra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodigoBarra.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigoBarra.Name = "txtCodigoBarra";
             this.txtCodigoBarra.Size = new System.Drawing.Size(108, 20);
             this.txtCodigoBarra.TabIndex = 5;
@@ -126,7 +126,7 @@
             // 
             this.txtStock.BackColor = System.Drawing.SystemColors.Control;
             this.txtStock.Location = new System.Drawing.Point(122, 109);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(2);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(108, 20);
             this.txtStock.TabIndex = 6;
@@ -217,7 +217,7 @@
             // 
             this.txtPrecio.BackColor = System.Drawing.SystemColors.Control;
             this.txtPrecio.Location = new System.Drawing.Point(122, 77);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(108, 20);
             this.txtPrecio.TabIndex = 14;
@@ -229,7 +229,7 @@
             this.boxProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxProveedor.FormattingEnabled = true;
             this.boxProveedor.Location = new System.Drawing.Point(349, 46);
-            this.boxProveedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxProveedor.Margin = new System.Windows.Forms.Padding(2);
             this.boxProveedor.Name = "boxProveedor";
             this.boxProveedor.Size = new System.Drawing.Size(108, 21);
             this.boxProveedor.TabIndex = 15;
@@ -239,7 +239,7 @@
             this.boxUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxUnidad.FormattingEnabled = true;
             this.boxUnidad.Location = new System.Drawing.Point(349, 76);
-            this.boxUnidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxUnidad.Margin = new System.Windows.Forms.Padding(2);
             this.boxUnidad.Name = "boxUnidad";
             this.boxUnidad.Size = new System.Drawing.Size(108, 21);
             this.boxUnidad.TabIndex = 16;
@@ -250,7 +250,7 @@
             this.boxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxCategoria.FormattingEnabled = true;
             this.boxCategoria.Location = new System.Drawing.Point(349, 15);
-            this.boxCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.boxCategoria.Name = "boxCategoria";
             this.boxCategoria.Size = new System.Drawing.Size(108, 21);
             this.boxCategoria.TabIndex = 17;
@@ -276,7 +276,7 @@
             "SI",
             "NO"});
             this.boxFraccionable.Location = new System.Drawing.Point(363, 105);
-            this.boxFraccionable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.boxFraccionable.Margin = new System.Windows.Forms.Padding(2);
             this.boxFraccionable.Name = "boxFraccionable";
             this.boxFraccionable.Size = new System.Drawing.Size(108, 21);
             this.boxFraccionable.TabIndex = 19;
@@ -348,9 +348,9 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(9, 10);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(1084, 143);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
@@ -379,7 +379,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(938, 64);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(138, 20);
             this.textBox3.TabIndex = 23;
@@ -388,7 +388,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(938, 27);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(138, 20);
             this.textBox2.TabIndex = 22;
@@ -397,7 +397,7 @@
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(609, 20);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(76, 20);
             this.txtId.TabIndex = 21;
@@ -410,7 +410,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.Location = new System.Drawing.Point(688, 49);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(79, 34);
             this.btnEliminar.TabIndex = 20;
@@ -426,9 +426,9 @@
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(4, 158);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(1090, 198);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
@@ -450,14 +450,14 @@
             this.label10.Location = new System.Drawing.Point(164, 31);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 16);
+            this.label10.Size = new System.Drawing.Size(55, 16);
             this.label10.TabIndex = 3;
             this.label10.Text = "Buscar";
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(238, 28);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(238, 22);
             this.textBox1.TabIndex = 2;
@@ -476,12 +476,13 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 67);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1085, 131);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // Productos
@@ -492,7 +493,7 @@
             this.ClientSize = new System.Drawing.Size(1016, 366);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Productos";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);
