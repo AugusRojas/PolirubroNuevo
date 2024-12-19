@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Security.RightsManagement;
 
 namespace POLIRUBRO.capaNegocio
 {
@@ -41,6 +42,11 @@ namespace POLIRUBRO.capaNegocio
         public DataTable ObtenerPromedio()
         {
             return _historialDatos.promedioVentas();
+        }
+
+        public DataTable ObtenerHistorial(string nombrePago)
+        {
+            return _historialDatos.historialMetodoPago(nombrePago);
         }
 
 
