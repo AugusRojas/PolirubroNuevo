@@ -98,7 +98,7 @@ namespace POLIRUBRO.capaDatos
             }
         }
 
-        public void insert_datos_venta(int id_metodo_pago, TextBox total, TextBox fecha, out int idVenta)
+        public void insert_datos_venta(int id_metodo_pago, TextBox total, TextBox fecha, TextBox hora, out int idVenta)
         {
             idVenta = 0;
 
@@ -106,14 +106,15 @@ namespace POLIRUBRO.capaDatos
             {
                 using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
-                    string consulta = @"INSERT INTO Venta (Id_Metodo_pago, Monto_total, Fecha) VALUES (@IdMetodoPago, @MontoTotal, @Fecha);
+                    string consulta = @"INSERT INTO Venta (Id_Metodo_pago, Monto_total, Fecha, Hora) VALUES (@IdMetodoPago, @MontoTotal, @Fecha, @Hora);
                                         SELECT last_insert_rowid();";
 
                     using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
                     {
                         comando.Parameters.AddWithValue("@IdMetodoPago", id_metodo_pago);
                         comando.Parameters.AddWithValue("@MontoTotal", decimal.Parse(total.Text));
-                        comando.Parameters.AddWithValue("@Fecha", DateTime.Parse(fecha.Text));
+                        comando.Parameters.AddWithValue("@Fecha", DateTime.Parse(fecha.Text).ToString("d"));
+                        comando.Parameters.AddWithValue("@Hora", DateTime.Parse(hora.Text).ToString("HH: mm:ss"));
 
                         idVenta = Convert.ToInt32(comando.ExecuteScalar());
                     }

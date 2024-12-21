@@ -113,10 +113,10 @@ namespace POLIRUBRO
 
         }
 
-        public void Insertar_venta(int id_metodo_pago, TextBox total, TextBox fecha, out int idVenta)
+        public void Insertar_venta(int id_metodo_pago, TextBox total, TextBox fecha, TextBox hora, out int idVenta)
         {
             Clase_cdatos_facturacion g = new Clase_cdatos_facturacion();
-            g.insert_datos_venta(id_metodo_pago, total, fecha, out idVenta);
+            g.insert_datos_venta(id_metodo_pago, total, fecha, hora, out idVenta);
         }
 
         public void Insertar_producto_en_venta(int idVenta, string idProducto, string cantidad, string descuento, string subtotal)
@@ -262,7 +262,7 @@ namespace POLIRUBRO
 
         .fecha {
             text-align: right;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-size: 16px;
         }
 
@@ -281,6 +281,7 @@ namespace POLIRUBRO
 <body>
     <div class='factura'>
         <p class='fecha'>Fecha: {FECHA}</p>
+        <p class='fecha'>Hora: {HORA}</p>
         <h2>N° de Comprobante #{ID_VENTA}</h2>
         <div class='header'>
             <div class='header-info'>
@@ -329,6 +330,7 @@ namespace POLIRUBRO
             htmlContent = htmlContent.Replace("{ID_VENTA}", fila["Id_Venta"].ToString());
             htmlContent = htmlContent.Replace("{METODO_DE_PAGO}", fila["Metodo_de_pago"].ToString());
             htmlContent = htmlContent.Replace("{MONTO_TOTAL}", fila["Monto_total"].ToString());
+            htmlContent = htmlContent.Replace("{HORA}", Convert.ToDateTime(fila["Hora"]).ToString("t"));
 
             string filasTabla = "";
             foreach (DataRow productoFila in datosUltimaVenta.Rows)

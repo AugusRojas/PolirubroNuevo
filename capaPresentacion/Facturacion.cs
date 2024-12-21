@@ -22,15 +22,24 @@ namespace POLIRUBRO.capaPresentacion
         Dictionary<string, double> Productos_a_vender = new Dictionary<string, double>();
 
         Dictionary<string, double> Stock_inicial = new Dictionary<string, double>();
+
         private void Facturacion_Load(object sender, EventArgs e)
         {
-            DateTime fecha = DateTime.Now;
-
-            textBox_fecha.Text = fecha.ToString("d");
+            textBox_fecha.Text = DateTime.Now.ToString("d");
 
             comboBox_metodo_pago = b.cargar_comboBox(comboBox_metodo_pago, "Nombre_metodo_pago", "Metodo_pago");
 
             textBox_descuento.Text = 0.ToString();
+
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer_hora_Tick;
+            timer.Start();
+        }
+
+        private void timer_hora_Tick(object sender, EventArgs e)
+        {
+            textBox_hora.Text = DateTime.Now.ToString("T");
         }
 
         private void button_buscar_producto_Click(object sender, EventArgs e)
@@ -51,6 +60,11 @@ namespace POLIRUBRO.capaPresentacion
             label_fraccionable.Text = fraccionable;
 
             if (!Stock_inicial.ContainsKey(codigo_barra))
+            {
+                Stock_inicial[codigo_barra] = double.Parse(stock);
+                Productos_a_vender[codigo_barra] = 0;
+            }
+            else
             {
                 Stock_inicial[codigo_barra] = double.Parse(stock);
                 Productos_a_vender[codigo_barra] = 0;
@@ -278,7 +292,6 @@ namespace POLIRUBRO.capaPresentacion
                 }
                 else
                 {
-
                     textBox_total.Text = Convert.ToDouble(c.Total_a_pagar(dgv_ventas)).ToString("0.00");
                 }
             }
@@ -298,6 +311,8 @@ namespace POLIRUBRO.capaPresentacion
                 MessageBox.Show("Por favor, seleccione un método de pago antes de continuar.", "Error", MessageBoxButtons.OK);
                 return;
             }
+
+            Productos_a_vender.Clear();
 
             foreach (DataGridViewRow fila in dgv_ventas.Rows)
             {
@@ -324,12 +339,10 @@ namespace POLIRUBRO.capaPresentacion
 
             c.Descuento_stock(Productos_a_vender, Stock_inicial);
 
-
             int id_metodo_pago = b.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", comboBox_metodo_pago.SelectedItem.ToString());
             int id_venta;
 
-           
-            c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha, out id_venta);
+            c.Insertar_venta(id_metodo_pago, textBox_total, textBox_fecha, textBox_hora, out id_venta);
 
             foreach (DataGridViewRow p in dgv_ventas.Rows)
             {
@@ -340,6 +353,7 @@ namespace POLIRUBRO.capaPresentacion
 
                 c.Insertar_producto_en_venta(id_venta, idProducto, cantidad, descuento, subtotal);
             }
+
             txtTotalDiario.Text = (Convert.ToDouble(textBox_total.Text) + Convert.ToDouble(txtTotalDiario.Text)).ToString("0.00");
             textBox_total.Clear();
             dgv_ventas.Rows.Clear();
@@ -347,6 +361,7 @@ namespace POLIRUBRO.capaPresentacion
 
             c.MostrarConfirmacionYAccion();
         }
+
 
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -610,6 +625,11 @@ namespace POLIRUBRO.capaPresentacion
         {
             Historial h = new Historial();
             h.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
