@@ -172,23 +172,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="capaDatos\Clase_cdatos_facturacion.cs" />
+    <Compile Include="capaDatos\Clase_Datos_Caja.cs" />
     <Compile Include="capaDatos\Clase_Datos_Proveedores.cs" />
     <Compile Include="capaDatos\Conexion.cs" />
     <Compile Include="capaDatos\HistorialDatos.cs" />
     <Compile Include="capaNegocio\Buscar.cs" />
+    <Compile Include="capaNegocio\Caja.cs" />
     <Compile Include="capaNegocio\CargarProducto.cs" />
     <Compile Include="capaNegocio\CargarProveedor.cs" />
     <Compile Include="capaNegocio\Creacion_dinamica_carpetas.cs" />
     <Compile Include="capaNegocio\Facturacion_logica.cs" />
     <Compile Include="capaNegocio\GenerarReporte.cs" />
     <Compile Include="capaNegocio\HistorialLogica.cs" />
+    <Compile Include="capaNegocio\Pantalla.cs" />
     <Compile Include="capaNegocio\Producto.cs" />
     <Compile Include="capaNegocio\Verificar.cs" />
+    <Compile Include="capaPresentacion\AgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capaPresentacion\AgregarUsuario.Designer.cs">
+      <DependentUpon>AgregarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="capaPresentacion\AperturaCajacs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capaPresentacion\AperturaCajacs.Designer.cs">
+      <DependentUpon>AperturaCajacs.cs</DependentUpon>
+    </Compile>
     <Compile Include="capaPresentacion\categoria_metodo_pago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="capaPresentacion\categoria_metodo_pago.Designer.cs">
       <DependentUpon>categoria_metodo_pago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="capaPresentacion\CierreCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capaPresentacion\CierreCaja.Designer.cs">
+      <DependentUpon>CierreCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="capaPresentacion\Facturacion.cs">
       <SubType>Form</SubType>
@@ -207,6 +228,12 @@
     </Compile>
     <Compile Include="capaPresentacion\Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="capaPresentacion\MostrarYCerrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capaPresentacion\MostrarYCerrar.Designer.cs">
+      <DependentUpon>MostrarYCerrar.cs</DependentUpon>
     </Compile>
     <Compile Include="capaPresentacion\Productos.cs">
       <SubType>Form</SubType>
@@ -228,8 +255,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="capaPresentacion\AgregarUsuario.resx">
+      <DependentUpon>AgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="capaPresentacion\AperturaCajacs.resx">
+      <DependentUpon>AperturaCajacs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\categoria_metodo_pago.resx">
       <DependentUpon>categoria_metodo_pago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="capaPresentacion\CierreCaja.resx">
+      <DependentUpon>CierreCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
@@ -239,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="capaPresentacion\MostrarYCerrar.resx">
+      <DependentUpon>MostrarYCerrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>

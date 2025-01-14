@@ -242,5 +242,10 @@ namespace POLIRUBRO.capaPresentacion
         {
 
         }
+
+        private void Productos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+        }
     }
 }

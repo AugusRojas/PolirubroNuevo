@@ -1,4 +1,6 @@
-﻿using System;
+﻿using iTextSharp.text.xml;
+using POLIRUBRO.capaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,12 +25,14 @@ namespace POLIRUBRO.capaPresentacion
 
         Dictionary<string, double> Stock_inicial = new Dictionary<string, double>();
 
+        Pantalla pantalla = new Pantalla();
+
         private void Facturacion_Load(object sender, EventArgs e)
         {
             textBox_fecha.Text = DateTime.Now.ToString("d");
 
             comboBox_metodo_pago = b.cargar_comboBox(comboBox_metodo_pago, "Nombre_metodo_pago", "Metodo_pago");
-
+            comboBox_metodo_pago.SelectedIndex = 1;
             textBox_descuento.Text = 0.ToString();
 
             Timer timer = new Timer();
@@ -264,7 +268,7 @@ namespace POLIRUBRO.capaPresentacion
             {
                 MessageBox.Show("Complete todos los campos para poder realizar la registración de los productos");
             }
-
+            textBox_codigo_ean.Focus();
         }
 
 
@@ -360,6 +364,7 @@ namespace POLIRUBRO.capaPresentacion
             Productos_a_vender.Clear();
 
             c.MostrarConfirmacionYAccion();
+            textBox_codigo_ean.Focus();
         }
 
 
@@ -367,25 +372,37 @@ namespace POLIRUBRO.capaPresentacion
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Productos p = new Productos();
+            this.Hide();
             p.Show();
+            p.FormClosed += (s, args) => this.Show();
+
+           
+
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Proveedores pr = new Proveedores();
+            this.Hide();
             pr.Show();
+            pr.FormClosed += (s, args) => this.Show();
+            
         }
 
         private void metodoDePagoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             categoria_metodo_pago mp = new categoria_metodo_pago();
+            this.Hide();
             mp.Show();
+            mp.FormClosed += (s,args) => this.Show();
         }
 
         private void generarReporteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Generar_Reporte gr = new Generar_Reporte();
+            this.Hide();
             gr.Show();
+            gr.FormClosed += (s, args) => this.Show();
         }
 
         private void textBox_cantidad_vender_KeyPress(object sender, KeyPressEventArgs e)
@@ -410,7 +427,7 @@ namespace POLIRUBRO.capaPresentacion
                     textBox_cantidad_vender.Text = "1";
                 }
                 else { MessageBox.Show("Producto no encontrado"); return; }
-                
+
 
                 if (v.Verificar_vacio_txt(textBox_codigo_ean) && v.Verificar_vacio_txt(textBox_Nombre) &&
                v.Verificar_vacio_txt(textBox_precio) && v.Verificar_vacio_txt(textBox_stock)
@@ -475,7 +492,7 @@ namespace POLIRUBRO.capaPresentacion
 
                                     if (!productoRepetido)
                                     {
-                                        dgv_ventas.Rows.Add(textBox_Id.Text,textBox_codigo_ean.Text,textBox_Nombre.Text,textBox_precio.Text,textBox_cantidad_vender.Text,textBox_unidad.Text,subtotal,textBox_descuento.Text);
+                                        dgv_ventas.Rows.Add(textBox_Id.Text, textBox_codigo_ean.Text, textBox_Nombre.Text, textBox_precio.Text, textBox_cantidad_vender.Text, textBox_unidad.Text, subtotal, textBox_descuento.Text);
 
                                         Productos_a_vender[textBox_codigo_ean.Text] += cantidad_vender;
                                     }
@@ -597,9 +614,8 @@ namespace POLIRUBRO.capaPresentacion
                 {
                     MessageBox.Show("Complete todos los campos para poder realizar la registración de los productos");
                 }
-
-
             }
+            textBox_codigo_ean.Focus();
         }
 
         private void textBox_codigo_ean_TextChanged(object sender, EventArgs e)
