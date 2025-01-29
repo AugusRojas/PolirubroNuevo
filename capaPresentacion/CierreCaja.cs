@@ -16,5 +16,7 @@ namespace POLIRUBRO.capaPresentacion
         {
             InitializeComponent();
         }
+
+       
     }
 }

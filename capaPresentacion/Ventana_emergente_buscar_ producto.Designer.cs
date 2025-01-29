@@ -118,7 +118,7 @@ namespace POLIRUBRO.capaPresentacion
             this.Name = "Ventana_emergente_buscar__producto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventana_emergente_buscar__producto";
-            this.Load += new System.EventHandler(this.Ventana_emergente_buscar__producto_Load);
+           
             ((System.ComponentModel.ISupportInitialize)(this.dvg_filtrado)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

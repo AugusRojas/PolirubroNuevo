@@ -36,5 +36,20 @@ namespace POLIRUBRO.capaNegocio
 
             return carpeta_reporte;
         }
+
+        public string Crear_carpeta_ventas_de_hoy()
+        {
+            string Ruta_carpeta_documento = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            string carpeta_cierres_de_caja = Path.Combine(Ruta_carpeta_documento, "Cierres de cajas");
+
+            if (!Directory.Exists(carpeta_cierres_de_caja))
+            {
+                Directory.CreateDirectory(carpeta_cierres_de_caja);
+            }
+
+            return carpeta_cierres_de_caja;
+        }
+
     }
 }

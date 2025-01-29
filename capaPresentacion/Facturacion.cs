@@ -9,11 +9,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POLIRUBRO.capaDatos;
+using POLIRUBRO.capaPresentacion;
 
 namespace POLIRUBRO.capaPresentacion
 {
     public partial class Facturacion : Form
     {
+        public string Hora_apertura { get; set; }
+       
         public Facturacion()
         {
             InitializeComponent();
@@ -39,6 +43,12 @@ namespace POLIRUBRO.capaPresentacion
             timer.Interval = 1000;
             timer.Tick += timer_hora_Tick;
             timer.Start();
+
+           
+
+           
+            
+
         }
 
         private void timer_hora_Tick(object sender, EventArgs e)
@@ -78,7 +88,6 @@ namespace POLIRUBRO.capaPresentacion
 
         Verificar v = new Verificar();
         Facturacion_logica c = new Facturacion_logica();
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -643,8 +652,24 @@ namespace POLIRUBRO.capaPresentacion
             h.Show();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
+            // Verifica si los valores existen
+            if (string.IsNullOrWhiteSpace(Hora_apertura) ||
+                string.IsNullOrWhiteSpace(textBox_hora.Text) ||
+                string.IsNullOrWhiteSpace(textBox_fecha.Text))
+            {
+                MessageBox.Show("Faltan datos: Asegúrate de completar todos los campos.");
+                return;
+            }
+
+            string hora_cierre = textBox_hora.Text;
+            string fecha = textBox_fecha.Text;
+
+           
+            MostrarYCerrar a = new MostrarYCerrar(Hora_apertura, hora_cierre, fecha);
+            a.Show();
+
 
         }
     }

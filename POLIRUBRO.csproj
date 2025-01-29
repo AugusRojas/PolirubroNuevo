@@ -171,6 +171,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="capaDatos\Cierre_de_caja_datos.cs" />
     <Compile Include="capaDatos\Clase_cdatos_facturacion.cs" />
     <Compile Include="capaDatos\Clase_Datos_Caja.cs" />
     <Compile Include="capaDatos\Clase_Datos_Proveedores.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="capaNegocio\Caja.cs" />
     <Compile Include="capaNegocio\CargarProducto.cs" />
     <Compile Include="capaNegocio\CargarProveedor.cs" />
+    <Compile Include="capaNegocio\Cierre_de_caja_logica.cs" />
     <Compile Include="capaNegocio\Creacion_dinamica_carpetas.cs" />
     <Compile Include="capaNegocio\Facturacion_logica.cs" />
     <Compile Include="capaNegocio\GenerarReporte.cs" />
@@ -316,6 +318,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="images.ico" />
+    <Content Include="Resources\caja-registradora %281%29 %281%29 %281%29.png" />
     <None Include="Resources\icons8-pdf-195.png" />
     <None Include="Resources\icons8-excel-150.png" />
     <None Include="Resources\icons8-excel-250.png" />

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POLIRUBRO.capaDatos;
 
 namespace POLIRUBRO.capaPresentacion
 {
@@ -17,31 +18,55 @@ namespace POLIRUBRO.capaPresentacion
         {
             InitializeComponent();
         }
+
+        private void AperturaCajacs_Load(object sender, EventArgs e)
+        {
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer1_Tick;
+            timer.Start();
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            textBox_hora_apertura.Text = DateTime.Now.ToString("T");
+        }
+
+
+
         Caja caja = new Caja();
         Verificar verificar = new Verificar();
+       
+        
         private void btnAperturaCaja_Click(object sender, EventArgs e)
         {
-            if (!verificar.Verificar_vacio_txt(txtNumeroCaja)||
-                !verificar.Verificar_vacio_txt(txtEncargadoNombre)||
-                !verificar.Verificar_vacio_txt(txtSaldoInicial))
-            {
-                MessageBox.Show("Complete todos los campos");
-            }
-            else
-            {
-                if (caja.ingresar(txtSaldoInicial.Text ,txtEncargadoNombre.Text,txtNumeroCaja.Text,txtEncargadoApellido.Text))
-                {
-                    var facturacion = new Facturacion();
-                    this.Hide();
-                    facturacion.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Error");
-                }
-                
+            var facturacion = new Facturacion();
+           
+            facturacion.Hora_apertura = textBox_hora_apertura.Text;
+            facturacion.Show();
 
-            }
+            //if (!verificar.Verificar_vacio_txt(txtNumeroCaja)||
+            //    !verificar.Verificar_vacio_txt(txtEncargadoNombre)||
+            //    !verificar.Verificar_vacio_txt(txtSaldoInicial))
+            //{
+            //    MessageBox.Show("Complete todos los campos");
+            //}
+            //else
+            //{
+            //    if (caja.ingresar(txtSaldoInicial.Text ,txtEncargadoNombre.Text,txtNumeroCaja.Text,txtEncargadoApellido.Text))
+            //    {
+
+            //        this.Hide();
+
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Error");
+            //    }
+
+
+            //}
         }
 
         private void txtSaldoInicial_KeyPress(object sender, KeyPressEventArgs e)
@@ -66,5 +91,7 @@ namespace POLIRUBRO.capaPresentacion
             this.Hide();
             u.FormClosed += (s, args) => this.Show();
         }
+
+        
     }
 }
