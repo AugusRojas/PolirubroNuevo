@@ -15,6 +15,8 @@ namespace POLIRUBRO
             try
             {
                 conector.Open();
+                SQLiteCommand comando = new SQLiteCommand("PRAGMA journal_mode = WAL;",conector);
+                comando.ExecuteNonQuery();
                 Console.WriteLine("Conexión exitosa a la base de datos SQLite.");
                 
                 return conector;

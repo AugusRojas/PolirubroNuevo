@@ -47,6 +47,7 @@
             this.btnCaja.TabIndex = 0;
             this.btnCaja.Text = "Mostrar y cerrar caja";
             this.btnCaja.UseVisualStyleBackColor = true;
+            this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
             // txtEfectivoInicial
             // 
@@ -54,6 +55,7 @@
             this.txtEfectivoInicial.Name = "txtEfectivoInicial";
             this.txtEfectivoInicial.Size = new System.Drawing.Size(100, 22);
             this.txtEfectivoInicial.TabIndex = 1;
+            this.txtEfectivoInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEfectivoInicial_KeyPress);
             // 
             // label1
             // 
@@ -88,6 +90,7 @@
             this.txtTrasnferenciaTotal.Name = "txtTrasnferenciaTotal";
             this.txtTrasnferenciaTotal.Size = new System.Drawing.Size(100, 22);
             this.txtTrasnferenciaTotal.TabIndex = 5;
+            this.txtTrasnferenciaTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTrasnferenciaTotal_KeyPress);
             // 
             // txtEfectivoTotal
             // 
@@ -95,6 +98,7 @@
             this.txtEfectivoTotal.Name = "txtEfectivoTotal";
             this.txtEfectivoTotal.Size = new System.Drawing.Size(100, 22);
             this.txtEfectivoTotal.TabIndex = 6;
+            this.txtEfectivoTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEfectivoTotal_KeyPress);
             // 
             // label4
             // 
@@ -111,6 +115,7 @@
             this.txtEgresos.Name = "txtEgresos";
             this.txtEgresos.Size = new System.Drawing.Size(100, 22);
             this.txtEgresos.TabIndex = 8;
+            this.txtEgresos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEgresos_KeyPress);
             // 
             // CierreCaja
             // 
@@ -128,6 +133,7 @@
             this.Controls.Add(this.btnCaja);
             this.Name = "CierreCaja";
             this.Text = "CierreCaja";
+            this.Load += new System.EventHandler(this.CierreCaja_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,20 +38,27 @@
             this.txtTotalEsperado = new System.Windows.Forms.TextBox();
             this.txtTransferencia = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelHoraCierre = new System.Windows.Forms.Label();
+            this.labelHoraApertura = new System.Windows.Forms.Label();
             this.txtEgresos = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewCategorias = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewProductos = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewHistorial = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.labelApertura = new System.Windows.Forms.Label();
+            this.labelCierre = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategorias)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,6 +128,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelCierre);
+            this.groupBox1.Controls.Add(this.labelApertura);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.labelHoraCierre);
+            this.groupBox1.Controls.Add(this.labelHoraApertura);
             this.groupBox1.Controls.Add(this.txtEgresos);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -132,10 +146,44 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 260);
+            this.groupBox1.Size = new System.Drawing.Size(391, 344);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Totales";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 258);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 16);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Hora de apertura";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 287);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 16);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Hora de cierre";
+            // 
+            // labelHoraCierre
+            // 
+            this.labelHoraCierre.AutoSize = true;
+            this.labelHoraCierre.Location = new System.Drawing.Point(141, 287);
+            this.labelHoraCierre.Name = "labelHoraCierre";
+            this.labelHoraCierre.Size = new System.Drawing.Size(0, 16);
+            this.labelHoraCierre.TabIndex = 11;
+            // 
+            // labelHoraApertura
+            // 
+            this.labelHoraApertura.AutoSize = true;
+            this.labelHoraApertura.Location = new System.Drawing.Point(141, 258);
+            this.labelHoraApertura.Name = "labelHoraApertura";
+            this.labelHoraApertura.Size = new System.Drawing.Size(0, 16);
+            this.labelHoraApertura.TabIndex = 10;
             // 
             // txtEgresos
             // 
@@ -183,16 +231,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Productos mas vendidos";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.dataGridViewHistorial);
-            this.groupBox4.Location = new System.Drawing.Point(715, 22);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(611, 260);
-            this.groupBox4.TabIndex = 12;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Historial de productos vendidos";
-            // 
             // dataGridViewProductos
             // 
             this.dataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -203,6 +241,16 @@
             this.dataGridViewProductos.Size = new System.Drawing.Size(276, 113);
             this.dataGridViewProductos.TabIndex = 1;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridViewHistorial);
+            this.groupBox4.Location = new System.Drawing.Point(715, 22);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(611, 260);
+            this.groupBox4.TabIndex = 12;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Historial de productos vendidos";
+            // 
             // dataGridViewHistorial
             // 
             this.dataGridViewHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -212,6 +260,28 @@
             this.dataGridViewHistorial.RowTemplate.Height = 24;
             this.dataGridViewHistorial.Size = new System.Drawing.Size(599, 233);
             this.dataGridViewHistorial.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // labelApertura
+            // 
+            this.labelApertura.AutoSize = true;
+            this.labelApertura.Location = new System.Drawing.Point(147, 258);
+            this.labelApertura.Name = "labelApertura";
+            this.labelApertura.Size = new System.Drawing.Size(0, 16);
+            this.labelApertura.TabIndex = 13;
+            // 
+            // labelCierre
+            // 
+            this.labelCierre.AutoSize = true;
+            this.labelCierre.Location = new System.Drawing.Point(147, 287);
+            this.labelCierre.Name = "labelCierre";
+            this.labelCierre.Size = new System.Drawing.Size(0, 16);
+            this.labelCierre.TabIndex = 14;
             // 
             // MostrarYCerrar
             // 
@@ -230,8 +300,8 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategorias)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).EndInit();
             this.ResumeLayout(false);
 
@@ -256,5 +326,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridViewProductos;
         private System.Windows.Forms.DataGridView dataGridViewHistorial;
+        private System.Windows.Forms.Label labelHoraCierre;
+        private System.Windows.Forms.Label labelHoraApertura;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelCierre;
+        private System.Windows.Forms.Label labelApertura;
     }
 }

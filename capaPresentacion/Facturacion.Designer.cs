@@ -84,6 +84,7 @@ namespace POLIRUBRO.capaPresentacion
             this.label14 = new System.Windows.Forms.Label();
             this.txtTotalDiario = new System.Windows.Forms.TextBox();
             this.timer_hora = new System.Windows.Forms.Timer(this.components);
+            this.btnCierreCaja = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ventas)).BeginInit();
@@ -684,12 +685,28 @@ namespace POLIRUBRO.capaPresentacion
             // 
             this.timer_hora.Tick += new System.EventHandler(this.timer_hora_Tick);
             // 
+            // btnCierreCaja
+            // 
+            this.btnCierreCaja.BackColor = System.Drawing.Color.LightCoral;
+            this.btnCierreCaja.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCierreCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCierreCaja.ForeColor = System.Drawing.Color.Black;
+            this.btnCierreCaja.Location = new System.Drawing.Point(16, 490);
+            this.btnCierreCaja.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCierreCaja.Name = "btnCierreCaja";
+            this.btnCierreCaja.Size = new System.Drawing.Size(145, 94);
+            this.btnCierreCaja.TabIndex = 21;
+            this.btnCierreCaja.Text = "Cerrar Caja";
+            this.btnCierreCaja.UseVisualStyleBackColor = false;
+            this.btnCierreCaja.Click += new System.EventHandler(this.btnCierreCaja_Click);
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightPink;
             this.ClientSize = new System.Drawing.Size(1568, 750);
+            this.Controls.Add(this.btnCierreCaja);
             this.Controls.Add(this.txtTotalDiario);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button_vender);
@@ -779,5 +796,6 @@ namespace POLIRUBRO.capaPresentacion
         private System.Windows.Forms.TextBox textBox_hora;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Timer timer_hora;
+        private System.Windows.Forms.Button btnCierreCaja;
     }
 }

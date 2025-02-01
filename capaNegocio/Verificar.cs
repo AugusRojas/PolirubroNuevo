@@ -115,7 +115,7 @@ namespace POLIRUBRO
         //verifica los vacio del combobox
         public bool Verificar_vacio_comboBox(ComboBox c)
         {
-            if (c.SelectedIndex != -1) { return true; }// verifica que el combo box no este vacio
+            if (c.SelectedIndex != -1 && c.SelectedIndex != 0) { return true; }// verifica que el combo box no este vacio
             else { return false; }
         }
         public bool Combobox_opcion(ComboBox c)

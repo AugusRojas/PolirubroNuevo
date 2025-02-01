@@ -35,15 +35,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEncargadoNombre = new System.Windows.Forms.TextBox();
-            this.txtNumeroCaja = new System.Windows.Forms.TextBox();
-            this.txtEncargadoApellido = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
+            this.boxCaja = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnAperturaCaja
             // 
-            this.btnAperturaCaja.Location = new System.Drawing.Point(424, 84);
+            this.btnAperturaCaja.Location = new System.Drawing.Point(424, 57);
             this.btnAperturaCaja.Name = "btnAperturaCaja";
             this.btnAperturaCaja.Size = new System.Drawing.Size(133, 52);
             this.btnAperturaCaja.TabIndex = 0;
@@ -54,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 22);
+            this.label1.Location = new System.Drawing.Point(26, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 1;
@@ -62,9 +60,9 @@
             // 
             // txtSaldoInicial
             // 
-            this.txtSaldoInicial.Location = new System.Drawing.Point(224, 16);
+            this.txtSaldoInicial.Location = new System.Drawing.Point(224, 46);
             this.txtSaldoInicial.Name = "txtSaldoInicial";
-            this.txtSaldoInicial.Size = new System.Drawing.Size(100, 22);
+            this.txtSaldoInicial.Size = new System.Drawing.Size(121, 22);
             this.txtSaldoInicial.TabIndex = 2;
             this.txtSaldoInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSaldoInicial_KeyPress);
             // 
@@ -79,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 120);
+            this.label2.Location = new System.Drawing.Point(26, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 16);
             this.label2.TabIndex = 3;
@@ -88,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 61);
+            this.label3.Location = new System.Drawing.Point(26, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 4;
@@ -96,39 +94,15 @@
             // 
             // txtEncargadoNombre
             // 
-            this.txtEncargadoNombre.Location = new System.Drawing.Point(224, 55);
+            this.txtEncargadoNombre.Location = new System.Drawing.Point(224, 84);
             this.txtEncargadoNombre.Name = "txtEncargadoNombre";
-            this.txtEncargadoNombre.Size = new System.Drawing.Size(100, 22);
+            this.txtEncargadoNombre.Size = new System.Drawing.Size(121, 22);
             this.txtEncargadoNombre.TabIndex = 5;
             this.txtEncargadoNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEncargado_KeyPress);
             // 
-            // txtNumeroCaja
-            // 
-            this.txtNumeroCaja.Location = new System.Drawing.Point(224, 114);
-            this.txtNumeroCaja.Name = "txtNumeroCaja";
-            this.txtNumeroCaja.Size = new System.Drawing.Size(100, 22);
-            this.txtNumeroCaja.TabIndex = 6;
-            this.txtNumeroCaja.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroCaja_KeyPress);
-            // 
-            // txtEncargadoApellido
-            // 
-            this.txtEncargadoApellido.Location = new System.Drawing.Point(224, 86);
-            this.txtEncargadoApellido.Name = "txtEncargadoApellido";
-            this.txtEncargadoApellido.Size = new System.Drawing.Size(100, 22);
-            this.txtEncargadoApellido.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 93);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 16);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Apellido";
-            // 
             // btnAgregarUsuario
             // 
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(424, 38);
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(424, 12);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(133, 39);
             this.btnAgregarUsuario.TabIndex = 9;
@@ -136,15 +110,21 @@
             this.btnAgregarUsuario.UseVisualStyleBackColor = true;
             this.btnAgregarUsuario.Click += new System.EventHandler(this.btnAgregarUsuario_Click);
             // 
+            // boxCaja
+            // 
+            this.boxCaja.FormattingEnabled = true;
+            this.boxCaja.Location = new System.Drawing.Point(224, 3);
+            this.boxCaja.Name = "boxCaja";
+            this.boxCaja.Size = new System.Drawing.Size(121, 24);
+            this.boxCaja.TabIndex = 10;
+            // 
             // AperturaCajacs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 137);
+            this.Controls.Add(this.boxCaja);
             this.Controls.Add(this.btnAgregarUsuario);
-            this.Controls.Add(this.txtEncargadoApellido);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtNumeroCaja);
             this.Controls.Add(this.txtEncargadoNombre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -153,6 +133,7 @@
             this.Controls.Add(this.btnAperturaCaja);
             this.Name = "AperturaCajacs";
             this.Text = "AperturaCajacs";
+            this.Load += new System.EventHandler(this.AperturaCajacs_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,9 +148,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtEncargadoNombre;
-        private System.Windows.Forms.TextBox txtNumeroCaja;
-        private System.Windows.Forms.TextBox txtEncargadoApellido;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAgregarUsuario;
+        private System.Windows.Forms.ComboBox boxCaja;
     }
 }

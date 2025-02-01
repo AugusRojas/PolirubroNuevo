@@ -18,6 +18,7 @@ namespace POLIRUBRO.capaPresentacion
         {
             InitializeComponent();
         }
+        string horaApertura= DateTime.Now.ToString("T");
 
         CargarProducto b = new CargarProducto();
 
@@ -646,6 +647,18 @@ namespace POLIRUBRO.capaPresentacion
         private void timer1_Tick(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCierreCaja_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string horaCierre = DateTime.Now.ToString("T");
+                CierreCaja cierrecaja = new CierreCaja(horaApertura,horaCierre);
+                cierrecaja.Show();
+                this.Hide();
+            }
+            catch (Exception ex) { MessageBox.Show("Error al cerra caja" + ex.Message); }
         }
     }
 }

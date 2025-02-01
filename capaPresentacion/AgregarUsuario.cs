@@ -23,19 +23,18 @@ namespace POLIRUBRO.capaPresentacion
         {
             try
             {
-                if(!verificar.Verificar_vacio_txt(txtNombre) || !verificar.Verificar_vacio_txt(txtApellido))
+                if(!verificar.Verificar_vacio_txt(txtNombre))
                 {
                     MessageBox.Show("Complete todos los campos");
                 }
                 else
                 {
-                    if (caja.agregarUsuario(txtNombre.Text, txtApellido.Text))
+                    if (caja.agregarUsuario(txtNombre.Text))
                     {
                         this.Close();
                     }
                     else
                     {
-                        txtApellido.Clear();
                         txtNombre.Clear();
                         return;
                     }

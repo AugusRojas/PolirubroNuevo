@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,10 @@ namespace POLIRUBRO.capaPresentacion
         }
         Caja caja = new Caja();
         Verificar verificar = new Verificar();
+        CargarProducto cargarProducto = new CargarProducto();
         private void btnAperturaCaja_Click(object sender, EventArgs e)
         {
-            if (!verificar.Verificar_vacio_txt(txtNumeroCaja)||
+            if (!verificar.Verificar_vacio_comboBox(boxCaja)||
                 !verificar.Verificar_vacio_txt(txtEncargadoNombre)||
                 !verificar.Verificar_vacio_txt(txtSaldoInicial))
             {
@@ -29,7 +31,8 @@ namespace POLIRUBRO.capaPresentacion
             }
             else
             {
-                if (caja.ingresar(txtSaldoInicial.Text ,txtEncargadoNombre.Text,txtNumeroCaja.Text,txtEncargadoApellido.Text))
+                int numero = cargarProducto.buscar_id("Turno", "Id_Caja", "Caja", boxCaja.Text);
+                if (caja.ingresar(txtSaldoInicial.Text ,txtEncargadoNombre.Text,numero))
                 {
                     var facturacion = new Facturacion();
                     this.Hide();
@@ -65,6 +68,14 @@ namespace POLIRUBRO.capaPresentacion
             u.Show();
             this.Hide();
             u.FormClosed += (s, args) => this.Show();
+        }
+
+        private void AperturaCajacs_Load(object sender, EventArgs e)
+        {
+            boxCaja = cargarProducto.cargar_comboBox(boxCaja,"Turno","Caja");
+
+
+            
         }
     }
 }
