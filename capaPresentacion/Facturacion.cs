@@ -9,14 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POLIRUBRO.capaDatos;
+using POLIRUBRO.capaPresentacion;
 
 namespace POLIRUBRO.capaPresentacion
 {
     public partial class Facturacion : Form
     {
-        public Facturacion()
+        public string Hora_apertura { get; set; }
+        public string saldoInicial;
+        public Facturacion(string saldoInicial="")
         {
             InitializeComponent();
+            this.saldoInicial = saldoInicial;
         }
         string horaApertura= DateTime.Now.ToString("T");
 
@@ -40,6 +45,12 @@ namespace POLIRUBRO.capaPresentacion
             timer.Interval = 1000;
             timer.Tick += timer_hora_Tick;
             timer.Start();
+
+           
+
+           
+            
+
         }
 
         private void timer_hora_Tick(object sender, EventArgs e)
@@ -79,7 +90,6 @@ namespace POLIRUBRO.capaPresentacion
 
         Verificar v = new Verificar();
         Facturacion_logica c = new Facturacion_logica();
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -644,17 +654,12 @@ namespace POLIRUBRO.capaPresentacion
             h.Show();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCierreCaja_Click(object sender, EventArgs e)
         {
             try
             {
                 string horaCierre = DateTime.Now.ToString("T");
-                CierreCaja cierrecaja = new CierreCaja(horaApertura,horaCierre);
+                CierreCaja cierrecaja = new CierreCaja(horaApertura,horaCierre,saldoInicial,textBox_total.Text);
                 cierrecaja.Show();
                 this.Hide();
             }

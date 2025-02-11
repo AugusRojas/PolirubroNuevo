@@ -3,6 +3,10 @@
     "",
     "\\capaPresentacion"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\capaPresentacion\\CierreCaja.cs",
+=======
+  "SelectedNode": "\\capaPresentacion\\Facturacion.cs",
+>>>>>>> beefe49b5c4f1b423424ab26034cd6e189ebe6ee
   "PreviewInSolutionExplorer": false
 }

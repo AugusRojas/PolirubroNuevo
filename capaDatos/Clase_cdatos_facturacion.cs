@@ -114,7 +114,7 @@ namespace POLIRUBRO.capaDatos
                         comando.Parameters.AddWithValue("@IdMetodoPago", id_metodo_pago);
                         comando.Parameters.AddWithValue("@MontoTotal", decimal.Parse(total.Text));
                         comando.Parameters.AddWithValue("@Fecha", DateTime.Parse(fecha.Text).ToString("d"));
-                        comando.Parameters.AddWithValue("@Hora", DateTime.Parse(hora.Text).ToString("HH: mm:ss"));
+                        comando.Parameters.AddWithValue("@Hora", DateTime.Parse(hora.Text).ToString("HH:mm:ss"));
 
                         idVenta = Convert.ToInt32(comando.ExecuteScalar());
                     }

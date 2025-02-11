@@ -12,19 +12,23 @@ namespace POLIRUBRO.capaPresentacion
 {
     public partial class CierreCaja : Form
     {
-        public CierreCaja(string horaApertura,string horaCierre)
+        public CierreCaja(string horaApertura,string horaCierre,string saldoInicial,string totalDiario)
         {
             InitializeComponent();
-            hA = horaApertura;
+            hA= horaApertura;
             hC = horaCierre;
+            sI=saldoInicial;
+            tD = totalDiario;
         }
 
         string hA;
         string hC;
+        string sI;
+        string tD;
         Verificar verificar = new Verificar();
         private void btnCaja_Click(object sender, EventArgs e)
         {
-            if (!verificar.Verificar_vacio_txt(txtEfectivoInicial) ||
+            if (
                 !verificar.Verificar_vacio_txt(txtEfectivoTotal) ||
                 !verificar.Verificar_vacio_txt(txtTrasnferenciaTotal) ||
                 !verificar.Verificar_vacio_txt(txtEgresos))
@@ -33,7 +37,8 @@ namespace POLIRUBRO.capaPresentacion
             }
             else
             {
-                MostrarYCerrar mostarYcerrar = new MostrarYCerrar(Convert.ToDouble(txtEfectivoInicial.Text), Convert.ToDouble(txtEfectivoTotal.Text),Convert.ToDouble(txtTrasnferenciaTotal.Text),Convert.ToDouble(txtEgresos.Text),hA, hC);
+                MostrarYCerrar mostarYcerrar = new MostrarYCerrar(txtEfectivoTotal.Text,txtTrasnferenciaTotal.Text,txtEgresos.Text,hA,hC, DateTime.Now.ToString("d/M/yyyy"),sI,tD);
+                mostarYcerrar.Show();
             }
         }
 

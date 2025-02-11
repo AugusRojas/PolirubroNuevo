@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POLIRUBRO.capaDatos;
 
 namespace POLIRUBRO.capaPresentacion
 {
@@ -21,30 +22,19 @@ namespace POLIRUBRO.capaPresentacion
         Caja caja = new Caja();
         Verificar verificar = new Verificar();
         CargarProducto cargarProducto = new CargarProducto();
-        private void btnAperturaCaja_Click(object sender, EventArgs e)
-        {
-            if (!verificar.Verificar_vacio_comboBox(boxCaja)||
-                !verificar.Verificar_vacio_txt(txtEncargadoNombre)||
-                !verificar.Verificar_vacio_txt(txtSaldoInicial))
-            {
-                MessageBox.Show("Complete todos los campos");
-            }
-            else
-            {
-                int numero = cargarProducto.buscar_id("Turno", "Id_Caja", "Caja", boxCaja.Text);
-                if (caja.ingresar(txtSaldoInicial.Text ,txtEncargadoNombre.Text,numero))
-                {
-                    var facturacion = new Facturacion();
-                    this.Hide();
-                    facturacion.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Error");
-                }
-                
 
-            }
+        private void AperturaCajacs_Load(object sender, EventArgs e)
+        {
+            Timer timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer1_Tick;
+            timer.Start();
+            boxCaja = cargarProducto.cargar_comboBox(boxCaja, "Turno", "Caja");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            textBox_hora_apertura.Text = DateTime.Now.ToString("T");
         }
 
         private void txtSaldoInicial_KeyPress(object sender, KeyPressEventArgs e)
@@ -70,12 +60,31 @@ namespace POLIRUBRO.capaPresentacion
             u.FormClosed += (s, args) => this.Show();
         }
 
-        private void AperturaCajacs_Load(object sender, EventArgs e)
+        private void btnAperturaCaja_Click(object sender, EventArgs e)
         {
-            boxCaja = cargarProducto.cargar_comboBox(boxCaja,"Turno","Caja");
+            if (!verificar.Verificar_vacio_comboBox(boxCaja) ||
+                !verificar.Verificar_vacio_txt(txtEncargadoNombre) ||
+                !verificar.Verificar_vacio_txt(txtSaldoInicial))
+            {
+                MessageBox.Show("Complete todos los campos");
+            }
+            else
+            {
+                int numero = cargarProducto.buscar_id("Turno", "Id_Caja", "Caja", boxCaja.Text);
+                if (caja.ingresar(txtSaldoInicial.Text, txtEncargadoNombre.Text, numero))
+                {
+                    var facturacion = new Facturacion(txtSaldoInicial.Text);
+                    this.Hide();
+                    facturacion.Hora_apertura = textBox_hora_apertura.Text;
+                    facturacion.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
 
 
-            
+            }
         }
     }
 }

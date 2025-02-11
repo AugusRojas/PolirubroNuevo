@@ -314,7 +314,7 @@ namespace POLIRUBRO
 </body>
 </html>";
 
-
+            
             Clase_cdatos_facturacion datosFacturacion = new Clase_cdatos_facturacion();
             DataTable datosUltimaVenta = datosFacturacion.ObtenerUltimaVenta();
 
@@ -374,7 +374,6 @@ namespace POLIRUBRO
             }
         }
 
-
         private void ImprimirPdf(string direccion)
         {
             try
@@ -387,6 +386,8 @@ namespace POLIRUBRO
             }
         }
 
+
+       
 
     }
 }

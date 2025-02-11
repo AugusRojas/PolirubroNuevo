@@ -37,11 +37,14 @@
             this.txtEncargadoNombre = new System.Windows.Forms.TextBox();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.boxCaja = new System.Windows.Forms.ComboBox();
+            this.textBox_hora_apertura = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAperturaCaja
             // 
-            this.btnAperturaCaja.Location = new System.Drawing.Point(424, 57);
+            this.btnAperturaCaja.Location = new System.Drawing.Point(565, 70);
+            this.btnAperturaCaja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAperturaCaja.Name = "btnAperturaCaja";
             this.btnAperturaCaja.Size = new System.Drawing.Size(133, 52);
             this.btnAperturaCaja.TabIndex = 0;
@@ -52,7 +55,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 52);
+            this.label1.Location = new System.Drawing.Point(35, 64);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 1;
@@ -60,9 +64,10 @@
             // 
             // txtSaldoInicial
             // 
-            this.txtSaldoInicial.Location = new System.Drawing.Point(224, 46);
+            this.txtSaldoInicial.Location = new System.Drawing.Point(299, 57);
+            this.txtSaldoInicial.Margin = new System.Windows.Forms.Padding(4);
             this.txtSaldoInicial.Name = "txtSaldoInicial";
-            this.txtSaldoInicial.Size = new System.Drawing.Size(121, 22);
+            this.txtSaldoInicial.Size = new System.Drawing.Size(160, 22);
             this.txtSaldoInicial.TabIndex = 2;
             this.txtSaldoInicial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSaldoInicial_KeyPress);
             // 
@@ -77,7 +82,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 11);
+            this.label2.Location = new System.Drawing.Point(35, 14);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 16);
             this.label2.TabIndex = 3;
@@ -86,7 +92,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 90);
+            this.label3.Location = new System.Drawing.Point(35, 111);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 16);
             this.label3.TabIndex = 4;
@@ -94,15 +101,17 @@
             // 
             // txtEncargadoNombre
             // 
-            this.txtEncargadoNombre.Location = new System.Drawing.Point(224, 84);
+            this.txtEncargadoNombre.Location = new System.Drawing.Point(299, 103);
+            this.txtEncargadoNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtEncargadoNombre.Name = "txtEncargadoNombre";
-            this.txtEncargadoNombre.Size = new System.Drawing.Size(121, 22);
+            this.txtEncargadoNombre.Size = new System.Drawing.Size(160, 22);
             this.txtEncargadoNombre.TabIndex = 5;
             this.txtEncargadoNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEncargado_KeyPress);
             // 
             // btnAgregarUsuario
             // 
-            this.btnAgregarUsuario.Location = new System.Drawing.Point(424, 12);
+            this.btnAgregarUsuario.Location = new System.Drawing.Point(565, 15);
+            this.btnAgregarUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarUsuario.Name = "btnAgregarUsuario";
             this.btnAgregarUsuario.Size = new System.Drawing.Size(133, 39);
             this.btnAgregarUsuario.TabIndex = 9;
@@ -113,16 +122,35 @@
             // boxCaja
             // 
             this.boxCaja.FormattingEnabled = true;
-            this.boxCaja.Location = new System.Drawing.Point(224, 3);
+            this.boxCaja.Location = new System.Drawing.Point(299, 4);
+            this.boxCaja.Margin = new System.Windows.Forms.Padding(4);
             this.boxCaja.Name = "boxCaja";
-            this.boxCaja.Size = new System.Drawing.Size(121, 24);
+            this.boxCaja.Size = new System.Drawing.Size(160, 24);
             this.boxCaja.TabIndex = 10;
+            // 
+            // textBox_hora_apertura
+            // 
+            this.textBox_hora_apertura.Location = new System.Drawing.Point(299, 135);
+            this.textBox_hora_apertura.Name = "textBox_hora_apertura";
+            this.textBox_hora_apertura.Size = new System.Drawing.Size(160, 22);
+            this.textBox_hora_apertura.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 141);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 16);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Hora de apertura";
             // 
             // AperturaCajacs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 137);
+            this.ClientSize = new System.Drawing.Size(745, 169);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox_hora_apertura);
             this.Controls.Add(this.boxCaja);
             this.Controls.Add(this.btnAgregarUsuario);
             this.Controls.Add(this.txtEncargadoNombre);
@@ -131,6 +159,7 @@
             this.Controls.Add(this.txtSaldoInicial);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAperturaCaja);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AperturaCajacs";
             this.Text = "AperturaCajacs";
             this.Load += new System.EventHandler(this.AperturaCajacs_Load);
@@ -150,5 +179,7 @@
         private System.Windows.Forms.TextBox txtEncargadoNombre;
         private System.Windows.Forms.Button btnAgregarUsuario;
         private System.Windows.Forms.ComboBox boxCaja;
+        private System.Windows.Forms.TextBox textBox_hora_apertura;
+        private System.Windows.Forms.Label label4;
     }
 }
