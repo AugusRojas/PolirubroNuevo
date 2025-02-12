@@ -29,6 +29,7 @@ namespace POLIRUBRO.capaPresentacion
             this.hora_apertura = hora_apertura;
             this.hora_cierre = hora_cierre;
             this.fecha = fecha;
+            sItxt.Text = sI;
             txtEfectivo.Text = efectivoFinal.ToString();
             txtEgresos.Text = egresos.ToString();
             txtTransferencia.Text = trasnferencia.ToString();

@@ -39,7 +39,7 @@
             // 
             // btnCaja
             // 
-            this.btnCaja.Location = new System.Drawing.Point(561, 286);
+            this.btnCaja.Location = new System.Drawing.Point(522, 52);
             this.btnCaja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCaja.Name = "btnCaja";
             this.btnCaja.Size = new System.Drawing.Size(227, 23);
@@ -51,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 110);
+            this.label2.Location = new System.Drawing.Point(81, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 16);
             this.label2.TabIndex = 3;
@@ -60,7 +60,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 177);
+            this.label3.Location = new System.Drawing.Point(81, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 4;
@@ -68,7 +68,7 @@
             // 
             // txtTrasnferenciaTotal
             // 
-            this.txtTrasnferenciaTotal.Location = new System.Drawing.Point(219, 106);
+            this.txtTrasnferenciaTotal.Location = new System.Drawing.Point(225, 5);
             this.txtTrasnferenciaTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTrasnferenciaTotal.Name = "txtTrasnferenciaTotal";
             this.txtTrasnferenciaTotal.Size = new System.Drawing.Size(100, 22);
@@ -77,7 +77,7 @@
             // 
             // txtEfectivoTotal
             // 
-            this.txtEfectivoTotal.Location = new System.Drawing.Point(219, 171);
+            this.txtEfectivoTotal.Location = new System.Drawing.Point(225, 70);
             this.txtEfectivoTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEfectivoTotal.Name = "txtEfectivoTotal";
             this.txtEfectivoTotal.Size = new System.Drawing.Size(100, 22);
@@ -87,7 +87,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(75, 146);
+            this.label4.Location = new System.Drawing.Point(81, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 16);
             this.label4.TabIndex = 7;
@@ -95,7 +95,7 @@
             // 
             // txtEgresos
             // 
-            this.txtEgresos.Location = new System.Drawing.Point(219, 140);
+            this.txtEgresos.Location = new System.Drawing.Point(225, 39);
             this.txtEgresos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEgresos.Name = "txtEgresos";
             this.txtEgresos.Size = new System.Drawing.Size(100, 22);
@@ -106,7 +106,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.LightPink;
+            this.ClientSize = new System.Drawing.Size(771, 112);
             this.Controls.Add(this.txtEgresos);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtEfectivoTotal);

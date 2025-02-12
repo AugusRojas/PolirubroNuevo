@@ -71,6 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightPink;
             this.ClientSize = new System.Drawing.Size(362, 70);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label2);
