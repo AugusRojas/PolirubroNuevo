@@ -659,7 +659,7 @@ namespace POLIRUBRO.capaPresentacion
             try
             {
                 string horaCierre = DateTime.Now.ToString("T");
-                CierreCaja cierrecaja = new CierreCaja(horaApertura,horaCierre,saldoInicial,textBox_total.Text);
+                CierreCaja cierrecaja = new CierreCaja(horaApertura,horaCierre,saldoInicial,txtTotalDiario.Text);
                 cierrecaja.Show();
                 this.Hide();
             }

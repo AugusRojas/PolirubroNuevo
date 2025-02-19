@@ -56,9 +56,7 @@ namespace POLIRUBRO.capaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Cierre_de_caja_logica p = new Cierre_de_caja_logica();
-            p.Impresion_ventas_de_hoy(dataGridViewHistorial, hora_apertura, hora_cierre);
-            Console.WriteLine("Se imprimio el reporte");
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -68,7 +66,9 @@ namespace POLIRUBRO.capaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Cierre_de_caja_logica p = new Cierre_de_caja_logica();
+            p.Impresion_ventas_de_hoy(dataGridViewHistorial, hora_apertura, hora_cierre);
+            Console.WriteLine("Se imprimio el reporte");
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
