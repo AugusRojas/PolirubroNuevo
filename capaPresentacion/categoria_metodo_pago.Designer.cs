@@ -118,9 +118,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(21, 43);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 18);
+            this.label3.Size = new System.Drawing.Size(144, 18);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Eliminar caategoria";
+            this.label3.Text = "Eliminar categoria";
             // 
             // boxCategoria
             // 
