@@ -331,7 +331,7 @@ namespace POLIRUBRO
             try
             {
                 SQLiteConnection conexion = Conexion.obtenerConexion();
-                string consulta = "DELETE FROM Categoria WHERE Id_Categoria = @eliminar";
+                string consulta = "DELETE FROM Categoria WHERE Id_Categoria = @";
                 SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@eliminar", eliminar);
 
