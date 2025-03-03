@@ -86,5 +86,10 @@ namespace POLIRUBRO.capaPresentacion
 
             }
         }
+
+        private void AperturaCajacs_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

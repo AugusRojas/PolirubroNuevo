@@ -163,6 +163,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AperturaCajacs";
             this.Text = "AperturaCajacs";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AperturaCajacs_FormClosing);
             this.Load += new System.EventHandler(this.AperturaCajacs_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
