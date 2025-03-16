@@ -8,7 +8,6 @@ namespace POLIRUBRO
     {
         static string conexion = @"Data Source= sistema_de_ventas.db; Version=3;";
 
-
         public static SQLiteConnection obtenerConexion()
         {
             SQLiteConnection conector = new SQLiteConnection(conexion);
