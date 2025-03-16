@@ -651,7 +651,9 @@ namespace POLIRUBRO.capaPresentacion
         private void historialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Historial h = new Historial();
+            this.Hide();
             h.Show();
+            h.FormClosed += (s, args) => this.Show();
         }
 
         private void btnCierreCaja_Click(object sender, EventArgs e)
@@ -664,6 +666,12 @@ namespace POLIRUBRO.capaPresentacion
                 this.Hide();
             }
             catch (Exception ex) { MessageBox.Show("Error al cerra caja" + ex.Message); }
+        }
+
+        private void Facturacion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("No puedes cerrar esta ventana.");
+            e.Cancel = true; // Cancela el cierre
         }
     }
 }

@@ -38,6 +38,7 @@ namespace POLIRUBRO.capaPresentacion
             else
             {
                 MostrarYCerrar mostarYcerrar = new MostrarYCerrar(txtEfectivoTotal.Text,txtTrasnferenciaTotal.Text,txtEgresos.Text,hA,hC, DateTime.Now.ToString("d/M/yyyy"),sI,tD);
+                this.Hide();
                 mostarYcerrar.Show();
             }
         }
@@ -65,6 +66,12 @@ namespace POLIRUBRO.capaPresentacion
         private void CierreCaja_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void CierreCaja_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("No puedes cerrar esta ventana.");
+            e.Cancel = true; // Cancela el cierre
         }
     }
 }

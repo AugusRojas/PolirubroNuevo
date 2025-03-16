@@ -42,39 +42,68 @@ namespace POLIRUBRO.capaPresentacion
         {
             if (!verificar.Verificar_vacio_comboBox(boxPago))
             {
-                MessageBox.Show("No se permiten campos vacios", "Eliminar metodo de pago", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se permiten campos vacíos", "Eliminar método de pago", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                cargarProducto.eliminar_pago(cargarProducto.buscar_id("Nombre_metodo_pago","Id_Metodo_pago","Metodo_pago",boxPago.SelectedItem.ToString()));
-                boxPago = cargarProducto.cargar_comboBox(boxPago, "Nombre_metodo_pago", "Metodo_pago");
+                try
+                {
+                    Console.WriteLine(boxPago.SelectedItem.ToString());
+                    int idPago = cargarProducto.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", boxPago.SelectedItem.ToString());
+                    cargarProducto.eliminar_pago(idPago);
+                    boxPago = cargarProducto.cargar_comboBox(boxPago, "Nombre_metodo_pago", "Metodo_pago");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar método de pago: " + ex.Message);
+                }
             }
         }
 
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
-            if (!verificar.Verificar_vacio_comboBox(boxPago))
+            if (!verificar.Verificar_vacio_comboBox(boxCategoria))
             {
-                MessageBox.Show("No se permiten campos vacios", "Eliminar Categoria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                MessageBox.Show("No se permiten campos vacíos", "Eliminar Categoría", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                cargarProducto.eliminar_categoria(cargarProducto.buscar_id("Nombre_categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString()));
-                boxCategoria = cargarProducto.cargar_comboBox(boxCategoria, "Nombre_categoria", "Categoria");
+                try
+                {
+                    Console.WriteLine(boxCategoria.SelectedItem.ToString());
+                    int idCategoria = cargarProducto.buscar_id("Nombre_categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString());
+                    cargarProducto.eliminar_categoria(idCategoria);
+                    boxCategoria = cargarProducto.cargar_comboBox(boxCategoria, "Nombre_categoria", "Categoria");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar categoría: " + ex.Message);
+                }
             }
         }
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (!verificar.Verificar_vacio_comboBox(boxUnidad))
             {
-                MessageBox.Show("No se permiten campos vacios", "Eliminar Unidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se permiten campos vacíos", "Eliminar Unidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                cargarProducto.eliminar_unidad(cargarProducto.buscar_id("Nombre_unidad","Id_Unidad","Unidad",boxCategoria.SelectedItem.ToString()));
-                boxUnidad = cargarProducto.cargar_comboBox(boxUnidad, "Nombre_Unidad", "Unidad");
+                try
+                {
+                    Console.WriteLine(boxUnidad.SelectedItem.ToString());
+                    int idUnidad = cargarProducto.buscar_id("Nombre_unidad", "Id_Unidad", "Unidad", boxUnidad.SelectedItem.ToString());
+                    cargarProducto.eliminar_unidad(idUnidad);
+                    boxUnidad = cargarProducto.cargar_comboBox(boxUnidad, "Nombre_unidad", "Unidad");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar unidad: " + ex.Message);
+                }
             }
         }
+
+
     }
 }

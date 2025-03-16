@@ -69,6 +69,12 @@ namespace POLIRUBRO.capaPresentacion
             Cierre_de_caja_logica p = new Cierre_de_caja_logica();
             p.Impresion_ventas_de_hoy(dataGridViewHistorial, hora_apertura, hora_cierre);
             Console.WriteLine("Se imprimio el reporte");
+            var result = MessageBox.Show("¿Desea cerrar la caja?", "Cerrar caja", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                this.Close();  // Cierra el formulario
+                Application.Exit();  // Cierra la aplicación por completo (opcional)
+            }
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)

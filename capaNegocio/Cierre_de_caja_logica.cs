@@ -327,6 +327,7 @@ namespace POLIRUBRO.capaNegocio
             }
 
             MessageBox.Show("PDF generado exitosamente en: " + outputPath, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
 
