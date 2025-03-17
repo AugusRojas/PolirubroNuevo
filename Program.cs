@@ -17,7 +17,7 @@ namespace POLIRUBRO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MostrarYCerrar());
+            Application.Run(new AperturaCajacs());
         }
     }
 }
