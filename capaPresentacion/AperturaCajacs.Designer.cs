@@ -129,7 +129,7 @@
             // 
             // textBox_hora_apertura
             // 
-            this.textBox_hora_apertura.Location = new System.Drawing.Point(189, 134);
+            this.textBox_hora_apertura.Location = new System.Drawing.Point(189, 138);
             this.textBox_hora_apertura.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_hora_apertura.Name = "textBox_hora_apertura";
             this.textBox_hora_apertura.Size = new System.Drawing.Size(121, 23);
@@ -175,7 +175,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(10, 132);
+            this.label7.Location = new System.Drawing.Point(10, 138);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(141, 22);
             this.label7.TabIndex = 16;
@@ -216,7 +216,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AperturaCajacs";
             this.Text = "AperturaCajacs";
-            
             this.Load += new System.EventHandler(this.AperturaCajacs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
