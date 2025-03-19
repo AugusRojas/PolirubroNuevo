@@ -427,7 +427,7 @@
   <data name="button_vender.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAHdElNRQfpAxITARq6NtA8AAAA
+        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAAHdElNRQfpAxITARq6NtA8AAAA
         GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAF11JREFUeF7tnAl4Tdf6xp3kZJ5JYohE
         BImY5yAxi0YJEWNIgpqHi6gppqJotbSmmlXVzDXr7a1qq60qirYoqrSqptJBVW+pNu//e9c+++RkqMyR
         e//ne57fc5I973ev/a1vfWutXcxqVrOa1axmNatZzWpWs5rVrGY1q/0vmkGw0f7M0rit1bJhrkINoYcw
@@ -5910,7 +5910,7 @@
   <data name="btnCierreCaja.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAAA3UAAAN1AdBso6EAAAAHdElNRQfpAxITEAwdO0Z9AAAA
+        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAAA3QAAAN0AQIrQUUAAAAHdElNRQfpAxITEAwdO0Z9AAAA
         GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAADhhJREFUeF7tm3lUVNcdx8emxtSkaftP
         /2h7Ws9pz8lp054uJycmTVzAAJ5GrcYtuAU07ogQRUEQFdFookbjSjS2xg0xuKCyiAqICCKzMcPAgOy7
         bCrKKv76/T3eG4fhDSKDA+T0nvM583j3vTv3ft7v3t+bN4OiO2XMmIkKB4cJitGjxw8Fs0eNGpfi4PDv

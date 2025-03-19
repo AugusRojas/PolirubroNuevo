@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedores));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.txtDomicilio);
             this.groupBox1.Controls.Add(this.txtCUIT);
@@ -70,12 +72,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 63);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox1.Location = new System.Drawing.Point(35, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(240, 282);
+            this.groupBox1.Size = new System.Drawing.Size(217, 241);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "  Datos del Proveedor  ";
@@ -83,49 +84,47 @@
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTelefono.Location = new System.Drawing.Point(99, 196);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Location = new System.Drawing.Point(98, 158);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(132, 23);
+            this.txtTelefono.Size = new System.Drawing.Size(100, 23);
             this.txtTelefono.TabIndex = 11;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtDomicilio
             // 
             this.txtDomicilio.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDomicilio.Location = new System.Drawing.Point(99, 150);
-            this.txtDomicilio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDomicilio.Location = new System.Drawing.Point(98, 121);
             this.txtDomicilio.Name = "txtDomicilio";
-            this.txtDomicilio.Size = new System.Drawing.Size(132, 23);
+            this.txtDomicilio.Size = new System.Drawing.Size(100, 23);
             this.txtDomicilio.TabIndex = 10;
             // 
             // txtCUIT
             // 
             this.txtCUIT.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCUIT.Location = new System.Drawing.Point(99, 103);
-            this.txtCUIT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCUIT.Location = new System.Drawing.Point(98, 83);
             this.txtCUIT.Name = "txtCUIT";
-            this.txtCUIT.Size = new System.Drawing.Size(132, 23);
+            this.txtCUIT.Size = new System.Drawing.Size(100, 23);
             this.txtCUIT.TabIndex = 9;
             this.txtCUIT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCUIT_KeyPress);
             // 
             // txtNombre_proveedor
             // 
             this.txtNombre_proveedor.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNombre_proveedor.Location = new System.Drawing.Point(99, 58);
-            this.txtNombre_proveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre_proveedor.Location = new System.Drawing.Point(98, 46);
             this.txtNombre_proveedor.Name = "txtNombre_proveedor";
-            this.txtNombre_proveedor.Size = new System.Drawing.Size(132, 23);
+            this.txtNombre_proveedor.Size = new System.Drawing.Size(100, 23);
             this.txtNombre_proveedor.TabIndex = 8;
             // 
             // btnAgregarProveedor
             // 
             this.btnAgregarProveedor.BackColor = System.Drawing.Color.LightCoral;
             this.btnAgregarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregarProveedor.Location = new System.Drawing.Point(31, 246);
-            this.btnAgregarProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarProveedor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAgregarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarProveedor.Image")));
+            this.btnAgregarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarProveedor.Location = new System.Drawing.Point(52, 200);
             this.btnAgregarProveedor.Name = "btnAgregarProveedor";
-            this.btnAgregarProveedor.Size = new System.Drawing.Size(148, 28);
+            this.btnAgregarProveedor.Size = new System.Drawing.Size(116, 27);
             this.btnAgregarProveedor.TabIndex = 4;
             this.btnAgregarProveedor.Text = "Cargar Proveedor";
             this.btnAgregarProveedor.UseVisualStyleBackColor = false;
@@ -134,69 +133,65 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 197);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 159);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 18);
+            this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 7;
             this.label5.Text = "Telefono :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 151);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 122);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 18);
+            this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Domicilio :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 105);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 84);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 18);
+            this.label3.Size = new System.Drawing.Size(52, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "CUIT :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 18);
+            this.label2.Size = new System.Drawing.Size(75, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Nombre :";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
             this.groupBox2.Controls.Add(this.txtBuscar);
             this.groupBox2.Controls.Add(this.btnRefrescar);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(300, 63);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(295, 65);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(519, 54);
+            this.groupBox2.Size = new System.Drawing.Size(389, 60);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "  Filtrar Proveedor  ";
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(152, 22);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(91, 20);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(199, 24);
+            this.txtBuscar.Size = new System.Drawing.Size(150, 25);
             this.txtBuscar.TabIndex = 9;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
@@ -204,10 +199,10 @@
             // 
             this.btnRefrescar.BackColor = System.Drawing.Color.LightCoral;
             this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefrescar.Location = new System.Drawing.Point(385, 20);
-            this.btnRefrescar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRefrescar.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescar.Location = new System.Drawing.Point(294, 20);
             this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(100, 28);
+            this.btnRefrescar.Size = new System.Drawing.Size(75, 23);
             this.btnRefrescar.TabIndex = 8;
             this.btnRefrescar.Text = "Refrescar";
             this.btnRefrescar.UseVisualStyleBackColor = false;
@@ -216,10 +211,12 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(56, 26);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label6.Location = new System.Drawing.Point(19, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 18);
+            this.label6.Size = new System.Drawing.Size(63, 20);
             this.label6.TabIndex = 4;
             this.label6.Text = "Filtrar :";
             // 
@@ -241,11 +238,10 @@
             this.CUIT,
             this.Domicilio,
             this.Telefono});
-            this.dgvProveedores.Location = new System.Drawing.Point(264, 124);
-            this.dgvProveedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProveedores.Location = new System.Drawing.Point(270, 131);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.RowHeadersWidth = 51;
-            this.dgvProveedores.Size = new System.Drawing.Size(591, 185);
+            this.dgvProveedores.Size = new System.Drawing.Size(502, 150);
             this.dgvProveedores.TabIndex = 2;
             this.dgvProveedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellDoubleClick);
             // 
@@ -293,11 +289,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(323, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(277, 29);
+            this.label1.Size = new System.Drawing.Size(294, 35);
             this.label1.TabIndex = 3;
             this.label1.Text = "Carga de Proveedores";
             // 
@@ -305,11 +302,12 @@
             // 
             this.btnModificarProveedor.BackColor = System.Drawing.Color.LightCoral;
             this.btnModificarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnModificarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarProveedor.Location = new System.Drawing.Point(281, 316);
-            this.btnModificarProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificarProveedor.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarProveedor.Image")));
+            this.btnModificarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificarProveedor.Location = new System.Drawing.Point(270, 289);
             this.btnModificarProveedor.Name = "btnModificarProveedor";
-            this.btnModificarProveedor.Size = new System.Drawing.Size(200, 28);
+            this.btnModificarProveedor.Size = new System.Drawing.Size(150, 33);
             this.btnModificarProveedor.TabIndex = 5;
             this.btnModificarProveedor.Text = "Modificar Proveedor";
             this.btnModificarProveedor.UseVisualStyleBackColor = false;
@@ -319,11 +317,12 @@
             // 
             this.btnEliminarProveedor.BackColor = System.Drawing.Color.LightCoral;
             this.btnEliminarProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEliminarProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarProveedor.Location = new System.Drawing.Point(489, 316);
-            this.btnEliminarProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarProveedor.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminarProveedor.Image")));
+            this.btnEliminarProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarProveedor.Location = new System.Drawing.Point(426, 289);
             this.btnEliminarProveedor.Name = "btnEliminarProveedor";
-            this.btnEliminarProveedor.Size = new System.Drawing.Size(192, 28);
+            this.btnEliminarProveedor.Size = new System.Drawing.Size(144, 33);
             this.btnEliminarProveedor.TabIndex = 6;
             this.btnEliminarProveedor.Text = "Eliminar Proveedor";
             this.btnEliminarProveedor.UseVisualStyleBackColor = false;
@@ -333,22 +332,25 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(689, 316);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(576, 289);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(144, 28);
+            this.btnCancelar.Size = new System.Drawing.Size(108, 33);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Proveedores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightPink;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(818, 352);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEliminarProveedor);
             this.Controls.Add(this.btnModificarProveedor);
@@ -356,7 +358,6 @@
             this.Controls.Add(this.dgvProveedores);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Proveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proveedores";
