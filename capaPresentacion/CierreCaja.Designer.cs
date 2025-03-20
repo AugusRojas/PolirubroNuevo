@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CierreCaja));
             this.btnCaja = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,75 +40,99 @@
             // 
             // btnCaja
             // 
-            this.btnCaja.Location = new System.Drawing.Point(522, 52);
-            this.btnCaja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCaja.BackColor = System.Drawing.Color.Transparent;
+            this.btnCaja.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCaja.BackgroundImage")));
+            this.btnCaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCaja.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaja.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCaja.Image = ((System.Drawing.Image)(resources.GetObject("btnCaja.Image")));
+            this.btnCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCaja.Location = new System.Drawing.Point(337, 46);
+            this.btnCaja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCaja.Name = "btnCaja";
-            this.btnCaja.Size = new System.Drawing.Size(227, 23);
+            this.btnCaja.Size = new System.Drawing.Size(229, 78);
             this.btnCaja.TabIndex = 0;
             this.btnCaja.Text = "Mostrar y cerrar caja";
-            this.btnCaja.UseVisualStyleBackColor = true;
+            this.btnCaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCaja.UseVisualStyleBackColor = false;
             this.btnCaja.Click += new System.EventHandler(this.btnCaja_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(81, 9);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(27, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 16);
+            this.label2.Size = new System.Drawing.Size(153, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "Total transferencia";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 76);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(27, 115);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 16);
+            this.label3.Size = new System.Drawing.Size(114, 22);
             this.label3.TabIndex = 4;
             this.label3.Text = "Total efectivo";
             // 
             // txtTrasnferenciaTotal
             // 
-            this.txtTrasnferenciaTotal.Location = new System.Drawing.Point(225, 5);
-            this.txtTrasnferenciaTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTrasnferenciaTotal.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTrasnferenciaTotal.Location = new System.Drawing.Point(192, 28);
+            this.txtTrasnferenciaTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTrasnferenciaTotal.Name = "txtTrasnferenciaTotal";
-            this.txtTrasnferenciaTotal.Size = new System.Drawing.Size(100, 22);
+            this.txtTrasnferenciaTotal.Size = new System.Drawing.Size(95, 26);
             this.txtTrasnferenciaTotal.TabIndex = 5;
             this.txtTrasnferenciaTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTrasnferenciaTotal_KeyPress);
             // 
             // txtEfectivoTotal
             // 
-            this.txtEfectivoTotal.Location = new System.Drawing.Point(225, 70);
-            this.txtEfectivoTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEfectivoTotal.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEfectivoTotal.Location = new System.Drawing.Point(192, 112);
+            this.txtEfectivoTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEfectivoTotal.Name = "txtEfectivoTotal";
-            this.txtEfectivoTotal.Size = new System.Drawing.Size(100, 22);
+            this.txtEfectivoTotal.Size = new System.Drawing.Size(95, 26);
             this.txtEfectivoTotal.TabIndex = 6;
             this.txtEfectivoTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEfectivoTotal_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(81, 45);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(27, 74);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 16);
+            this.label4.Size = new System.Drawing.Size(68, 22);
             this.label4.TabIndex = 7;
             this.label4.Text = "Egresos";
             // 
             // txtEgresos
             // 
-            this.txtEgresos.Location = new System.Drawing.Point(225, 39);
-            this.txtEgresos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtEgresos.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEgresos.Location = new System.Drawing.Point(192, 70);
+            this.txtEgresos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEgresos.Name = "txtEgresos";
-            this.txtEgresos.Size = new System.Drawing.Size(100, 22);
+            this.txtEgresos.Size = new System.Drawing.Size(95, 26);
             this.txtEgresos.TabIndex = 8;
             this.txtEgresos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEgresos_KeyPress);
             // 
             // CierreCaja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightPink;
-            this.ClientSize = new System.Drawing.Size(771, 112);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(602, 171);
             this.Controls.Add(this.txtEgresos);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtEfectivoTotal);
@@ -115,8 +140,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCaja);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CierreCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CierreCaja";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CierreCaja_FormClosing);
