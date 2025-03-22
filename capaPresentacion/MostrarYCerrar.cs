@@ -16,6 +16,7 @@ namespace POLIRUBRO.capaPresentacion
         private string hora_apertura;
         private string hora_cierre;
         private string fecha;
+        private bool permitirCierre = false;
 
         public MostrarYCerrar()
         {
@@ -37,7 +38,7 @@ namespace POLIRUBRO.capaPresentacion
             label_hora_cierre.Text = hora_cierre;
             label_fecha.Text = fecha;
             txtTotalEsperado.Text = (efectivoFinal + Convert.ToDouble(sItxt.Text) + trasnferencia + tarjeta - Convert.ToDouble(txtEgresos.Text)).ToString();
-            txtTotalFinal.Text = (Convert.ToDouble(totalDiario) - Convert.ToDouble(txtTotalEsperado.Text)).ToString();
+            txtTotalFinal.Text = (Convert.ToDouble(totalDiario) + Convert.ToDouble(sItxt.Text) - Convert.ToDouble(txtTotalEsperado.Text)).ToString();
         }
 
         private void MostrarYCerrar_Load(object sender, EventArgs e)
@@ -81,6 +82,11 @@ namespace POLIRUBRO.capaPresentacion
         private void groupBox4_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void MostrarYCerrar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
