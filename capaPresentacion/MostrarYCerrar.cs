@@ -74,6 +74,7 @@ namespace POLIRUBRO.capaPresentacion
             {
                 this.Close();  // Cierra el formulario
                 Application.Exit();  // Cierra la aplicación por completo (opcional)
+                Environment.Exit(0);
             }
         }
 
