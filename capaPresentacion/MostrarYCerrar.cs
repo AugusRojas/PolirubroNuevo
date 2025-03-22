@@ -23,7 +23,7 @@ namespace POLIRUBRO.capaPresentacion
             
         }
 
-        public MostrarYCerrar(string efectivoFinal, string trasnferencia, string egresos, string hora_apertura, string hora_cierre, string fecha,string sI,string totalDiario)
+        public MostrarYCerrar(double efectivoFinal, double trasnferencia,double tarjeta ,string egresos, string hora_apertura, string hora_cierre, string fecha,string sI,string totalDiario)
         {
             InitializeComponent();
             this.hora_apertura = hora_apertura;
@@ -36,7 +36,7 @@ namespace POLIRUBRO.capaPresentacion
             label_hora_apertura.Text = hora_apertura;
             label_hora_cierre.Text = hora_cierre;
             label_fecha.Text = fecha;
-            txtTotalEsperado.Text = (Convert.ToDouble(txtEfectivo.Text) + Convert.ToDouble(sItxt.Text) + Convert.ToDouble(txtTransferencia.Text) - Convert.ToDouble(txtEgresos.Text)).ToString();
+            txtTotalEsperado.Text = (efectivoFinal + Convert.ToDouble(sItxt.Text) + trasnferencia + tarjeta - Convert.ToDouble(txtEgresos.Text)).ToString();
             txtTotalFinal.Text = (Convert.ToDouble(totalDiario) - Convert.ToDouble(txtTotalEsperado.Text)).ToString();
         }
 

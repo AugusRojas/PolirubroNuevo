@@ -98,6 +98,31 @@ namespace POLIRUBRO.capaDatos
             }
         }
 
+        public double ObtenerTotales(string horaApertura, string fecha,int tipo)
+        {
+            double total = 0;
+            try
+            {
+                using (SQLiteConnection conexion = Conexion.obtenerConexion())
+                {
+                    string consulta = "SELECT COALESCE(SUM(Monto_total), 0) FROM Venta WHERE Fecha = @fecha AND Hora >= @hora AND Id_Metodo_pago = @tipo";
+                    using (SQLiteCommand comando = new SQLiteCommand(consulta, conexion))
+                    {
+                        comando.Parameters.AddWithValue("@fecha", fecha);
+                        comando.Parameters.AddWithValue("@hora", horaApertura);
+                        comando.Parameters.AddWithValue("@tipo", tipo);
+
+                        object resultado = comando.ExecuteScalar();
+                        total = resultado != DBNull.Value ? Convert.ToDouble(resultado) : 0;  // Evita errores con NULL
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener el total de transferencias: {ex.Message}");
+            }
+            return total;
+        }
         public void insert_datos_venta(int id_metodo_pago, TextBox total, TextBox fecha, TextBox hora, out int idVenta)
         {
             idVenta = 0;

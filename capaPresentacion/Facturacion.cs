@@ -24,6 +24,7 @@ namespace POLIRUBRO.capaPresentacion
             this.saldoInicial = saldoInicial;
         }
         string horaApertura= DateTime.Now.ToString("T");
+        
 
         CargarProducto b = new CargarProducto();
 
@@ -36,6 +37,7 @@ namespace POLIRUBRO.capaPresentacion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             textBox_fecha.Text = DateTime.Now.ToString("d");
+
 
             comboBox_metodo_pago = b.cargar_comboBox(comboBox_metodo_pago, "Nombre_metodo_pago", "Metodo_pago");
             comboBox_metodo_pago.SelectedIndex = 1;
@@ -660,8 +662,13 @@ namespace POLIRUBRO.capaPresentacion
         {
             try
             {
+                Facturacion_logica cierre = new Facturacion_logica();
+                CargarProducto cargarProducto = new CargarProducto();
                 string horaCierre = DateTime.Now.ToString("T");
-                CierreCaja cierrecaja = new CierreCaja(horaApertura,horaCierre,saldoInicial,txtTotalDiario.Text);
+                double totalEfectivo = cierre.ObtenerTotales(horaApertura, textBox_fecha.Text, cargarProducto.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", "Efectivo"));
+                double totalTrasnferencia = cierre.ObtenerTotales(horaApertura, textBox_fecha.Text, cargarProducto.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", "Transferencia Bancaria"));
+                double totalTarjeta = cierre.ObtenerTotales(horaApertura, textBox_fecha.Text, cargarProducto.buscar_id("Nombre_metodo_pago", "Id_Metodo_pago", "Metodo_pago", "Tarjeta de Crédito"));
+                MostrarYCerrar cierrecaja = new MostrarYCerrar(totalEfectivo,totalTrasnferencia,totalTarjeta, 0.ToString(), horaApertura, horaCierre, textBox_fecha.Text,saldoInicial,txtTotalDiario.Text);
                 cierrecaja.Show();
                 this.Hide();
             }

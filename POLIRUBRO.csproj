@@ -207,12 +207,6 @@
     <Compile Include="capaPresentacion\categoria_metodo_pago.Designer.cs">
       <DependentUpon>categoria_metodo_pago.cs</DependentUpon>
     </Compile>
-    <Compile Include="capaPresentacion\CierreCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="capaPresentacion\CierreCaja.Designer.cs">
-      <DependentUpon>CierreCaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="capaPresentacion\Facturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,9 +259,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\categoria_metodo_pago.resx">
       <DependentUpon>categoria_metodo_pago.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="capaPresentacion\CierreCaja.resx">
-      <DependentUpon>CierreCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>

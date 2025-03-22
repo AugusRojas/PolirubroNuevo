@@ -44,6 +44,12 @@ namespace POLIRUBRO
             return total;
         }
 
+        public double ObtenerTotales(string horaApertura,string fecha, int tipo)
+        {
+            Clase_cdatos_facturacion claseDatos = new Clase_cdatos_facturacion();
+            return claseDatos.ObtenerTotales(horaApertura,fecha,tipo);
+        }
+
         public bool Comprobacion_Stock(ref double cantidad, TextBox stock)
         {
             double stockDisponible = double.Parse(stock.Text); // Parseamos el stock una vez.

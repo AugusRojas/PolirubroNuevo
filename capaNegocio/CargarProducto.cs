@@ -72,14 +72,33 @@ namespace POLIRUBRO
 
         public void modificarProducto(Producto p)
         {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
+            SQLiteConnection conexion = Conexion.obtenerConexion();
             try
             {
-                string consulta = "UPDATE Producto SET Id_Proveedor = @Id_Proveedor, Id_Categoria = @Id_Categoria, Codigo_barra = @Codigo_barra, " +
-                                  "Stock = @Stock, Precio = @Precio, Id_Unidad = @Id_Unidad, Fraccionable = @Fraccionable " +
-                                  "WHERE Codigo_barra = @Codigo_barra OR Nombre = @Nombre";
-                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                // Contar cuántos productos existen con el mismo nombre
+                string consultaContar = "SELECT COUNT(*) FROM Producto WHERE Nombre = @Nombre";
+                SQLiteCommand comandoContar = new SQLiteCommand(consultaContar, conexion);
+                comandoContar.Parameters.AddWithValue("@Nombre", p.nombre);
+                int cantidad = Convert.ToInt32(comandoContar.ExecuteScalar());
 
+                string consulta;
+
+                if (cantidad > 1)
+                {
+                    // Si hay más de un producto con el mismo nombre, actualizamos solo por Nombre
+                    consulta = "UPDATE Producto SET Id_Proveedor = @Id_Proveedor, Id_Categoria = @Id_Categoria, Codigo_barra = @Codigo_barra, " +
+                               "Stock = @Stock, Precio = @Precio, Id_Unidad = @Id_Unidad, Fraccionable = @Fraccionable " +
+                               "WHERE Nombre = @Nombre";
+                }
+                else
+                {
+                    // Si hay un solo producto con ese nombre, actualizamos por Código de Barra
+                    consulta = "UPDATE Producto SET Id_Proveedor = @Id_Proveedor, Id_Categoria = @Id_Categoria, Codigo_barra = @Codigo_barra, " +
+                               "Stock = @Stock, Precio = @Precio, Id_Unidad = @Id_Unidad, Fraccionable = @Fraccionable " +
+                               "WHERE Codigo_barra = @Codigo_barra";
+                }
+
+                SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
                 comando.Parameters.AddWithValue("@Id_Proveedor", p.proveedor);
                 comando.Parameters.AddWithValue("@Id_Categoria", p.categoria);
                 comando.Parameters.AddWithValue("@Codigo_barra", p.codigoBarra);
@@ -89,8 +108,13 @@ namespace POLIRUBRO
                 comando.Parameters.AddWithValue("@Id_Unidad", p.unidad);
                 comando.Parameters.AddWithValue("@Fraccionable", p.fraccionable);
 
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Producto modificado exitosamente");
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                    MessageBox.Show("Producto modificado exitosamente");
+                else
+                    MessageBox.Show("No se encontró el producto para modificar");
+
             }
             catch (Exception ex)
             {
@@ -98,6 +122,7 @@ namespace POLIRUBRO
             }
             finally { conexion.Close(); }
         }
+
 
         public void eliminarProducto(int Id)
         {
@@ -181,7 +206,12 @@ namespace POLIRUBRO
             {
                 try
                 {
+
                     DataTable tabla = new DataTable();
+                    // Eliminar productos con stock 0 antes de hacer la búsqueda
+                    string eliminarProductos = "DELETE FROM Producto WHERE Stock = 0;";
+                    SQLiteCommand comandoEliminar = new SQLiteCommand(eliminarProductos, conexion);
+                    comandoEliminar.ExecuteNonQuery(); // Ejecuta la eliminación
                     string consulta = $@"SELECT 
                                         Producto.Id_Producto AS Id,
                                         Producto.Codigo_barra,
@@ -224,29 +254,39 @@ namespace POLIRUBRO
 
         public DataTable buscarProductos(string busqueda)
         {
-                SQLiteConnection conexion = Conexion.obtenerConexion();
+            SQLiteConnection conexion = Conexion.obtenerConexion();
             try
             {
                 DataTable dt = new DataTable();
+
+                // Consulta para buscar productos
                 string consulta = "SELECT Producto.Id_Producto AS Id, Proveedor.Nombre_Proveedor, Producto.Codigo_barra, Producto.Nombre, Producto.Stock, Producto.Precio, " +
                                   "Categoria.Nombre_categoria AS Categoria, Unidad.Nombre_unidad AS Unidad, Producto.Fraccionable AS Fraccionable " +
                                   "FROM Producto " +
                                   "INNER JOIN Categoria ON Producto.Id_Categoria = Categoria.Id_Categoria " +
                                   "INNER JOIN Unidad ON Producto.Id_Unidad = Unidad.Id_Unidad " +
                                   "INNER JOIN Proveedor ON Producto.Id_Proveedor = Proveedor.Id_Proveedor " +
-                                  "WHERE Producto.Codigo_barra LIKE @busqueda OR Producto.Nombre LIKE @busqueda" ;
+                                  "WHERE (Producto.Codigo_barra LIKE @busqueda OR Producto.Nombre LIKE @busqueda)";
+
                 SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@busqueda", "%" + busqueda + "%");
 
-                comando.Parameters.AddWithValue("@busqueda","%" + busqueda + "%" );
                 SQLiteDataAdapter adaptador = new SQLiteDataAdapter(comando);
-
                 adaptador.Fill(dt);
+
                 return dt;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); return null; }
-            finally { conexion.Close(); }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
+
 
         public void insertar_medio_de_pago(string insertar)
         {
