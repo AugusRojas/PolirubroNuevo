@@ -40,8 +40,7 @@ namespace POLIRUBRO.capaPresentacion
                     !verificar.Verificar_vacio_txt(txtProducto) ||
                     !verificar.Verificar_vacio_txt(txtStock) ||
                     !verificar.Verificar_vacio_txt(txtPrecio) ||
-                    !verificar.Verificar_vacio_comboBox(boxUnidad) ||
-                    !verificar.Verificar_vacio_comboBox(boxFraccionable))
+                    !verificar.Verificar_vacio_comboBox(boxUnidad))
             {
                 MessageBox.Show("Todos los campos son obligatorios. Por favor, complete todos los campos.", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Finaliza el proceso si hay campos vacíos
@@ -116,8 +115,7 @@ namespace POLIRUBRO.capaPresentacion
                     !verificar.Verificar_vacio_txt(txtProducto) ||
                     !verificar.Verificar_vacio_txt(txtStock) ||
                     !verificar.Verificar_vacio_txt(txtPrecio) ||
-                    !verificar.Verificar_vacio_comboBox(boxUnidad) ||
-                    !verificar.Verificar_vacio_comboBox(boxFraccionable))
+                    !verificar.Verificar_vacio_comboBox(boxUnidad))
             {
                 MessageBox.Show("Todos los campos son obligatorios. Por favor, complete todos los campos.", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return; // Finaliza el proceso si hay campos vacíos
@@ -139,7 +137,7 @@ namespace POLIRUBRO.capaPresentacion
                 p.proveedor = cargarProducto.buscar_id("Nombre_proveedor", "Id_Proveedor", "Proveedor", boxProveedor.SelectedItem.ToString());
                 p.categoria = cargarProducto.buscar_id("Nombre_Categoria", "Id_Categoria", "Categoria", boxCategoria.SelectedItem.ToString());
                 p.unidad = cargarProducto.buscar_id("Nombre_Unidad", "Id_Unidad", "Unidad", boxUnidad.SelectedItem.ToString());
-                if (boxFraccionable.SelectedIndex == 0) { p.fraccionable = 1; }
+                if (boxFraccionable.SelectedIndex == 1) { p.fraccionable = 1; }
                 else { p.fraccionable = 0; }
                 //Llamo a la funcion cargarProducto y le paso el producto(p)
                 cargarProducto.modificarProducto(p);

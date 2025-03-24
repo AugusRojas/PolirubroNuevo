@@ -18,6 +18,7 @@ namespace POLIRUBRO.capaPresentacion
     {
         public string Hora_apertura { get; set; }
         public string saldoInicial;
+
         public Facturacion(string saldoInicial="")
         {
             InitializeComponent();
@@ -37,6 +38,8 @@ namespace POLIRUBRO.capaPresentacion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             textBox_fecha.Text = DateTime.Now.ToString("d");
+            this.AutoSize = true;
+
 
 
             comboBox_metodo_pago = b.cargar_comboBox(comboBox_metodo_pago, "Nombre_metodo_pago", "Metodo_pago");

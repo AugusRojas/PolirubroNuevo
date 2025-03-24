@@ -44,6 +44,7 @@ namespace POLIRUBRO.capaPresentacion
         private void MostrarYCerrar_Load(object sender, EventArgs e)
         {
             Cierre_de_caja_logica t = new Cierre_de_caja_logica(hora_apertura, hora_cierre, fecha);
+            this.AutoSize = true;
             DataTable r = t.paso_del_dt();
             dataGridViewHistorial.DataSource = r;
             dataGridViewHistorial.RowHeadersVisible = false;
@@ -74,7 +75,7 @@ namespace POLIRUBRO.capaPresentacion
             if (result == DialogResult.OK)
             {
                 this.Close();  // Cierra el formulario
-                Application.Exit();  // Cierra la aplicación por completo (opcional)
+                this.Dispose();
                 Environment.Exit(0);
             }
         }
