@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\capaPresentacion"
   ],
-  "SelectedNode": "\\POLIRUBRO.sln",
+  "SelectedNode": "\\capaPresentacion\\MostrarYCerrar.cs",
   "PreviewInSolutionExplorer": false
 }

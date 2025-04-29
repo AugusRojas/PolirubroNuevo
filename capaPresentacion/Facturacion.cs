@@ -19,12 +19,14 @@ namespace POLIRUBRO.capaPresentacion
         public string Hora_apertura { get; set; }
         public string saldoInicial;
 
-        public Facturacion(string saldoInicial="")
-        {
-            InitializeComponent();
-            this.saldoInicial = saldoInicial;
-        }
-        string horaApertura= DateTime.Now.ToString("T");
+public Facturacion(string saldoInicial = "")
+{
+    InitializeComponent();
+    this.saldoInicial = saldoInicial;
+
+    // Inicializar los diccionarios
+}
+      string horaApertura= DateTime.Now.ToString("T");
         
 
         CargarProducto b = new CargarProducto();
@@ -50,12 +52,6 @@ namespace POLIRUBRO.capaPresentacion
             timer.Interval = 1000;
             timer.Tick += timer_hora_Tick;
             timer.Start();
-
-           
-
-           
-            
-
         }
 
         private void timer_hora_Tick(object sender, EventArgs e)
@@ -90,7 +86,6 @@ namespace POLIRUBRO.capaPresentacion
                 Stock_inicial[codigo_barra] = double.Parse(stock);
                 Productos_a_vender[codigo_barra] = 0;
             }
-
         }
 
         Verificar v = new Verificar();
@@ -100,7 +95,8 @@ namespace POLIRUBRO.capaPresentacion
         {
             if (v.Verificar_vacio_txt(textBox_codigo_ean) && v.Verificar_vacio_txt(textBox_Nombre) &&
                 v.Verificar_vacio_txt(textBox_precio) && v.Verificar_vacio_txt(textBox_stock)
-                 && v.Verificar_vacio_txt(textBox_unidad))
+                 && v.Verificar_vacio_txt(textBox_unidad)
+                 && v.Verificar_vacio_txt(textBox_descuento))
             {
                 if (v.Verificar_vacio_txt(textBox_cantidad_vender))
                 {
@@ -431,18 +427,31 @@ namespace POLIRUBRO.capaPresentacion
             if (e.KeyCode == Keys.Enter)
             {
                 CargarProducto cargar = new CargarProducto();
-                DataTable dt = new DataTable();
-                dt = cargar.buscarProductos(textBox_codigo_ean.Text);
+                DataTable dt = cargar.buscarProductos(textBox_codigo_ean.Text);
+
                 if (dt.Rows.Count > 0 && dt.Rows[0] != null)
                 {
+                    // Asignar valores a los TextBox
                     textBox_Nombre.Text = dt.Rows[0]["Nombre"].ToString();
                     textBox_stock.Text = dt.Rows[0]["Stock"].ToString();
                     textBox_precio.Text = dt.Rows[0]["Precio"].ToString();
                     textBox_unidad.Text = dt.Rows[0]["Unidad"].ToString();
                     textBox_Id.Text = dt.Rows[0]["Id"].ToString();
                     textBox_cantidad_vender.Text = "1";
+
+                    // Inicializar los diccionarios si el código de barra no existe
+                    string codigo_barra = textBox_codigo_ean.Text;
+                    if (!Stock_inicial.ContainsKey(codigo_barra))
+                    {
+                        Stock_inicial[codigo_barra] = double.Parse(textBox_stock.Text);
+                        Productos_a_vender[codigo_barra] = 0;
+                    }
                 }
-                else { MessageBox.Show("Producto no encontrado"); return; }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado");
+                    return;
+                }
 
 
                 if (v.Verificar_vacio_txt(textBox_codigo_ean) && v.Verificar_vacio_txt(textBox_Nombre) &&
@@ -616,11 +625,8 @@ namespace POLIRUBRO.capaPresentacion
                                     MessageBox.Show("Este producto no permite cantidades decimales. Ingrese un número entero.");
                                 }
                             }
-
                         }
-
                     }
-
                     else
                     {
                         MessageBox.Show("Ingrese una cantidad para ser vendida");
@@ -682,6 +688,11 @@ namespace POLIRUBRO.capaPresentacion
         {
             MessageBox.Show("No puedes cerrar esta ventana.");
             e.Cancel = true; // Cancela el cierre
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
