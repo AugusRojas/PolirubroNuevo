@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\capaNegocio"
   ],
-  "SelectedNode": "\\POLIRUBRO.sln",
+  "SelectedNode": "\\capaNegocio\\GenerarReporte.cs",
   "PreviewInSolutionExplorer": false
 }

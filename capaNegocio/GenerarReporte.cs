@@ -22,16 +22,18 @@ namespace POLIRUBRO
                 using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
                     string consulta = @"
-                SELECT 
-                    v.Fecha AS Fecha,
-                    p.Nombre AS NombreProducto,
-                    v.Monto_total AS MontoTotal
-                FROM 
-                    Venta v
-                JOIN 
-                    ProductoXVenta pxv ON v.Id_Venta = pxv.Id_Venta
-                JOIN 
-                    Producto p ON pxv.Id_Producto = p.Id_Producto";
+SELECT 
+    v.Fecha AS Fecha,
+    p.Nombre AS NombreProducto,
+    pxv.Cantidad AS CantidadVendida,
+    v.Monto_total AS MontoTotal
+FROM 
+    Venta v
+JOIN 
+    ProductoXVenta pxv ON v.Id_Venta = pxv.Id_Venta
+JOIN 
+    Producto p ON pxv.Id_Producto = p.Id_Producto";
+
 
                     SQLiteCommand comando = new SQLiteCommand(consulta, conexion);
                     SQLiteDataAdapter adaptador = new SQLiteDataAdapter(comando);
@@ -131,16 +133,18 @@ namespace POLIRUBRO
                 using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
                     string consulta = @"
-                SELECT 
-                    v.Fecha AS Fecha,
-                    p.Nombre AS NombreProducto,
-                    v.Monto_total AS MontoTotal
-                FROM 
-                    Venta v
-                JOIN 
-                    ProductoXVenta pxv ON v.Id_Venta = pxv.Id_Venta
-                JOIN 
-                    Producto p ON pxv.Id_Producto = p.Id_Producto";
+SELECT 
+    v.Fecha AS Fecha,
+    p.Nombre AS NombreProducto,
+    pxv.Cantidad AS CantidadVendida,
+    v.Monto_total AS MontoTotal
+FROM 
+    Venta v
+JOIN 
+    ProductoXVenta pxv ON v.Id_Venta = pxv.Id_Venta
+JOIN 
+    Producto p ON pxv.Id_Producto = p.Id_Producto";
+
 
                     var comando = new SQLiteCommand(consulta, conexion);
                     var adaptador = new SQLiteDataAdapter(comando);
@@ -349,16 +353,17 @@ namespace POLIRUBRO
                 using (SQLiteConnection conexion = Conexion.obtenerConexion())
                 {
                     string consulta = @"
-            SELECT 
-                v.Fecha AS Fecha,
-                p.Nombre AS NombreProducto,
-                v.Monto_total AS MontoTotal
-            FROM 
-                Venta v
-            JOIN 
-                ProductoXVenta pxv ON v.Id_Venta = pxv.Id_Venta
-            JOIN 
-                Producto p ON pxv.Id_Producto = p.Id_Producto";
+SELECT 
+    v.Fecha AS Fecha,
+    p.Nombre AS NombreProducto,
+    pxv.Cantidad AS CantidadVendida,
+    v.Monto_total AS MontoTotal
+FROM 
+    Venta v
+JOIN 
+    ProductoXVenta pxv ON v.Id_Venta = pxv.Id_Venta
+JOIN 
+    Producto p ON pxv.Id_Producto = p.Id_Producto";
 
                     var comando = new SQLiteCommand(consulta, conexion);
                     var adaptador = new SQLiteDataAdapter(comando);
