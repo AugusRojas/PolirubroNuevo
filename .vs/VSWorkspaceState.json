@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\capaPresentacion"
+    "\\capaNegocio"
   ],
-  "SelectedNode": "\\capaPresentacion\\MostrarYCerrar.cs",
+  "SelectedNode": "\\capaNegocio\\GenerarReporte.cs",
   "PreviewInSolutionExplorer": false
 }
