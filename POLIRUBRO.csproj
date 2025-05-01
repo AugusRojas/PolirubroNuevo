@@ -186,6 +186,9 @@
     <Compile Include="capaNegocio\Facturacion_logica.cs" />
     <Compile Include="capaNegocio\GenerarReporte.cs" />
     <Compile Include="capaNegocio\HistorialLogica.cs" />
+    <Compile Include="capaNegocio\monthPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="capaNegocio\Pantalla.cs" />
     <Compile Include="capaNegocio\Producto.cs" />
     <Compile Include="capaNegocio\Verificar.cs" />
