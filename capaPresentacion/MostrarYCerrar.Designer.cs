@@ -55,12 +55,9 @@
             this.labelHoraApertura = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridViewCategorias = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.dataGridViewProductos = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.dataGridViewHistorial = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.button2 = new System.Windows.Forms.Button();
@@ -77,12 +74,13 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(23, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Efectivo";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtEfectivo
             // 
@@ -96,7 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(23, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 24);
@@ -107,7 +105,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(23, 245);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 24);
@@ -118,12 +116,13 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(23, 151);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 24);
             this.label4.TabIndex = 4;
             this.label4.Text = "Transferencia";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtTotalFinal
             // 
@@ -152,7 +151,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.sItxt);
             this.groupBox1.Controls.Add(this.labelCierre);
@@ -168,11 +166,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(15, 25);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(355, 379);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
@@ -183,12 +181,13 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(23, 57);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(118, 24);
             this.label9.TabIndex = 20;
             this.label9.Text = "Saldo Inicial";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // sItxt
             // 
@@ -228,7 +227,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(23, 292);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 24);
@@ -240,7 +239,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(848, 398);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
@@ -253,7 +252,7 @@
             this.label_fecha.AutoSize = true;
             this.label_fecha.BackColor = System.Drawing.Color.Transparent;
             this.label_fecha.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fecha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_fecha.ForeColor = System.Drawing.Color.Black;
             this.label_fecha.Location = new System.Drawing.Point(1047, 434);
             this.label_fecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_fecha.Name = "label_fecha";
@@ -266,7 +265,7 @@
             this.label_hora_cierre.AutoSize = true;
             this.label_hora_cierre.BackColor = System.Drawing.Color.Transparent;
             this.label_hora_cierre.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_hora_cierre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_hora_cierre.ForeColor = System.Drawing.Color.Black;
             this.label_hora_cierre.Location = new System.Drawing.Point(1047, 396);
             this.label_hora_cierre.Name = "label_hora_cierre";
             this.label_hora_cierre.Size = new System.Drawing.Size(114, 24);
@@ -278,7 +277,7 @@
             this.label_hora_apertura.AutoSize = true;
             this.label_hora_apertura.BackColor = System.Drawing.Color.Transparent;
             this.label_hora_apertura.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_hora_apertura.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_hora_apertura.ForeColor = System.Drawing.Color.Black;
             this.label_hora_apertura.Location = new System.Drawing.Point(1047, 357);
             this.label_hora_apertura.Name = "label_hora_apertura";
             this.label_hora_apertura.Size = new System.Drawing.Size(136, 24);
@@ -290,7 +289,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(848, 434);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -312,7 +311,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(848, 357);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
@@ -331,11 +330,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
             this.groupBox2.Controls.Add(this.dataGridViewCategorias);
-            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(421, 25);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
@@ -347,7 +344,7 @@
             // 
             // dataGridViewCategorias
             // 
-            this.dataGridViewCategorias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.dataGridViewCategorias.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCategorias.Location = new System.Drawing.Point(5, 21);
             this.dataGridViewCategorias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -357,23 +354,8 @@
             this.dataGridViewCategorias.Size = new System.Drawing.Size(348, 87);
             this.dataGridViewCategorias.TabIndex = 0;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.Control;
-            this.label10.Location = new System.Drawing.Point(7, 1);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(207, 18);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Categorias mas vendidas";
-            // 
             // groupBox3
             // 
-            this.groupBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox3.BackgroundImage")));
-            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.dataGridViewProductos);
             this.groupBox3.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -386,25 +368,12 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Productos mas vendidos";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.Control;
-            this.label12.Location = new System.Drawing.Point(11, -2);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(194, 18);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "Producto mas vendidos";
-            // 
             // dataGridViewProductos
             // 
-            this.dataGridViewProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.dataGridViewProductos.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProductos.Location = new System.Drawing.Point(15, 25);
-            this.dataGridViewProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewProductos.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewProductos.Name = "dataGridViewProductos";
             this.dataGridViewProductos.RowHeadersWidth = 51;
             this.dataGridViewProductos.RowTemplate.Height = 24;
@@ -413,37 +382,22 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox4.BackgroundImage")));
-            this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.dataGridViewHistorial);
             this.groupBox4.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(835, 25);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(716, 283);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Historial de productos vendidos";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(8, 1);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(266, 18);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Historial de productos vendidos";
-            // 
             // dataGridViewHistorial
             // 
-            this.dataGridViewHistorial.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.dataGridViewHistorial.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewHistorial.Location = new System.Drawing.Point(19, 33);
             this.dataGridViewHistorial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -461,27 +415,29 @@
             // 
             // button2
             // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(1301, 421);
+            this.button2.Location = new System.Drawing.Point(1314, 398);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(275, 92);
+            this.button2.Size = new System.Drawing.Size(237, 92);
             this.button2.TabIndex = 20;
-            this.button2.Text = "Cerrar e Guardar";
+            this.button2.Text = "Cerrar y Guardar";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MostrarYCerrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightPink;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1591, 527);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
@@ -505,13 +461,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCategorias)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHistorial)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -552,8 +505,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox sItxt;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
     }
 }

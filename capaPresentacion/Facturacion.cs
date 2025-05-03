@@ -42,8 +42,10 @@ public Facturacion(string saldoInicial = "")
             textBox_fecha.Text = DateTime.Now.ToString("d");
             this.AutoSize = true;
 
-
-
+            Image img = Properties.Resources.lupa_de_busqueda;
+            button_buscar_producto.Image = new Bitmap(img, button_buscar_producto.Size);
+            button_buscar_producto.ImageAlign = ContentAlignment.MiddleCenter;
+            button_buscar_producto.Text = ""; // si querés solo imagen
             comboBox_metodo_pago = b.cargar_comboBox(comboBox_metodo_pago, "Nombre_metodo_pago", "Metodo_pago");
             comboBox_metodo_pago.SelectedIndex = 1;
             textBox_descuento.Text = 0.ToString();

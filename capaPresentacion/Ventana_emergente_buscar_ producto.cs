@@ -88,6 +88,9 @@ namespace POLIRUBRO.capaPresentacion
 
         }
 
-       
+        private void Ventana_emergente_buscar__producto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
